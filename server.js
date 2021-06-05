@@ -3,13 +3,13 @@ const app = express();
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
-// const MongoStore = require("connect-mongo")(session);
+const MongoStore = require("connect-mongodb-session")(session);
 const methodOverride = require("method-override");
 const flash = require("express-flash");
 const logger = require("morgan");
 const connectDB = require("./config/database");
-// const mainRoutes = require("./routes/main");
-// const postRoutes = require("./routes/posts");
+const mainRoutes = require("./routes/main");
+const postRoutes = require("./routes/posts");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
