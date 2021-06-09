@@ -13,9 +13,10 @@ const PlantSchema = new mongoose.Schema({
         type: String,
         require: false,
     },
+    //imageProviderId:
     cloudinaryId: {
         type: String,
-        require: true,
+        require: false,
     },
     light: {
         type: String,

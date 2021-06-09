@@ -1,4 +1,5 @@
 const cloudinary = require("../middleware/cloudinary");
+const Garden = require("../models/Garden");
 const Plant = require("../models/Plant");
 
 module.exports = {

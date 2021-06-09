@@ -5,7 +5,7 @@ const GardenSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    season: {
+    seasonID: {
         type: Number,
         required: true,
     },
@@ -13,17 +13,10 @@ const GardenSchema = new mongoose.Schema({
         type: String,
         require: false,
     },
+    //imageProviderId:
     cloudinaryId: {
         type: String,
-        require: true,
-    },
-    numPlants: {
-        type: Number,
-        required: false,
-    },
-    plants: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Plant",
+        require: false,
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
