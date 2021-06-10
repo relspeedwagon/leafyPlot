@@ -4,13 +4,12 @@ const upload = require("../middleware/multer");
 const gardensController = require("../controllers/gardens");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-//Post Routes - simplified for now
-router.get("/:id", ensureAuth, postsController.getPost);
+router.get("/:id", ensureAuth, gardensController.getGarden);
 
-router.post("/createPost", upload.single("file"), postsController.createPost);
+router.post("/createGarden", upload.single("file"), gardensController.createGarden);
 
-router.put("/likePost/:id", postsController.likePost);
+router.put("/editGarden/:id", gardensController.editGarden);
 
-router.delete("/deletePost/:id", postsController.deletePost);
+router.delete("/deleteGarden/:id", gardensController.deleteGarden);
 
 module.exports = router;

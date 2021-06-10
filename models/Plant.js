@@ -11,12 +11,12 @@ const PlantSchema = new mongoose.Schema({
     },
     image: {
         type: String,
-        require: false,
+        required: false,
     },
     //imageProviderId:
     cloudinaryId: {
         type: String,
-        require: false,
+        required: false,
     },
     light: {
         type: String,

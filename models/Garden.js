@@ -9,15 +9,28 @@ const GardenSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
+    // add add'l model/object ref for multiple photos?
     image: {
         type: String,
-        require: false,
+        required: false,
     },
     //imageProviderId:
     cloudinaryId: {
         type: String,
-        require: false,
+        required: false,
     },
+    zone: {
+        type: String,
+        required: false,
+    },
+    location: {
+        type: String,
+        required: false,
+    },
+    public: {
+        type: Boolean,
+        default: false,
+    }
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",

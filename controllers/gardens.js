@@ -1,6 +1,5 @@
 const cloudinary = require("../middleware/cloudinary");
 const Garden = require("../models/Garden");
-const Plant = require("../models/Plant");
 
 module.exports = {
   getGardens: async (req, res) => {
@@ -21,57 +20,65 @@ module.exports = {
   // },
   getGarden: async (req, res) => {
     try {
-      const plants = await Plant.find({ garden: req.garden.id }).sort({ createdAt: "desc" }).lean();
-      res.render("garden.ejs", { plants: plants, garden: req.garden });
+      const garden = await Garden.findById(req.params.id);
+      res.render("editGarden.ejs", { garden: garden, user: req.user });
     } catch (err) {
       console.log(err);
     }
   },
-  createPost: async (req, res) => {
+  createGarden: async (req, res) => {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
 
-      await Post.create({
-        title: req.body.title,
+      await Garden.create({
+        name: req.body.gardenName,
+        seasonID: req.body.seasonID,
         image: result.secure_url,
         cloudinaryId: result.public_id,
-        caption: req.body.caption,
-        likes: 0,
+        zone: req.body.zone,
+        location: req.body.location,
+        public: req.body.public,
         user: req.user.id,
       });
-      console.log("Post has been added!");
-      res.redirect("/profile");
+      console.log("Garden has been added!");
+      res.redirect("/home");
     } catch (err) {
       console.log(err);
     }
   },
-  likePost: async (req, res) => {
+  editGarden: async (req, res) => {
     try {
-      await Post.findOneAndUpdate(
+      await Garden.findOneAndUpdate(
         { _id: req.params.id },
         {
-          $inc: { likes: 1 },
+          name: req.body.gardenName,
+          seasonID: req.body.seasonID,
+          image: result.secure_url,
+          //image mgmt to be added
+          zone: req.body.zone,
+          location: req.body.location,
+          public: req.body.public,
         }
       );
-      console.log("Likes +1");
-      res.redirect(`/post/${req.params.id}`);
+      console.log("Garden has been updated");
+      res.redirect(`/garden/${req.params.id}`);
     } catch (err) {
       console.log(err);
     }
   },
-  deletePost: async (req, res) => {
+  deleteGarden: async (req, res) => {
     try {
       // Find post by id
-      let post = await Post.findById({ _id: req.params.id });
+      let garden = await Garden.findById({ _id: req.params.id });
       // Delete image from cloudinary
-      await cloudinary.uploader.destroy(post.cloudinaryId);
+      await cloudinary.uploader.destroy(garden.cloudinaryId);
       // Delete post from db
-      await Post.remove({ _id: req.params.id });
-      console.log("Deleted Post");
-      res.redirect("/profile");
+      await Garden.remove({ _id: req.params.id });
+      console.log("Deleted Garden");
+      res.redirect("/home");
     } catch (err) {
-      res.redirect("/profile");
+      res.redirect("/home");
     }
   },
 };
