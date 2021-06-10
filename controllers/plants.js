@@ -2,14 +2,14 @@ const cloudinary = require("../middleware/cloudinary");
 const Plant = require("../models/Plant");
 
 module.exports = {
-  getGarden: async (req, res) => {
-    try {
-      const plants = await Plant.find({ garden: req.garden.id }).sort({ createdAt: "desc" }).lean();
-      res.render("garden.ejs", { plants: plants, garden: req.garden });
-    } catch (err) {
-      console.log(err);
-    }
-  },
+  // getGarden: async (req, res) => {
+  //   try {
+  //     const plants = await Plant.find({ garden: req.garden.id }).sort({ createdAt: "desc" }).lean();
+  //     res.render("garden.ejs", { plants: plants, garden: req.garden });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
   // getFeed: async (req, res) => {
   //   try {
   //     const posts = await Post.find().sort({ createdAt: "desc" }).lean();
@@ -41,8 +41,11 @@ module.exports = {
         spread: req.body.spread,
         minHeight: req.body.minHeight,
         maxHeight: req.body.maxHeight,
+        nativeOrigin: req.body.nativeOrigin,
+        zone: req.body.zone,
         numPlanted: req.body.numPlanted,
         status: req.body.status,
+        notes: req.body.notes,
         garden: req.garden.id,
       });
       console.log("Plant has been added!");

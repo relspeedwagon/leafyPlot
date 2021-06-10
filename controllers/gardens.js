@@ -3,26 +3,26 @@ const Garden = require("../models/Garden");
 const Plant = require("../models/Plant");
 
 module.exports = {
-  getProfile: async (req, res) => {
+  getGardens: async (req, res) => {
     try {
-      const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user });
+      const gardens = await Garden.find({ user: req.user.id });
+      res.render("home.ejs", { gardens: gardens, user: req.user });
     } catch (err) {
       console.log(err);
     }
   },
-  getFeed: async (req, res) => {
+  // getFeed: async (req, res) => {
+  //   try {
+  //     const posts = await Post.find().sort({ createdAt: "desc" }).lean();
+  //     res.render("feed.ejs", { posts: posts });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
+  getGarden: async (req, res) => {
     try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { posts: posts });
-    } catch (err) {
-      console.log(err);
-    }
-  },
-  getPost: async (req, res) => {
-    try {
-      const post = await Post.findById(req.params.id);
-      res.render("post.ejs", { post: post, user: req.user });
+      const plants = await Plant.find({ garden: req.garden.id }).sort({ createdAt: "desc" }).lean();
+      res.render("garden.ejs", { plants: plants, garden: req.garden });
     } catch (err) {
       console.log(err);
     }

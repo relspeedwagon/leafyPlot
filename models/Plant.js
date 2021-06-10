@@ -38,6 +38,14 @@ const PlantSchema = new mongoose.Schema({
         type: Number,
         required: false,
     },
+    nativeOrigin: {
+        type: String,
+        required: false,
+    },
+    zone: {
+        type: String,
+        required: false,
+    }
     numPlanted: {
         type: Number,
         required: false,
@@ -46,9 +54,17 @@ const PlantSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
+    notes: {
+        type: String,
+        required: false,
+    }
     garden: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Garden",
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now,
     },
 });
 
