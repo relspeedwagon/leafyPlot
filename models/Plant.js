@@ -45,7 +45,7 @@ const PlantSchema = new mongoose.Schema({
     zone: {
         type: String,
         required: false,
-    }
+    },
     numPlanted: {
         type: Number,
         required: false,
@@ -57,7 +57,7 @@ const PlantSchema = new mongoose.Schema({
     notes: {
         type: String,
         required: false,
-    }
+    },
     garden: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Garden",

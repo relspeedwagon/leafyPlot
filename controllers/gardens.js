@@ -5,7 +5,7 @@ module.exports = {
   getGardens: async (req, res) => {
     try {
       const gardens = await Garden.find({ user: req.user.id });
-      res.render("home.ejs", { gardens: gardens, user: req.user });
+      res.render("profile.ejs", { gardens: gardens, user: req.user });
     } catch (err) {
       console.log(err);
     }
