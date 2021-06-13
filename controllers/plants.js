@@ -2,10 +2,10 @@ const cloudinary = require("../middleware/cloudinary");
 const Plant = require("../models/Plant");
 
 module.exports = {
-  getGardenPlants: async (req, res) => {
+  getPlotPlants: async (req, res) => {
     try {
-      const plants = await Plant.find({ garden: req.garden.id }).sort({ createdAt: "desc" }).lean().populate({path: 'garden', polulate: { path: 'name'}});
-      res.render("garden.ejs", { plants: plants, garden: req.garden });
+      const plants = await Plant.find({ plot: req.plot.id }).sort({ createdAt: "desc" }).lean().populate({path: 'plot', polulate: { path: 'name'}});
+      res.render("plot.ejs", { plants: plants, plot: req.plot });
     } catch (err) {
       console.log(err);
     }
@@ -21,7 +21,7 @@ module.exports = {
   getPlant: async (req, res) => {
     try {
       const plant = await Plant.findById(req.params.id);
-      res.render("plant.ejs", { plant: plant, garden: req.garden });
+      res.render("plant.ejs", { plant: plant, plot: req.plot });
     } catch (err) {
       console.log(err);
     }
@@ -46,10 +46,10 @@ module.exports = {
         numPlanted: req.body.numPlanted,
         status: req.body.status,
         notes: req.body.notes,
-        garden: req.garden.id,
+        plot: req.plot.id,
       });
       console.log("Plant has been added!");
-      res.redirect("/garden");
+      res.redirect("/plot");
     } catch (err) {
       console.log(err);
     }
@@ -90,9 +90,9 @@ module.exports = {
       // Delete plant from db
       await Plant.remove({ _id: req.params.id });
       console.log("Deleted Plant");
-      res.redirect("/garden");
+      res.redirect("/plot");
     } catch (err) {
-      res.redirect("/garden");
+      res.redirect("/plot");
     }
   },
 };

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const GardenSchema = new mongoose.Schema({
+const PlotSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
@@ -41,4 +41,4 @@ const GardenSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model("Garden", GardenSchema);
+module.exports = mongoose.model("Plot", PlotSchema);

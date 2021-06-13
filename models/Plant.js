@@ -58,9 +58,9 @@ const PlantSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    garden: {
+    plot: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Garden",
+        ref: "Plot",
     },
     createdAt: {
         type: Date,

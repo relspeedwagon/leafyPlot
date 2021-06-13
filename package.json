@@ -1,5 +1,5 @@
 {
-  "name": "littlemainegarden",
+  "name": "leafyPlot",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/relspeedwagon/littleMaineGarden.git"
+    "url": "git+https://github.com/relspeedwagon/leafyPlot.git"
   },
   "author": "Arielle Morabito",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/relspeedwagon/littleMaineGarden/issues"
+    "url": "https://github.com/relspeedwagon/leafyPlot/issues"
   },
-  "homepage": "https://github.com/relspeedwagon/littleMaineGarden#readme",
+  "homepage": "https://github.com/relspeedwagon/leafyPlot#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.25.2",

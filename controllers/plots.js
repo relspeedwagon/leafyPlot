@@ -1,11 +1,11 @@
 const cloudinary = require("../middleware/cloudinary");
-const Garden = require("../models/Garden");
+const Plot = require("../models/Plot");
 
 module.exports = {
-  getGardens: async (req, res) => {
+  getPlots: async (req, res) => {
     try {
-      const gardens = await Garden.find({ user: req.user.id });
-      res.render("profile.ejs", { gardens: gardens, user: req.user });
+      const plots = await Plot.find({ user: req.user.id });
+      res.render("profile.ejs", { plots: plots, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -18,21 +18,21 @@ module.exports = {
   //     console.log(err);
   //   }
   // },
-  getGarden: async (req, res) => {
+  getPlot: async (req, res) => {
     try {
-      const garden = await Garden.findById(req.params.id);
-      res.render("editGarden.ejs", { garden: garden, user: req.user });
+      const plot = await Plot.findById(req.params.id);
+      res.render("editPlot.ejs", { plot: plot, user: req.user });
     } catch (err) {
       console.log(err);
     }
   },
-  createGarden: async (req, res) => {
+  createPlot: async (req, res) => {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
 
-      await Garden.create({
-        name: req.body.gardenName,
+      await Plot.create({
+        name: req.body.plotName,
         seasonID: req.body.seasonID,
         image: result.secure_url,
         cloudinaryId: result.public_id,
@@ -41,18 +41,18 @@ module.exports = {
         public: req.body.public,
         user: req.user.id,
       });
-      console.log("Garden has been added!");
+      console.log("Plot has been added!");
       res.redirect("/home");
     } catch (err) {
       console.log(err);
     }
   },
-  editGarden: async (req, res) => {
+  editPlot: async (req, res) => {
     try {
-      await Garden.findOneAndUpdate(
+      await Plot.findOneAndUpdate(
         { _id: req.params.id },
         {
-          name: req.body.gardenName,
+          name: req.body.plotName,
           seasonID: req.body.seasonID,
           image: result.secure_url,
           //image mgmt to be added
@@ -61,21 +61,21 @@ module.exports = {
           public: req.body.public,
         }
       );
-      console.log("Garden has been updated");
-      res.redirect(`/garden/${req.params.id}`);
+      console.log("Plot has been updated");
+      res.redirect(`/plot/${req.params.id}`);
     } catch (err) {
       console.log(err);
     }
   },
-  deleteGarden: async (req, res) => {
+  deletePlot: async (req, res) => {
     try {
       // Find post by id
-      let garden = await Garden.findById({ _id: req.params.id });
+      let plot = await Plot.findById({ _id: req.params.id });
       // Delete image from cloudinary
-      await cloudinary.uploader.destroy(garden.cloudinaryId);
+      await cloudinary.uploader.destroy(plot.cloudinaryId);
       // Delete post from db
-      await Garden.remove({ _id: req.params.id });
-      console.log("Deleted Garden");
+      await Plot.remove({ _id: req.params.id });
+      console.log("Deleted Plot");
       res.redirect("/home");
     } catch (err) {
       res.redirect("/home");
