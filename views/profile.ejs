@@ -1,3 +1,32 @@
 <!-- "season dropdown" "create a plot button" -->
 
-<!-- list of all gardens for user -->
+<%- include('./partials/header.ejs'); -%>
+<div class="container">
+    
+
+    <div class="">
+        <h2><p>Hello <%= user.userName %></p></h2>
+        <a class="btn" href="/startPlot">Create a Plot</a>
+    </div>
+
+    <!-- all plots for user-->
+    <div class="row-6 align-content-center">
+        <ul class="row list-unstyled">
+        <% for(var i=0; i < plots.length; i++) {%>
+                <li class="col-6 justify-content-between mt-5">
+                <a href="/plot/<%= plots[i]._id%>">
+                    <img class="img-fluid" src="<%= plots[i].image %>" alt="User's Garden Plot">
+                    <span> <%= plots[i].name %> </span>
+                </a>
+                </li>
+        <% } %>    
+        </ul>
+    </div>
+    
+
+
+
+
+</div>
+
+<%- include('./partials/footer.ejs'); -%>
