@@ -42,7 +42,11 @@ const PlantSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    zone: {
+    zoneMin: {
+        type: String,
+        required: false,
+    },
+    zoneMax: {
         type: String,
         required: false,
     },
