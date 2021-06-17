@@ -2,5 +2,35 @@
 <!-- buttons: "add plant" "edit plot" "filter" "sort by" dropdown -->
 
 <!-- list plants in plot -->
+<%- include('./partials/header.ejs'); -%>
+<div class="container">
+    
+
+    <div class="">
+        <h2><p><%= plot.name %></p></h2>
+        <a class="btn" href="/editPlant">Add a Plant</a>
+    </div>
+
+    <!-- all plots for user-->
+    <div class="row-6 align-content-center">
+        <ul class="row list-unstyled">
+        <% for(var i=0; i < plants.length; i++) {%>
+                <li class="col-6 justify-content-between mt-5">
+                <a href="/plot/<%= plants[i]._id%>">
+                    <img class="img-fluid" src="<%= plants[i].image %>" alt="User's Garden Plot">
+                    <span> <%= plants[i].name %> </span>
+                </a>
+                </li>
+        <% } %>    
+        </ul>
+    </div>
+    
+
+
+
+
+</div>
+
+<%- include('./partials/footer.ejs'); -%>
 
 <!-- footer -->

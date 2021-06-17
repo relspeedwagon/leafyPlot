@@ -6,7 +6,7 @@ const PlotSchema = new mongoose.Schema({
         required: true,
     },
     seasonID: {
-        type: Number,
+        type: String,
         required: true,
     },
     // add add'l model/object ref for multiple photos?

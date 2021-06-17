@@ -21,10 +21,13 @@ module.exports = {
   getPlot: async (req, res) => {
     try {
       const plot = await Plot.findById(req.params.id);
-      res.render("editPlot.ejs", { plot: plot, user: req.user });
+      res.render("plot.ejs", { plot: plot, user: req.user });
     } catch (err) {
       console.log(err);
     }
+  },
+  getPlotCreate: (req, res) => {
+    res.render("createPlot.ejs");
   },
   createPlot: async (req, res) => {
     try {
@@ -42,7 +45,7 @@ module.exports = {
         user: req.user.id,
       });
       console.log("Plot has been added!");
-      res.redirect("/home");
+      res.redirect("/profile");
     } catch (err) {
       console.log(err);
     }

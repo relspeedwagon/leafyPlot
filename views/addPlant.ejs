@@ -1,0 +1,69 @@
+<%- include('./partials/header.ejs'); -%>
+<div class="container">
+    
+
+    <div class="mt-5">
+        <a class="btn" href="/plot">Back</a>
+        <form action="/plant/addPlant" enctype="multipart/form-data" method="POST">
+            <div class="mb-3">
+                <label for="plantName" class="form-label">Plant Name:</label>
+                <input type="text" class="form-control" id="nameCommon" name="plantName">
+            </div>
+
+            <div class="mb-3">
+                <label for="plantNameSCI" class="form-label">Scientific Name:</label>
+                <input type="text" class="form-control" id="nameSCI" name="plantNameSCI">
+            </div>
+            
+            <div class="mb-3">
+                <label for="imgUpload" class="form-label">Image:</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+            </div>
+
+            <div class="mb-3">
+                <label for="light" class="form-label">Light:</a></label>
+                <select id="light" name="light">
+                    <option value="N/A">N/A</option>
+                    <option value="Full-Shade">Full-Shade</option>
+                    <option value="Shade-Partial">Full-Shade to Partial-Sun</option>
+                    <option value="Sun-Partial">Full-Sun to Partial-Shade</option>
+                    <option value="Full-Sun">Full-Sun</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="water" class="form-label">Water:</a></label>
+                <select id="water" name="water">
+                    <option value="N/A">N/A</option>
+                    <option value="Moist">Moist</option>
+                    <option value="Average-Soil">Average-Soil</option>
+                    <option value="Drought">Drought Tolerant</option>
+                </select>
+            </div>
+
+            <div class="buttons">
+                <div class="buttonContainer">
+                    <button type="submit" class="" value="Upload">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+<!--   nameCommon: req.body.plantName,
+        nameSCI: req.body.plantNameSCI,
+        image: result.secure_url,
+        cloudinaryId: result.public_id,
+        light: req.body.light,
+        water: req.body.water,
+        spread: req.body.spread,
+        minHeight: req.body.minHeight,
+        maxHeight: req.body.maxHeight,
+        nativeOrigin: req.body.nativeOrigin,
+        zone: req.body.zone,
+        numPlanted: req.body.numPlanted,
+        status: req.body.status,
+        notes: req.body.notes,
+        plot: req.plot.id, -->
+
+<%- include('./partials/footer.ejs'); -%>
