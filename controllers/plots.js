@@ -10,22 +10,17 @@ module.exports = {
       console.log(err);
     }
   },
-  // getFeed: async (req, res) => {
+
+  //-----see plants controller
+  // getPlot: async (req, res) => {
   //   try {
-  //     const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-  //     res.render("feed.ejs", { posts: posts });
+  //     const plot = await Plot.findById(req.params.id);
+  //     res.render("plot.ejs", { plot: plot, user: req.user });
   //   } catch (err) {
   //     console.log(err);
   //   }
   // },
-  getPlot: async (req, res) => {
-    try {
-      const plot = await Plot.findById(req.params.id);
-      res.render("plot.ejs", { plot: plot, user: req.user });
-    } catch (err) {
-      console.log(err);
-    }
-  },
+  
   getPlotCreate: (req, res) => {
     res.render("createPlot.ejs");
   },

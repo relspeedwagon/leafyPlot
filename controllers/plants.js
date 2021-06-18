@@ -1,23 +1,30 @@
 const cloudinary = require("../middleware/cloudinary");
 const Plant = require("../models/Plant");
+//don't need Plot here, but may
+const Plot = require("../models/Plot");
 
 module.exports = {
-  getPlotPlants: async (req, res) => {
+  //can get plot.ejs to render by changing "req.plot.id" to "req.id", but then still no access to plot object 
+  getPlants: async (req, res) => {
     try {
-      const plants = await Plant.find({ plot: req.plot.id }).sort({ createdAt: "desc" }).lean().populate({path: 'plot', polulate: { path: 'name'}});
+      const plants = await Plant.find({ plot: req.id }).sort({ createdAt: "desc" }).lean().populate({path: 'plot', populate: { path: 'name'}});
       res.render("plot.ejs", { plants: plants, plot: req.plot });
     } catch (err) {
       console.log(err);
     }
   },
-  // getFeed: async (req, res) => {
+
+  //---------getPlot not needed because req is not for plot doc, it's really for plants assoc with plot id------------
+
+  // getPlot: async (req, res) => {
   //   try {
-  //     const posts = await Post.find({}).sort({ createdAt: "desc" }).lean().populate({path: 'user', polulate: { path: 'userName'}});
-  //     res.render("feed.ejs", { posts: posts });
+  //     const plot = await Plot.findById(req.params.id);
+  //     res.render("plot.ejs", { plot: plot, user: req.user });
   //   } catch (err) {
   //     console.log(err);
   //   }
   // },
+
   getPlant: async (req, res) => {
     try {
       const plant = await Plant.findById(req.params.id);
@@ -25,6 +32,9 @@ module.exports = {
     } catch (err) {
       console.log(err);
     }
+  },
+  getAddPlant: (req, res) => {
+    res.render("addPlant.ejs");
   },
   createPlant: async (req, res) => {
     try {
