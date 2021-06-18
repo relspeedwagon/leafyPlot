@@ -31,6 +31,10 @@ const PlotSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    plants: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Plant",
+    }],
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
