@@ -1,4 +1,5 @@
 const cloudinary = require("../middleware/cloudinary");
+const Plant = require("../models/Plant");
 const Plot = require("../models/Plot");
 
 module.exports = {
@@ -11,15 +12,14 @@ module.exports = {
     }
   },
 
-  //-----see plants controller
-  // getPlot: async (req, res) => {
-  //   try {
-  //     const plot = await Plot.findById(req.params.id);
-  //     res.render("plot.ejs", { plot: plot, user: req.user });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // },
+  getPlot: async (req, res) => {
+    try {
+      const plot = await Plot.findById(req.params.id).populate('plants');
+      res.render("plot.ejs", { plot: plot, user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   
   getPlotCreate: (req, res) => {
     res.render("createPlot.ejs");

@@ -14,11 +14,11 @@
     <!-- all plants for user-->
     <div class="row-6 align-content-center">
         <ul class="row list-unstyled">
-        <% for(var i=0; i < plants.length; i++) {%>
+        <% for(var i=0; i < plot.plants.length; i++) {%>
                 <li class="col-6 justify-content-between mt-5">
-                <a href="/plot/<%= plants[i]._id%>">
-                    <img class="img-fluid" src="<%= plants[i].image %>" alt="User's Garden Plot">
-                    <span> <%= plants[i].name %> </span>
+                <a href="/plot/<%= plot.plants[i]._id%>">
+                    <img class="img-fluid" src="<%= plot.plants[i].image %>" alt="User's Garden Plot">
+                    <span> <%= plot.plants[i].name %> </span>
                 </a>
                 </li>
         <% } %>    

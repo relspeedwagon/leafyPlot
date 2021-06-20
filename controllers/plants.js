@@ -5,14 +5,14 @@ const Plot = require("../models/Plot");
 
 module.exports = {
   //can get plot.ejs to render by changing "req.plot.id" to "req.id", but then still no access to plot object 
-  getPlants: async (req, res) => {
-    try {
-      const plants = await Plant.find({ plot: req.id }).sort({ createdAt: "desc" }).lean().populate({path: 'plot', populate: { path: 'name'}});
-      res.render("plot.ejs", { plants: plants, plot: req.plot });
-    } catch (err) {
-      console.log(err);
-    }
-  },
+  // getPlants: async (req, res) => {
+  //   try {
+  //     const plants = await Plant.find({ plot: req.id }).sort({ createdAt: "desc" }).lean().populate({path: 'plot', populate: { path: 'name'}});
+  //     res.render("plot.ejs", { plants: plants, plot: req.plot });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
 
   //---------getPlot not needed because req is not for plot doc, it's really for plants assoc with plot id------------
 
