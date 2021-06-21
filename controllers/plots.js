@@ -12,14 +12,14 @@ module.exports = {
     }
   },
 
-  getPlot: async (req, res) => {
-    try {
-      const plot = await Plot.findById(req.params.id).populate('plants');
-      res.render("plot.ejs", { plot: plot, user: req.user });
-    } catch (err) {
-      console.log(err);
-    }
-  },
+  // getPlot: async (req, res) => {
+  //   try {
+  //     const plot = await Plot.findById(req.params.id).populate('plants');
+  //     res.render("plot.ejs", { plot: plot, user: req.user });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
   
   getPlotCreate: (req, res) => {
     res.render("createPlot.ejs");

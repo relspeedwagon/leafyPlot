@@ -5,25 +5,14 @@ const Plot = require("../models/Plot");
 
 module.exports = {
   //can get plot.ejs to render by changing "req.plot.id" to "req.id", but then still no access to plot object 
-  // getPlants: async (req, res) => {
-  //   try {
-  //     const plants = await Plant.find({ plot: req.id }).sort({ createdAt: "desc" }).lean().populate({path: 'plot', populate: { path: 'name'}});
-  //     res.render("plot.ejs", { plants: plants, plot: req.plot });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // },
-
-  //---------getPlot not needed because req is not for plot doc, it's really for plants assoc with plot id------------
-
-  // getPlot: async (req, res) => {
-  //   try {
-  //     const plot = await Plot.findById(req.params.id);
-  //     res.render("plot.ejs", { plot: plot, user: req.user });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // },
+  getPlants: async (req, res) => {
+    try {
+      const plants = await Plant.find({ plot: req.plot._id }).sort({ createdAt: "desc" }).lean().populate({path: 'plot', populate: { path: 'name'}});
+      res.render("plot.ejs", { plants: plants, plot: req.plot });
+    } catch (err) {
+      console.log(err);
+    }
+  },
 
   getPlant: async (req, res) => {
     try {
@@ -33,15 +22,15 @@ module.exports = {
       console.log(err);
     }
   },
-  getAddPlant: (req, res) => {
-    res.render("addPlant.ejs");
-  },
+  // getAddPlant: (req, res) => {
+  //   res.render("addPlant.ejs");
+  // },
   createPlant: async (req, res) => {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path);
 
-      await Plant.create({
+      const plant = await Plant.create({
         nameCommon: req.body.plantName,
         nameSCI: req.body.plantNameSCI,
         image: result.secure_url,
@@ -57,8 +46,9 @@ module.exports = {
         numPlanted: req.body.numPlanted,
         status: req.body.status,
         notes: req.body.notes,
-        plot: req.plot.id,
+        plot: req.id,
       });
+      const plot = await Plot.findOneAndUpdate( { _id: req.params.id }, plot.plants.push(plant._id))
       console.log("Plant has been added!");
       res.redirect("/plot");
     } catch (err) {
