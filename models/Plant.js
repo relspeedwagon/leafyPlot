@@ -23,7 +23,7 @@ const PlantSchema = new mongoose.Schema({
         required: false,
     },
     water: {
-        type: Number,
+        type: String,
         required: false,
     },
     spread: {

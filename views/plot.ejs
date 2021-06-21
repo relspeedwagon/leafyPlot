@@ -7,8 +7,114 @@
     
 
     <div class="">
+        <button class="open-button" onclick="openForm()">Add Plant</button>
+        <div class="form-popup" id="myForm">
+            <form action="/plant/createPlant" enctype="multipart/form-data" method="POST">
+                <div class="mb-3">
+                    <label for="plantName" class="form-label">Plant Name:</label>
+                    <input type="text" class="form-control" id="nameCommon" name="plantName">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="plantNameSCI" class="form-label">Scientific Name:</label>
+                    <input type="text" class="form-control" id="nameSCI" name="plantNameSCI">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="imgUpload" class="form-label">Image:</label>
+                    <input type="file" class="form-control" id="imageUpload" name="file">
+                </div>
+    
+                <div class="mb-3">
+                    <label for="light" class="form-label">Light:</a></label>
+                    <select id="light" name="light">
+                        <option value="N/A">N/A</option>
+                        <option value="Full-Shade">Full-Shade</option>
+                        <option value="Shade-Partial">Full-Shade to Partial-Sun</option>
+                        <option value="Sun-Partial">Full-Sun to Partial-Shade</option>
+                        <option value="Full-Sun">Full-Sun</option>
+                    </select>
+                </div>
+    
+                <div class="mb-3">
+                    <label for="water" class="form-label">Water:</a></label>
+                    <select id="water" name="water">
+                        <option value="N/A">N/A</option>
+                        <option value="Moist">Moist</option>
+                        <option value="Average-Soil">Average-Soil</option>
+                        <option value="Drought">Drought Tolerant</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="zoneMin" class="form-label"><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank">Min USDA Zone:</a></label>
+                    <select id="zoneMin" name="zoneMin">
+                        <option value="N/A">N/A</option>
+                        <option value="1a">1a</option>
+                        <option value="1b">1b</option>
+                        <option value="2a">2a</option>
+                        <option value="2b">2b</option>
+                        <option value="3a">3a</option>
+                        <option value="3b">3b</option>
+                        <option value="4a">4a</option>
+                        <option value="4b">4b</option>
+                        <option value="5a">5a</option>
+                        <option value="5b">5b</option>
+                        <option value="6a">6a</option>
+                        <option value="6b">6b</option>
+                        <option value="7a">7a</option>
+                        <option value="7b">7b</option>
+                        <option value="8a">8a</option>
+                        <option value="8b">8b</option>
+                        <option value="9a">9a</option>
+                        <option value="9b">9b</option>
+                        <option value="10a">10a</option>
+                        <option value="10b">10b</option>
+                        <option value="11a">11a</option>
+                        <option value="11b">11b</option>
+                        <option value="12a">12a</option>
+                        <option value="12b">12b</option>
+                        <option value="13a">13a</option>
+                        <option value="13b">13b</option>
+                    </select>
+                    <label for="zoneMax" class="form-label"><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank">Max USDA Zone:</a></label>
+                    <select id="zoneMax" name="zoneMax">
+                        <option value="N/A">N/A</option>
+                        <option value="1a">1a</option>
+                        <option value="1b">1b</option>
+                        <option value="2a">2a</option>
+                        <option value="2b">2b</option>
+                        <option value="3a">3a</option>
+                        <option value="3b">3b</option>
+                        <option value="4a">4a</option>
+                        <option value="4b">4b</option>
+                        <option value="5a">5a</option>
+                        <option value="5b">5b</option>
+                        <option value="6a">6a</option>
+                        <option value="6b">6b</option>
+                        <option value="7a">7a</option>
+                        <option value="7b">7b</option>
+                        <option value="8a">8a</option>
+                        <option value="8b">8b</option>
+                        <option value="9a">9a</option>
+                        <option value="9b">9b</option>
+                        <option value="10a">10a</option>
+                        <option value="10b">10b</option>
+                        <option value="11a">11a</option>
+                        <option value="11b">11b</option>
+                        <option value="12a">12a</option>
+                        <option value="12b">12b</option>
+                        <option value="13a">13a</option>
+                        <option value="13b">13b</option>
+                    </select>
+                </div>
+    
+                <button type="submit" class="btn" value="Upload">Save</button>
+                <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+            
+          </div>
 
-        <a class="btn" href="/addPlant">Add a Plant</a>
+        <!-- <a class="btn" href="/addPlant">Add a Plant</a> -->
     </div>
 
     <!-- all plants for user-->
