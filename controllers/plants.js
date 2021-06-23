@@ -1,14 +1,12 @@
 const cloudinary = require("../middleware/cloudinary");
 const Plant = require("../models/Plant");
-//don't need Plot here, but may
-const Plot = require("../models/Plot");
 
 module.exports = {
   //can get plot.ejs to render by changing "req.plot.id" to "req.id", but then still no access to plot object 
   getPlants: async (req, res) => {
     try {
-      const plants = await Plant.find({ plot: req.plot._id }).sort({ createdAt: "desc" }).lean().populate({path: 'plot', populate: { path: 'name'}});
-      res.render("plot.ejs", { plants: plants, plot: req.plot });
+      const plants = await Plant.find({ plotID: req.params.id }).sort( { createdAt: "desc" }).lean();
+      res.render("plot.ejs", { plants: plants, plotID: req.params.id });
     } catch (err) {
       console.log(err);
     }
@@ -46,11 +44,10 @@ module.exports = {
         numPlanted: req.body.numPlanted,
         status: req.body.status,
         notes: req.body.notes,
-        plot: req.id,
+        plotID: req.params.id,
       });
-      const plot = await Plot.findOneAndUpdate( { _id: req.params.id }, plot.plants.push(plant._id))
       console.log("Plant has been added!");
-      res.redirect("/plot");
+      res.redirect("/profile");
     } catch (err) {
       console.log(err);
     }

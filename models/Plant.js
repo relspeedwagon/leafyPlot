@@ -62,9 +62,10 @@ const PlantSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    plot: {
+    plotID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Plot",
+        required: true,
     },
     createdAt: {
         type: Date,
