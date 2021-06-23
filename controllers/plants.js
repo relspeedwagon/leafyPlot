@@ -46,7 +46,7 @@ module.exports = {
         notes: req.body.notes,
         plotID: req.params.id,
       });
-      console.log("Plant has been added!");
+      console.log(req);
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
