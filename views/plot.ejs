@@ -107,24 +107,26 @@
                         <option value="13b">13b</option>
                     </select>
                 </div>
+                <input type="hidden" id="plotID" name= "plotID" value="<%= plotID %>"> 
     
                 <button type="submit" class="btn" value="Upload">Save</button>
                 <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
             </form>
             
-          </div>
+        </div>
 
         <!-- <a class="btn" href="/addPlant">Add a Plant</a> -->
     </div>
 
     <!-- all plants for user-->
+    <div><%= plotID %></div>
     <div class="row-6 align-content-center">
         <ul class="row list-unstyled">
         <% for(var i=0; i < plants.length; i++) {%>
                 <li class="col-6 justify-content-between mt-5">
                 <a href="/plant/<%= plants[i]._id%>">
                     <img class="img-fluid" src="<%= plants[i].image %>" alt="User's Garden Plot">
-                    <span> <%= plants[i].name %> </span>
+                    <span> <%= plants[i].nameCommon %> </span>
                 </a>
                 </li>
         <% } %>    

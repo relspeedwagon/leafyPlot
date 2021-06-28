@@ -5,6 +5,7 @@ module.exports = {
   //can get plot.ejs to render by changing "req.plot.id" to "req.id", but then still no access to plot object 
   getPlants: async (req, res) => {
     try {
+      res.locals.plotID = req.params.id;
       const plants = await Plant.find({ plotID: req.params.id }).sort( { createdAt: "desc" }).lean();
       res.render("plot.ejs", { plants: plants, plotID: req.params.id });
     } catch (err) {
@@ -44,9 +45,9 @@ module.exports = {
         numPlanted: req.body.numPlanted,
         status: req.body.status,
         notes: req.body.notes,
-        plotID: req.params.id,
+        plotID: req.body.plotID,
       });
-      console.log(req);
+      console.log("Plant has been added!");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
