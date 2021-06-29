@@ -1,1 +1,29 @@
 <!-- read only, view details of a plant -->
+<%- include('partials/header') -%>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-6">
+            <h2><%= plant.nameCommon %></h2>
+            <img class="img-fluid" src="<%= plant.image%>" />
+        </div>
+    </div>
+
+    <div class="col-3 mt-5">
+        <li> <%= plant.nameCommon %> </li>
+        <li> <%= plant.nameSCI %> </li>
+        <li> <%= plant.light %> </li>
+        <li> <%= plant.water %> </li>
+        <li> <%= plant.spread %> </li>
+        <li> <%= plant.minHeight %> </li>
+        <li> <%= plant.maxHeight %> </li>
+        <li> <%= plant.nativeOrigin %> </li>
+        <li> <%= plant.zoneMin %> </li>
+        <li> <%= plant.zoneMax %> </li>
+        <li> <%= plant.numPlanted %> </li>
+        <li> <%= plant.status %> </li>
+        <li> <%= plant.notes %> </li>
+    </div>
+
+</div>
+
+<%- include('partials/footer') -%>

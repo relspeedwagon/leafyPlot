@@ -67,6 +67,10 @@ const PlantSchema = new mongoose.Schema({
         ref: "Plot",
         required: true,
     },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+    },
     createdAt: {
         type: Date,
         default: Date.now,

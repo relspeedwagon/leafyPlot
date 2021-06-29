@@ -3,7 +3,7 @@ const Plant = require("../models/Plant");
 const Plot = require("../models/Plot");
 
 module.exports = {
-  getPlots: async (req, res) => {
+  getUserPlots: async (req, res) => {
     try {
       const plots = await Plot.find({ user: req.user.id });
       res.render("profile.ejs", { plots: plots, user: req.user });
@@ -12,14 +12,14 @@ module.exports = {
     }
   },
 
-  // getPlot: async (req, res) => {
-  //   try {
-  //     const plot = await Plot.findById(req.params.id).populate('plants');
-  //     res.render("plot.ejs", { plot: plot, user: req.user });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // },
+  getPlotDetails: async (req, res) => {
+    try {
+      const plot = await Plot.findById(req.params.id);
+      res.render("plot.ejs", { plot: plot, user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   
   getPlotCreate: (req, res) => {
     res.render("createPlot.ejs");

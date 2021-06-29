@@ -3,7 +3,7 @@ const Plant = require("../models/Plant");
 
 module.exports = {
   //can get plot.ejs to render by changing "req.plot.id" to "req.id", but then still no access to plot object 
-  getPlants: async (req, res) => {
+  getPlotPlants: async (req, res) => {
     try {
       res.locals.plotID = req.params.id;
       const plants = await Plant.find({ plotID: req.params.id }).sort( { createdAt: "desc" }).lean();
