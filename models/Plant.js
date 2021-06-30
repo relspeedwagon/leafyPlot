@@ -13,8 +13,8 @@ const PlantSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    //imageProviderId:
-    cloudinaryId: {
+    
+    imageProviderId: {
         type: String,
         required: false,
     },
@@ -36,6 +36,10 @@ const PlantSchema = new mongoose.Schema({
     },
     maxHeight: {
         type: Number,
+        required: false,
+    },
+    bloomSeason: {
+        type: Array,
         required: false,
     },
     nativeOrigin: {
@@ -76,5 +80,7 @@ const PlantSchema = new mongoose.Schema({
         default: Date.now,
     },
 });
+
+//add peak bloom range
 
 module.exports = mongoose.model("Plant", PlantSchema);

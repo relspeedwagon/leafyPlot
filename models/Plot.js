@@ -14,8 +14,7 @@ const PlotSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    //imageProviderId:
-    cloudinaryId: {
+    imageProviderId: {
         type: String,
         required: false,
     },

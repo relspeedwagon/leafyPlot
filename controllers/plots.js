@@ -33,7 +33,7 @@ module.exports = {
         name: req.body.plotName,
         seasonID: req.body.seasonID,
         image: result.secure_url,
-        cloudinaryId: result.public_id,
+        imageProviderId: result.public_id,
         zone: req.body.zone,
         location: req.body.location,
         public: req.body.public,
@@ -70,7 +70,7 @@ module.exports = {
       // Find post by id
       let plot = await Plot.findById({ _id: req.params.id });
       // Delete image from cloudinary
-      await cloudinary.uploader.destroy(plot.cloudinaryId);
+      await cloudinary.uploader.destroy(plot.imageProviderId);
       // Delete post from db
       await Plot.remove({ _id: req.params.id });
       console.log("Deleted Plot");

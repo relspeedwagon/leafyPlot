@@ -33,7 +33,7 @@ module.exports = {
         nameCommon: req.body.plantName,
         nameSCI: req.body.plantNameSCI,
         image: result.secure_url,
-        cloudinaryId: result.public_id,
+        imageProviderId: result.public_id,
         light: req.body.light,
         water: req.body.water,
         spread: req.body.spread,
@@ -61,7 +61,7 @@ module.exports = {
           nameCommon: req.body.plantName,
           nameSCI: req.body.plantNameSCI,
           // image: result.secure_url,
-          // cloudinaryId: result.public_id,
+          // imageProviderId: result.public_id,
           light: req.body.light,
           water: req.body.water,
           spread: req.body.spread,
@@ -85,7 +85,7 @@ module.exports = {
       // Find plant by id
       let plant = await Plant.findById({ _id: req.params.id });
       // Delete image from cloudinary
-      await cloudinary.uploader.destroy(plant.cloudinaryId);
+      await cloudinary.uploader.destroy(plant.imageProviderId);
       // Delete plant from db
       await Plant.remove({ _id: req.params.id });
       console.log("Deleted Plant");
