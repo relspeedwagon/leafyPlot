@@ -5,7 +5,7 @@ const plotsController = require("../controllers/plots");
 const plantsController = require("../controllers/plants");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-router.get("/:id", ensureAuth, plantsController.getPlotPlants);
+router.get("/:id", ensureAuth, plotsController.plotParams, plantsController.getPlotPlants);
 
 router.post("/createPlot", upload.single("file"), plotsController.createPlot);
 
