@@ -2,17 +2,7 @@ const cloudinary = require("../middleware/cloudinary");
 const Plant = require("../models/Plant");
 const Plot = require("../models/Plot");
 
-module.exports = {
-  plotParams: async (req, res, next, id) => {
-    try {
-      const plotParams = await Plot.findById(id);
-      console.log(plotParams);
-      next();
-    } catch (err) {
-      console.log(err);
-      next(err);
-    }
-  },
+module.exports = {  
   getUserPlots: async (req, res) => {
     try {
       const plots = await Plot.find({ user: req.user.id });

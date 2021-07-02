@@ -1,7 +1,30 @@
 const cloudinary = require("../middleware/cloudinary");
 const Plant = require("../models/Plant");
 
-module.exports = {
+module.exports = {  
+  // params: function(req, res, next, id) {    
+  //   Plot.findById(id)
+  //     .then(function (plot) {
+  //     if (!plot) {
+  //       next(new Error('No plot with that ID'));
+  //     } else {
+  //       req.plot = plot;
+  //       console.log(req.plot);
+  //       next();
+  //     } 
+  //   }, function(err) {
+  //     next(err);
+  //   });
+  // },
+  // getPlotPlants: async (req, res) => {
+  //   try {
+  //     const plants = await Plant.find({ plotID: req.plot.id }).sort( { createdAt: "desc" }).lean();
+  //     res.render("plot.ejs", { plants: plants, plotID: req.plot.id });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
+  
   getPlotPlants: async (req, res) => {
     try {
       res.locals.plotID = req.params.id;
@@ -11,16 +34,6 @@ module.exports = {
       console.log(err);
     }
   },
-  
-  // getPlotPlants: async (req, res) => {
-  //   try {
-  //     res.locals.plotID = req.params.id;
-  //     const plants = await Plant.find({ plotID: req.params.id }).populate('plotID').sort( { createdAt: "desc" }).lean();
-  //     res.render("plot.ejs", { plants: plants, plotID: req.params.id });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // },
 
   getPlant: async (req, res) => {
     try {
