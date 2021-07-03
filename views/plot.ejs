@@ -107,7 +107,7 @@
                         <option value="13b">13b</option>
                     </select>
                 </div>
-                <input type="hidden" id="plotID" name= "plotID" value="<%= plotID %>"> 
+                <input type="hidden" id="plotID" name= "plotID" value="<%= plot._id %>"> 
     
                 <button type="submit" class="btn" value="Upload">Save</button>
                 <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
@@ -119,7 +119,7 @@
     </div>
 
     <!-- all plants for user-->
-    <div><%= plotID %></div>
+    <div><%= plot.name %></div>
     <div class="row-6 align-content-center">
         <ul class="row list-unstyled">
         <% for(var i=0; i < plants.length; i++) {%>

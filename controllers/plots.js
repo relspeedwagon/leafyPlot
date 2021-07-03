@@ -13,10 +13,13 @@ module.exports = {
   },
 
   getPlotDetails: async (req, res, next, id) => {
-      console.log('hello')
+      try {
       req.plot = await Plot.findById(id);
-      console.log(req.plot)
+      console.log(req.plot);
       next();
+      } catch (err) {
+        next(err);
+      }
   },
   
   getPlotCreate: (req, res) => {

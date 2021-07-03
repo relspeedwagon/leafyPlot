@@ -2,24 +2,10 @@ const cloudinary = require("../middleware/cloudinary");
 const Plant = require("../models/Plant");
 
 module.exports = {  
-  // params: function(req, res, next, id) {    
-  //   Plot.findById(id)
-  //     .then(function (plot) {
-  //     if (!plot) {
-  //       next(new Error('No plot with that ID'));
-  //     } else {
-  //       req.plot = plot;
-  //       console.log(req.plot);
-  //       next();
-  //     } 
-  //   }, function(err) {
-  //     next(err);
-  //   });
-  // },
   getPlotPlants: async (req, res) => {
     try {
       const plants = await Plant.find({ plotID: req.plot._id }).sort( { createdAt: "desc" });
-      res.render("plot.ejs", { plants: plants, plotID: req.plot });
+      res.render("plot.ejs", { plants: plants, plot: req.plot });
     } catch (err) {
       console.log(err);
     }
@@ -68,9 +54,10 @@ module.exports = {
         status: req.body.status,
         notes: req.body.notes,
         plotID: req.body.plotID,
+        user: req.user,
       });
       console.log("Plant has been added!");
-      res.redirect("/profile");
+      res.redirect("/plot/" + req.body.plotID);
     } catch (err) {
       console.log(err);
     }
