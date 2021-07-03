@@ -12,13 +12,11 @@ module.exports = {
     }
   },
 
-  getPlotDetails: async (req, res) => {
-    try {
-      const plot = await Plot.findById(req.params.id);
-      res.render("plot.ejs", { plot: plot, user: req.user });
-    } catch (err) {
-      console.log(err);
-    }
+  getPlotDetails: async (req, res, next, id) => {
+      console.log('hello')
+      req.plot = await Plot.findById(id);
+      console.log(req.plot)
+      next();
   },
   
   getPlotCreate: (req, res) => {

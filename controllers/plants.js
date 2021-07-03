@@ -16,24 +16,24 @@ module.exports = {
   //     next(err);
   //   });
   // },
-  // getPlotPlants: async (req, res) => {
-  //   try {
-  //     const plants = await Plant.find({ plotID: req.plot.id }).sort( { createdAt: "desc" }).lean();
-  //     res.render("plot.ejs", { plants: plants, plotID: req.plot.id });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // },
-  
   getPlotPlants: async (req, res) => {
     try {
-      res.locals.plotID = req.params.id;
-      const plants = await Plant.find({ plotID: req.params.id }).sort( { createdAt: "desc" }).lean();
-      res.render("plot.ejs", { plants: plants, plotID: req.params.id });
+      const plants = await Plant.find({ plotID: req.plot._id }).sort( { createdAt: "desc" });
+      res.render("plot.ejs", { plants: plants, plotID: req.plot });
     } catch (err) {
       console.log(err);
     }
   },
+  
+  // getPlotPlants: async (req, res) => {
+  //   try {
+  //     res.locals.plotID = req.params.id;
+  //     const plants = await Plant.find({ plotID: req.params.id }).sort( { createdAt: "desc" }).lean();
+  //     res.render("plot.ejs", { plants: plants, plotID: req.params.id });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
 
   getPlant: async (req, res) => {
     try {
