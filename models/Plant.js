@@ -30,23 +30,11 @@ const PlantSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    spread: {
+    height: {
         type: String,
         required: false,
     },
-    minHeight: {
-        type: Number,
-        required: false,
-    },
-    maxHeight: {
-        type: Number,
-        required: false,
-    },
-    bloomSeason: {
-        type: Array,
-        required: false,
-    },
-    nativeOrigin: {
+    spread: {
         type: String,
         required: false,
     },
@@ -58,11 +46,23 @@ const PlantSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
+    bloomSeason: {
+        type: String,
+        required: false,
+    },
+    nativeOrigin: {
+        type: String,
+        required: false,
+    },
     numPlanted: {
         type: Number,
         required: false,
     },
     status: {
+        type: String,
+        required: false,
+    },
+    health: {
         type: String,
         required: false,
     },

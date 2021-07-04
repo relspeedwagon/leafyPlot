@@ -51,11 +51,22 @@
                 </div>
 
                 <div>
+                    <label for="minHeight" class="form-label">Growth Height:</label>
+                    <input type="text" class="form-control" id="minHeight" name="minHeight">
+                    <input type="text" class="form-control" id="maxHeight" name="maxHeight">
+                    <select id=heightInc name="heightInc">
+                        <option value=" ">N/A</option>
+                        <option value="in">in</option>
+                        <option value="cm">cm</option>
+                    </select>
+                </div>
+
+                <div>
                     <label for="spread" class="form-label">Spread:</label>
                     <input type="text" class="form-control" id="minSpread" name="minSpread">
                     <input type="text" class="form-control" id="maxSpread" name="maxSpread">
                     <select id=spreadInc name="spreadInc">
-                        <option value=" "> </option>
+                        <option value=" ">N/A</option>
                         <option value="in">in</option>
                         <option value="cm">cm</option>
                     </select>
@@ -123,6 +134,69 @@
                         <option value="13b">13b</option>
                     </select>
                 </div>
+
+                <div class="mb-3">
+                    <label for="bloomSeason" class="form-label"></label>Bloom Season:</label>
+                    <select id="seasonStart" name="seasonStart">
+                        <option value=" "> </option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="Spring">Spring</option>
+                        <option value="Early-Spring">Early-Spring</option>
+                        <option value="Mid-Spring">Mid-Spring</option>
+                        <option value="Late-Spring">Late-Spring</option>
+                        <option value="Summer">Summer</option>
+                        <option value="Early-Summer">Early-Summer</option>
+                        <option value="Mid-Summer">Mid-Summer</option>
+                        <option value="Late-Summer">Late-Summer</option>
+                        <option value="Early-Fall">Early-Fall</option>
+                        <option value="Fall">Fall</option>
+                        <option value="Late-Fall">Late-Fall</option>
+                        <option value="Year-Round">Year-Round</option>
+                    </select>
+                    <span>to</span>
+                    <select id="seasonEnd" name="seasonEnd">
+                        <option value=" "> </option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="Spring">Spring</option>
+                        <option value="Early-Spring">Early-Spring</option>
+                        <option value="Mid-Spring">Mid-Spring</option>
+                        <option value="Late-Spring">Late-Spring</option>
+                        <option value="Summer">Summer</option>
+                        <option value="Early-Summer">Early-Summer</option>
+                        <option value="Mid-Summer">Mid-Summer</option>
+                        <option value="Late-Summer">Late-Summer</option>
+                        <option value="Early-Fall">Early-Fall</option>
+                        <option value="Fall">Fall</option>
+                        <option value="Late-Fall">Late-Fall</option>
+                        <option value="Year-Round">Year-Round</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="nativeOrigin" class="form-label">Native Origin:</label>
+                    <input type="text" class="form-control" id="nativeOrigin" name="nativeOrigin">
+                </div>
+
+                <div>
+                    <input type="number" min="1900" max="2099" step="1" value="2021" />
+                </div>
+
                 <div>
                     <label for="numPlanted" class="form-label">Number of Plants:</label>
                     <input type="number" class="form-control" id="numPlanted" name="numPlanted">
@@ -130,10 +204,22 @@
                 <div>
                     <label for="status" class="form-label">Planting Status:</label>
                     <select id=status name="status">
+                        <option value=" "> </option>
                         <option value="To-Plant">To-Plant</option>
                         <option value="Planted">Planted</option>
                     </select>
                 </div>
+
+                <div>
+                    <label for="health" class="form-label">Current Health:</label>
+                    <select id=health name="health">
+                        <option value=" "> </option>
+                        <option value="Active">Active</option>
+                        <option value="Thriving">Thriving</option>
+                        <option value="Failed">Failed</option>
+                    </select>
+                </div>
+
                 <div>
                     <label for="notes" class="form-label">Notes:</label>
                     <textarea id=notes name="notes"></textarea>
