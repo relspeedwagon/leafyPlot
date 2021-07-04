@@ -26,8 +26,12 @@ const PlantSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
+    soil: {
+        type: String,
+        required: false,
+    },
     spread: {
-        type: Number,
+        type: String,
         required: false,
     },
     minHeight: {

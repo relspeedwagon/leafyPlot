@@ -9,44 +9,60 @@
     <div class="">
         <button class="open-button" onclick="openForm()">Add Plant</button>
         <div class="form-popup" id="myForm">
+
             <form action="/plant/createPlant" enctype="multipart/form-data" method="POST">
+
                 <div class="mb-3">
                     <label for="plantName" class="form-label">Plant Name:</label>
                     <input type="text" class="form-control" id="nameCommon" name="plantName">
                 </div>
-    
+
                 <div class="mb-3">
                     <label for="plantNameSCI" class="form-label">Scientific Name:</label>
                     <input type="text" class="form-control" id="nameSCI" name="plantNameSCI">
                 </div>
-                
+
                 <div class="mb-3">
                     <label for="imgUpload" class="form-label">Image:</label>
                     <input type="file" class="form-control" id="imageUpload" name="file">
                 </div>
-    
+
                 <div class="mb-3">
                     <label for="light" class="form-label">Light:</a></label>
                     <select id="light" name="light">
                         <option value="N/A">N/A</option>
                         <option value="Full-Shade">Full-Shade</option>
-                        <option value="Shade-Partial">Full-Shade to Partial-Sun</option>
-                        <option value="Sun-Partial">Full-Sun to Partial-Shade</option>
+                        <option value="Shade-Partial">Full-Shade to Part-Sun</option>
+                        <option value="Sun-Partial">Full-Sun to Part-Shade</option>
                         <option value="Full-Sun">Full-Sun</option>
+                        <option value="Sun-Shade">Sun to Shade</option>
                     </select>
                 </div>
-    
+
                 <div class="mb-3">
-                    <label for="water" class="form-label">Water:</a></label>
-                    <select id="water" name="water">
+                    <label for="soil" class="form-label">Soil:</a></label>
+                    <select id="soil" name="soil">
                         <option value="N/A">N/A</option>
-                        <option value="Moist">Moist</option>
+                        <option value="Moist-Soil">Moist-Soil</option>
                         <option value="Average-Soil">Average-Soil</option>
-                        <option value="Drought">Drought Tolerant</option>
+                        <option value="Well-Drained">Well-Drained</option>
+                        <option value="Drought-Tolerant">Drought-Tolerant</option>
                     </select>
                 </div>
+
+                <div>
+                    <label for="spread" class="form-label">Spread:</label>
+                    <input type="text" class="form-control" id="minSpread" name="minSpread">
+                    <input type="text" class="form-control" id="maxSpread" name="maxSpread">
+                    <select id=spreadInc name="spreadInc">
+                        <option value=" "> </option>
+                        <option value="in">in</option>
+                        <option value="cm">cm</option>
+                    </select>
+                </div>
+
                 <div class="mb-3">
-                    <label for="zoneMin" class="form-label"><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank">Min USDA Zone:</a></label>
+                    <label for="zoneMin" class="form-label"><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank">USDA Zone:</a></label>
                     <select id="zoneMin" name="zoneMin">
                         <option value="N/A">N/A</option>
                         <option value="1a">1a</option>
@@ -76,7 +92,7 @@
                         <option value="13a">13a</option>
                         <option value="13b">13b</option>
                     </select>
-                    <label for="zoneMax" class="form-label"><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank">Max USDA Zone:</a></label>
+                    <span>to</span>
                     <select id="zoneMax" name="zoneMax">
                         <option value="N/A">N/A</option>
                         <option value="1a">1a</option>
@@ -107,14 +123,30 @@
                         <option value="13b">13b</option>
                     </select>
                 </div>
+                <div>
+                    <label for="numPlanted" class="form-label">Number of Plants:</label>
+                    <input type="number" class="form-control" id="numPlanted" name="numPlanted">
+                </div>
+                <div>
+                    <label for="status" class="form-label">Planting Status:</label>
+                    <select id=status name="status">
+                        <option value="To-Plant">To-Plant</option>
+                        <option value="Planted">Planted</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="notes" class="form-label">Notes:</label>
+                    <textarea id=notes name="notes"></textarea>
+                </div>
+
                 <input type="hidden" id="plotID" name= "plotID" value="<%= plot._id %>"> 
-    
+
                 <button type="submit" class="btn" value="Upload">Save</button>
                 <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+
             </form>
             
         </div>
-
         <!-- <a class="btn" href="/addPlant">Add a Plant</a> -->
     </div>
 
