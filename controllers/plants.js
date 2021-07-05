@@ -101,7 +101,7 @@ module.exports = {
       // Delete plant from db
       await Plant.remove({ _id: req.params.id });
       console.log("Deleted Plant");
-      res.redirect("/plot");
+      res.redirect("/plot/" + plant.plotID);
     } catch (err) {
       res.redirect("/plot");
     }
