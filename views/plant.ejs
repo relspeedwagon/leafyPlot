@@ -9,19 +9,22 @@
     </div>
 
     <div class="col-3 mt-5">
-        <li> <%= plant.nameCommon %> </li>
-        <li> <%= plant.nameSCI %> </li>
-        <li> <%= plant.light %> </li>
-        <li> <%= plant.water %> </li>
-        <li> <%= plant.spread %> </li>
-        <li> <%= plant.minHeight %> </li>
-        <li> <%= plant.maxHeight %> </li>
-        <li> <%= plant.nativeOrigin %> </li>
-        <li> <%= plant.zoneMin %> </li>
-        <li> <%= plant.zoneMax %> </li>
-        <li> <%= plant.numPlanted %> </li>
-        <li> <%= plant.status %> </li>
-        <li> <%= plant.notes %> </li>
+        <ul>
+            <li> Common Name: <%= plant.nameCommon %> </li>
+            <li> Scientific Name: <%= plant.nameSCI %> </li>
+            <li> Sun Exposure: <%= plant.light %> </li>
+            <li> Soil: <%= plant.soil %> </li>
+            <li> Growth Height: <%= plant.height %> </li>
+            <li> Spread: <%= plant.spread %> </li>
+            <li> Hardiness: <%= plant.zoneMin %> to <%= plant.zoneMax %> </li>
+            <li> Bloom Season: <%= plant.bloomSeason %> </li>
+            <li> Native Origin: <%= plant.nativeOrigin %> </li>
+            <li> Planting Status: <%= plant.status %> </li>
+            <li> Year Planted: <%= plant.yearPlanted %> </li>
+            <li> Number of Plants: <%= plant.numPlanted %> </li>
+            <li> Current Health: <%= plant.health %> </li>
+            <li> Notes: <%= plant.notes %> </li>
+        </ul>
     </div>
 
 </div>

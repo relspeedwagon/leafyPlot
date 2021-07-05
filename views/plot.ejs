@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="light" class="form-label">Light:</a></label>
+                    <label for="light" class="form-label">Light:</label>
                     <select id="light" name="light">
                         <option value="N/A">N/A</option>
                         <option value="Full-Shade">Full-Shade</option>
@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="soil" class="form-label">Soil:</a></label>
+                    <label for="soil" class="form-label">Soil:</label>
                     <select id="soil" name="soil">
                         <option value="N/A">N/A</option>
                         <option value="Moist-Soil">Moist-Soil</option>
@@ -194,20 +194,22 @@
                 </div>
 
                 <div>
-                    <input type="number" min="1900" max="2099" step="1" value="2021" />
-                </div>
-
-                <div>
-                    <label for="numPlanted" class="form-label">Number of Plants:</label>
-                    <input type="number" class="form-control" id="numPlanted" name="numPlanted">
-                </div>
-                <div>
                     <label for="status" class="form-label">Planting Status:</label>
                     <select id=status name="status">
                         <option value=" "> </option>
                         <option value="To-Plant">To-Plant</option>
                         <option value="Planted">Planted</option>
                     </select>
+                </div>
+
+                <div>
+                    <label for="yearPlanted" class="form-label">Year Planted:</label>
+                    <input type="number" id="yearPlanted" name="yearPlanted" min="1900" max="2099" step="1" value="2021" />
+                </div>
+
+                <div>
+                    <label for="numPlanted" class="form-label">Number of Plants:</label>
+                    <input type="number" class="form-control" id="numPlanted" name="numPlanted">
                 </div>
 
                 <div>
