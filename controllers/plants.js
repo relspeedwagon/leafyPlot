@@ -11,16 +11,6 @@ module.exports = {
     }
   },
   
-  // getPlotPlants: async (req, res) => {
-  //   try {
-  //     res.locals.plotID = req.params.id;
-  //     const plants = await Plant.find({ plotID: req.params.id }).sort( { createdAt: "desc" }).lean();
-  //     res.render("plot.ejs", { plants: plants, plotID: req.params.id });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // },
-
   getPlant: async (req, res) => {
     try {
       const plant = await Plant.findById(req.params.id);
@@ -29,9 +19,6 @@ module.exports = {
       console.log(err);
     }
   },
-  // getAddPlant: (req, res) => {
-  //   res.render("addPlant.ejs");
-  // },
   createPlant: async (req, res) => {
     try {
       // Upload image to cloudinary
@@ -61,6 +48,14 @@ module.exports = {
       });
       console.log("Plant has been added!");
       res.redirect("/plot/" + req.body.plotID);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  getEditPlant: async (req, res) => {
+    try {
+      const plant = await Plant.findById(req.params.id);
+      res.render("editPlant.ejs", { plant: plant, plot: req.plot });
     } catch (err) {
       console.log(err);
     }

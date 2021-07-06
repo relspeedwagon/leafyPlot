@@ -8,6 +8,8 @@ router.get("/:id", ensureAuth, plantsController.getPlant);
 
 router.post("/createPlant", upload.single("file"), plantsController.createPlant);
 
+router.get("/:id/edit", plantsController.getEditPlant);
+
 router.put("/editPlant/:id", plantsController.editPlant);
 
 router.delete("/deletePlant/:id", plantsController.deletePlant);

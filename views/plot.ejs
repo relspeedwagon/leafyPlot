@@ -22,7 +22,7 @@
 
     <div class="">
         <button class="open-button" onclick="openForm()">Add Plant</button>
-        <div class="form-popup" id="myForm">
+        <div class="form-popup form-container" id="myForm">
 
             <form action="/plant/createPlant" enctype="multipart/form-data" method="POST">
 
@@ -244,7 +244,7 @@
                 <input type="hidden" id="plotID" name= "plotID" value="<%= plot._id %>"> 
 
                 <button type="submit" class="btn" value="Upload">Save</button>
-                <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+                <button type="reset" class="btn cancel" onclick="closeForm()">Close</button>
 
             </form>
             
