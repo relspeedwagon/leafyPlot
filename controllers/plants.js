@@ -31,7 +31,7 @@ module.exports = {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path,
-      { aspect_ratio: "16:6", gravity: "auto", crop: "fill" },
+      { aspect_ratio: "16:7", gravity: "auto", crop: "fill" },
       function(error, result) { console.log(result, error); });
 
       const plant = await Plant.create({
