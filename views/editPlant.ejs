@@ -9,7 +9,7 @@
     </div>
 
     <div class="col-3 mt-5">
-        <form action="/plant/editPlant" enctype="multipart/form-data" method="POST">
+        <form action="/plant/editPlant/<%= plant.id %>" enctype="multipart/form-data" method="POST">
 
             <div class="mb-3">
                 <label for="plantName" class="form-label">Plant Name:</label>
@@ -232,16 +232,11 @@
                 <textarea id=notes name="notes" value="<%= plant.notes %>"></textarea>
             </div>
 
-            <!-- <button type="submit" class="btn" value="Upload">Save</button>
-            <button type="reset" class="btn cancel" >Close</button> -->
+            <button type="submit" class="btn" value="Upload"><span style="font-size: 1.5rem"><i class="fas fa-recycle"></i></span><span>Update Plant Details</span></button>
 
         </form>
         
     </div>
-    <form action="/plant/editPlant/<%= plant.id %>?_method=PUT" method="POST" class="col-3">
-        <button class="btn" type="submit"><span style="font-size: 1.5rem"><i class="fas fa-recycle"></i></span><span>Update Plant Details</span></button>
-    </form>
-    
 
 </div>
 

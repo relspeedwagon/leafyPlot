@@ -4,13 +4,15 @@ const upload = require("../middleware/multer");
 const plantsController = require("../controllers/plants");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
+router.param('id', plantsController.getPlantDetails);
+
 router.get("/:id", ensureAuth, plantsController.getPlant);
 
 router.post("/createPlant", upload.single("file"), plantsController.createPlant);
 
-router.get("/:id/edit", plantsController.getEditPlant);
+router.get("/:id/edit", plantsController.getPlantEditor);
 
-router.put("/editPlant/:id", plantsController.editPlant);
+router.post("/editPlant/:id", plantsController.editPlant);
 
 router.delete("/deletePlant/:id", plantsController.deletePlant);
 

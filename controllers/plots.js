@@ -28,7 +28,9 @@ module.exports = {
   createPlot: async (req, res) => {
     try {
       // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
+      const result = await cloudinary.uploader.upload(req.file.path,
+        { aspect_ratio: "16:9", gravity: "auto", crop: "fill" },
+        function(error, result) { console.log(result, error); });
 
       await Plot.create({
         name: req.body.plotName,

@@ -10,7 +10,15 @@ module.exports = {
       console.log(err);
     }
   },
-  
+  getPlantDetails: async (req, res, next, id) => {
+    try {
+    req.plant = await Plant.findById(id);
+    console.log(req.plant);
+    next();
+    } catch (err) {
+      next(err);
+    }
+},
   getPlant: async (req, res) => {
     try {
       const plant = await Plant.findById(req.params.id);
@@ -22,7 +30,9 @@ module.exports = {
   createPlant: async (req, res) => {
     try {
       // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
+      const result = await cloudinary.uploader.upload(req.file.path,
+      { aspect_ratio: "16:6", gravity: "auto", crop: "fill" },
+      function(error, result) { console.log(result, error); });
 
       const plant = await Plant.create({
         nameCommon: req.body.plantName,
@@ -52,34 +62,41 @@ module.exports = {
       console.log(err);
     }
   },
-  getEditPlant: async (req, res) => {
+  getPlantEditor: async (req, res) => {
     try {
-      const plant = await Plant.findById(req.params.id);
-      res.render("editPlant.ejs", { plant: plant, plot: req.plot });
+      // const plant = await Plant.findById(req.params.id);
+      res.render("editPlant.ejs", { plant: req.plant });
     } catch (err) {
       console.log(err);
     }
   },
   editPlant: async (req, res) => {
+    console.log(req)
     try {
       await Plant.findOneAndUpdate(
         { _id: req.params.id },
+      {$set:
         {
           nameCommon: req.body.plantName,
           nameSCI: req.body.plantNameSCI,
           // image: result.secure_url,
           // imageProviderId: result.public_id,
           light: req.body.light,
-          water: req.body.water,
-          spread: req.body.spread,
-          minHeight: req.body.minHeight,
-          maxHeight: req.body.maxHeight,
+          // water: req.body.water,
+          soil: req.body.soil,
+          height: `${req.body.minHeight} - ${req.body.maxHeight} ${req.body.heightInc}`,
+          spread: `${req.body.minSpread} - ${req.body.maxSpread} ${req.body.spreadInc}`,
+          zoneMin: req.body.zoneMin,
+          zoneMax: req.body.zoneMax,
+          bloomSeason: `${req.body.seasonStart} - ${req.body.seasonEnd}`,
           nativeOrigin: req.body.nativeOrigin,
-          zone: req.body.zone,
-          numPlanted: req.body.numPlanted,
           status: req.body.status,
+          yearPlanted: req.body.yearPlanted,
+          numPlanted: req.body.numPlanted,
+          health: req.body.health,
           notes: req.body.notes,
-        }
+          }
+      }
       );
       console.log("Plant has been updated");
       res.redirect(`/plant/${req.params.id}`);
