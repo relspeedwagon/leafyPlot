@@ -1,12 +1,27 @@
-<!-- "season dropdown" "create a plot button" -->
-
 <%- include('./partials/header.ejs'); -%>
-<div class="container">
+
+<div class="container bg-white">
+<!-- showcase section -->
+    <section class="p-2 text-center">
+    <!-- "season dropdown" "create a plot button" -->
+        <div class="row ">
+            <div class="col-5">
+                <select >
+                    <option>Season</option>
+                </select>
+            </div>
+            <div class="col-7">
+                <a class="btn" href="/startPlot">Create a Plot</a>
+            </div>
+            
+        </div>
+    
+    </section>
     
 
     <div class="">
         <h2><p>Hello <%= user.userName %></p></h2>
-        <a class="btn" href="/startPlot">Create a Plot</a>
+        
     </div>
 
     <!-- all plots for user-->
