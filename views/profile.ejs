@@ -1,19 +1,33 @@
-<!-- "season dropdown" "create a plot button" -->
-
 <%- include('./partials/header.ejs'); -%>
-<div class="container">
+
+<div class="container bg-white">
+<!-- showcase section -->
+    <section class="p-2 text-center">
+    <!-- "season dropdown" "create a plot button" -->
+        <div class="row">
+            <div class="col-5">
+                <select class="h-100 w-100" >
+                    <option>Season</option>
+                </select>
+            </div>
+            <div class="col-7">
+                <a class="btn btn-primary w-100" href="/startPlot" role="button"><i class="fas fa-tractor fa-lg pe-2"></i>Create a Plot</a>
+            </div>
+            
+        </div>
     
+    </section>
 
     <div class="">
         <h2><p>Hello <%= user.userName %></p></h2>
-        <a class="btn" href="/startPlot">Create a Plot</a>
+        
     </div>
 
     <!-- all plots for user-->
-    <div class="row-6 align-content-center">
-        <ul class="row list-unstyled">
+    <div class="row align-content-center">
+        <ul class="">
         <% for(var i=0; i < plots.length; i++) {%>
-                <li class="col-6 justify-content-between mt-5">
+                <li class="">
                 <a href="/plot/<%= plots[i]._id%>">
                     <img class="img-fluid" src="<%= plots[i].image %>" alt="User's Garden Plot">
                     <span> <%= plots[i].name %> </span>
