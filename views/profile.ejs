@@ -25,13 +25,25 @@
 
     <!-- all plots for user-->
     <div class="row align-content-center">
-        <ul class="">
+        <ul>
         <% for(var i=0; i < plots.length; i++) {%>
-                <li class="">
-                <a href="/plot/<%= plots[i]._id%>">
-                    <img class="img-fluid" src="<%= plots[i].image %>" alt="User's Garden Plot">
-                    <span> <%= plots[i].name %> </span>
-                </a>
+                <li>
+                    <a href="/plot/<%= plots[i]._id%>">
+                        <div class="col-sm-8 plot-card card img-fluid border-light mb-3">
+                            
+                            <img src="<%= plots[i].image %>" class="card-img-bottom" alt="User's Garden Plot">
+                            
+                                
+                                <div class="card-img-overlay row plot-overlay">
+                                    <div class="col-6 bg-dark">
+                                        <span> <%= plots[i].name %> </span>
+                                    </div>
+                                    <div class="col-2">
+
+                                    </div>
+                                </div>
+                        </div>
+                    </a>
                 </li>
         <% } %>    
         </ul>

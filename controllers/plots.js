@@ -5,7 +5,7 @@ const Plot = require("../models/Plot");
 module.exports = {  
   getUserPlots: async (req, res) => {
     try {
-      const plots = await Plot.find({ user: req.user.id });
+      const plots = await Plot.find({ user: req.user.id }).sort( { createdAt: "desc" });;
       res.render("profile.ejs", { plots: plots, user: req.user });
     } catch (err) {
       console.log(err);
@@ -29,7 +29,7 @@ module.exports = {
     try {
       // Upload image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path,
-        { aspect_ratio: "16:9", gravity: "auto", crop: "fill" },
+        { aspect_ratio: "16:7", gravity: "auto", crop: "fill" },
         function(error, result) { console.log(result, error); });
 
       await Plot.create({

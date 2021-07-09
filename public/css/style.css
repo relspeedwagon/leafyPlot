@@ -74,3 +74,18 @@
   background-color: #E8417F;
   border: #E8417F;
 }
+
+ul, li {
+  list-style: none;
+}
+
+.plot-card {
+  border-bottom-right-radius: 5rem;
+  border-top-left-radius: 5rem;
+  overflow: hidden;
+}
+.plot-overlay {
+  height: 20%;
+  /* border-top-right-radius: 5rem;
+  overflow: hidden; */
+}
