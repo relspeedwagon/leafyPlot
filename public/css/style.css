@@ -69,3 +69,8 @@
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
 }
+
+.btn-primary {
+  background-color: #E8417F;
+  border: #E8417F;
+}
