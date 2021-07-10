@@ -2,21 +2,21 @@
 
 <div class="container bg-white">
 <!-- showcase section -->
-    <section class="p-2 text-center">
+    <div class="mx-3 mt-2">
     <!-- "season dropdown" "create a plot button" -->
-        <div class="row">
-            <div class="col-5">
+        <div class="d-flex row justify-content-end">
+            <div class="col-lg-4 col-sm-5  my-2">
                 <select class="h-100 w-100" >
                     <option>Season</option>
                 </select>
             </div>
-            <div class="col-7">
+            <div class="col-lg-5 col-sm-7">
                 <a class="btn btn-primary w-100" href="/startPlot" role="button"><i class="fas fa-tractor fa-lg pe-2"></i>Create a Plot</a>
             </div>
             
         </div>
     
-    </section>
+    </div>
 
     <div class="">
         <h2><p>Hello <%= user.userName %></p></h2>
@@ -24,29 +24,28 @@
     </div>
 
     <!-- all plots for user-->
-    <div class="row align-content-center">
-        <ul>
-        <% for(var i=0; i < plots.length; i++) {%>
-                <li>
-                    <a href="/plot/<%= plots[i]._id%>">
-                        <div class="col-sm-8 plot-card card img-fluid border-light mb-3">
-                            
-                            <img src="<%= plots[i].image %>" class="card-img-bottom" alt="User's Garden Plot">
-                            
-                                
-                                <div class="card-img-overlay row plot-overlay">
-                                    <div class="col-6 bg-dark">
-                                        <span> <%= plots[i].name %> </span>
-                                    </div>
-                                    <div class="col-2">
-
+    <div class="container-fluid">
+        <div class="row row-md-cols-2 gx-3 gy-4">
+            <% for(var i=0; i < plots.length; i++) {%>
+                        
+                            <div class="col-lg-6">
+                                <div class="plot-card card img-fluid border-light">
+                                    <a href="/plot/<%= plots[i]._id%>">
+                                        <img src="<%= plots[i].image %>" class="card-img-top plot-image" alt="User's Garden Plot">
+                                    </a>
+                                    
+                                    <div class="d-flex justify-content-between card-img-overlay row plot-overlay ">
+                                        <div class="col-6 bg-dark">
+                                            <span> <%= plots[i].name %> </span>
+                                        </div>
+                                        <div class="col-2 bg-dark">
+        
+                                        </div>
                                     </div>
                                 </div>
-                        </div>
-                    </a>
-                </li>
-        <% } %>    
-        </ul>
+                            </div>
+            <% } %>    
+        </div>
     </div>
     
 
