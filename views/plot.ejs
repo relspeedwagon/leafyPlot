@@ -1,23 +1,33 @@
-<!-- header, garden name, season; back button -->
-<!-- buttons: "add plant" "edit plot" "filter" "sort by" dropdown -->
 
-<!-- list plants in plot -->
 <%- include('./partials/header.ejs'); -%>
 <div class="container">
-    <!-- all plants for user-->
-    <div><%= plot.name %></div>
-    <div class="row-6 align-content-center">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i < plants.length; i++) {%>
-                <li class="col-6 justify-content-between mt-5">
-                <a href="/plant/<%= plants[i]._id%>">
-                    <img class="img-fluid" src="<%= plants[i].image %>" alt="User's Garden Plot">
-                    <span> <%= plants[i].nameCommon %> </span>
-                </a>
-                </li>
-        <% } %>    
-        </ul>
+    <div class="container-fluid">
+        <!-- all plants for user-->
+        <div><%= plot.name %></div>
+        <div class="row row-lg-cols-3 row-md-cols-2 gx-3 gy-4">
+            <% for(var i=0; i < plants.length; i++) {%>
+                        
+                            <div class="col-lg-4 col-md-6">
+                                <div class="plot-card card img-fluid border-light">
+                                    <a href="/plant/<%= plants[i]._id%>">
+                                        <img src="<%= plants[i].image %>" class="card-img-top plot-image" alt="User's Garden Plot">
+                                    </a>
+                                    
+                                    <div class="d-flex justify-content-between card-img-overlay row plot-overlay ">
+                                        <div class="col-6 bg-dark text-white">
+                                            <span> <%= plants[i].nameCommon %> </span>
+                                        </div>
+                                        <div class="col-2 bg-dark">
+        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+            <% } %>    
+        </div>
     </div>
+
+
     
 
     <div class="">
