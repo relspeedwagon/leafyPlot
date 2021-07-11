@@ -1,7 +1,7 @@
 <%- include('./partials/header.ejs'); -%>
 
-<div class="container bg-white">
-<!-- showcase section -->
+<div class="container bg-white p-3">
+
     <div class="mx-3 mt-2">
     <!-- "season dropdown" "create a plot button" -->
         <div class="d-flex row justify-content-end">
@@ -15,16 +15,16 @@
             </div>
             
         </div>
+
+        <div class="">
+            <h2><p>Hello <%= user.userName %></p></h2>
+            
+        </div>
     
     </div>
 
-    <div class="">
-        <h2><p>Hello <%= user.userName %></p></h2>
-        
-    </div>
-
     <!-- all plots for user-->
-    <div class="container-fluid">
+    <div class="container-fluid p-0">
         <div class="row row-md-cols-2 gx-3 gy-4">
             <% for(var i=0; i < plots.length; i++) {%>
                 
@@ -51,9 +51,6 @@
         </div>
     </div>
     
-
-
-
 
 </div>
 
