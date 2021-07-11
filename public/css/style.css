@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* Button used to open the contact form - fixed at the bottom of the page */
@@ -91,13 +92,14 @@
 .plot-overlay {
   padding: 0px;
   margin: 0px;
-  height: 20%;
-  /* position: relative; */
-  /* bottom: 0;
-  left: 0; */
   width: 100%;
-  height: 20%;
-  /* z-index: 10; */
+  height: 25%;
   background-color: none;
   opacity: 0.8;
 }
+  .overlay-right {
+    border-top-left-radius: 1.5rem;
+  }
+  .overlay-left {
+    border-top-right-radius: 1.5rem;
+  }

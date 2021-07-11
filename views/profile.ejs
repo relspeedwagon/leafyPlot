@@ -27,23 +27,26 @@
     <div class="container-fluid">
         <div class="row row-md-cols-2 gx-3 gy-4">
             <% for(var i=0; i < plots.length; i++) {%>
-                        
-                            <div class="col-lg-6">
-                                <div class="plot-card card img-fluid border-light">
-                                    <a href="/plot/<%= plots[i]._id%>">
-                                        <img src="<%= plots[i].image %>" class="card-img-top plot-image" alt="User's Garden Plot">
-                                    </a>
-                                    
-                                    <div class="d-flex justify-content-between card-img-overlay row plot-overlay ">
-                                        <div class="col-6 bg-dark text-white">
-                                            <span> <%= plots[i].name %> </span>
-                                        </div>
-                                        <div class="col-2 bg-dark">
-        
-                                        </div>
+                
+                <div class="col-lg-6">
+                    <a href="/plot/<%= plots[i]._id%>">
+                        <div class="plot-card card img-fluid border-light">
+                            
+                            <img src="<%= plots[i].image %>" class="card-img plot-image" alt="User's Garden Plot">
+                            
+                            <div class="d-flex align-items-end card-img-overlay p-0">
+                                <div class="d-flex justify-content-between row plot-overlay">
+                                    <div class="col-6 d-flex bg-dark text-white overlay-left">
+                                        <span class="align-self-center"> <%= plots[i].name %> </span>
+                                    </div>
+                                    <div class="col-2 d-flex bg-dark text-white overlay-right">
+                                        <span class="align-self-center"><i class="fas fa-angle-double-right fa-2x"></i></span>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </a>
+                </div>
             <% } %>    
         </div>
     </div>
