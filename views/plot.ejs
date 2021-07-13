@@ -32,47 +32,67 @@
                         <label for="plantNameSCI">Scientific Name</label>
                     </div>
                     <!-- image -->
-                    <div class="mb-3">
-                        <label for="imgUpload" class="form-label">Image <i class="fas fa-image"></i></label>
+                    <div class="input-group mb-3">
+                        <label for="imgUpload" class="input-group-text text-white"><i class="fas fa-image fa-lg"></i></label>
                         <input type="file" class="form-control" id="imageUpload" name="file">
                     </div>
                 <section class="row mb-3">
                         <!-- light -->
                     <div class="col-4">
-                        <select class="form-select h-100" id="light" name="light" aria-label="Sun exposure select">
-                            <option selected>Sun:</option>
-                            <option value="Full-Shade">Full-Shade</option>
-                            <option value="Shade-Partial">Full-Shade to Part-Sun</option>
-                            <option value="Sun-Partial">Full-Sun to Part-Shade</option>
-                            <option value="Full-Sun">Full-Sun</option>
-                            <option value="Sun-Shade">Sun to Shade</option>
-                        </select>
+                        <div class="input-group input-group-lg">
+                            <label class="input-group-text text-white" for="light"><i class="fas fa-sun fa-lg"></i></label>
+                            <div class="form-floating">
+                                <select class="form-select h-100" id="light" name="light" aria-label="Sun exposure select">
+                                    <option selected> </option>
+                                    <option value="Full-Shade">Full-Shade</option>
+                                    <option value="Shade-Partial">Full-Shade to Part-Sun</option>
+                                    <option value="Sun-Partial">Full-Sun to Part-Shade</option>
+                                    <option value="Full-Sun">Full-Sun</option>
+                                    <option value="Sun-Shade">Sun to Shade</option>
+                                </select>
+                                <label for="light">Sun Exposure</label>
+                            </div>
+                        </div>
                     </div>
                     <!-- water -->
                     <div class="col-4">
-                        <select class="form-select h-100" id="water" name="water" aria-label="Water needs select">
-                            <option selected>Water:</option>
-                            <option value="Wet/Keep-Moist">Wet/Keep-Moist</option>
-                            <option value="Average">Average</option>
-                            <option value="Drought-Tolerant">Drought-Tolerant</option>
-                        </select>
+                        <div class="input-group input-group-lg">
+                            <label class="input-group-text text-white" for="light"><i class="fas fa-tint fa-lg"></i></label>
+                            <div class="form-floating">
+                                <select class="form-select h-100" id="water" name="water" aria-label="Water needs select">
+                                    <option selected></option>
+                                    <option value="Wet/Keep-Moist">Wet/Keep-Moist</option>
+                                    <option value="Average">Average</option>
+                                    <option value="Drought-Tolerant">Drought-Tolerant</option>
+                                </select>
+                                <label for="water">Water Needs</label>
+                            </div>
+                        </div>
+                        
                     </div>
                     <!-- soil -->
                     <div class="col-4">
-                        <select class="form-select h-100" id="soil" name="soil" aria-label="Soil select">
-                            <option selected>Soil:</option>
-                            <option value="Average-Soil">Average-Soil</option>
-                            <option value="Well-Drained">Well-Drained</option>
-                            <option value="Rich/Loam">Rich/Loam</option>
-                            <option value="Clay">Clay</option>
-                            <option value="Sandy">Sandy</option>
-                            <option value="Rocky">Rocky</option>
-                        </select>
+                        <div class="input-group input-group-lg">
+                            <label class="input-group-text text-white" for="soil"><i class="fas fa-ellipsis-v fa-lg"></i></i></label>
+                            <div class="form-floating">
+                                <select class="form-select" id="soil" name="soil" aria-label="Soil select">
+                                    <option selected></option>
+                                    <option value="Average-Soil">Average-Soil</option>
+                                    <option value="Well-Drained">Well-Drained</option>
+                                    <option value="Rich/Loam">Rich/Loam</option>
+                                    <option value="Clay">Clay</option>
+                                    <option value="Sandy">Sandy</option>
+                                    <option value="Rocky">Rocky</option>
+                                </select>
+                                <label for="soil">Soil Preference</label>
+                            </div>
+                        </div>
+                        
                     </div>
                 </section>
 
                 <section class="row mb-3">
-                        <div class="col-lg-6">
+                        <div class="col-lg-7">
                             <!-- height -->
                             <div class="row mb-3">
                                 <div class="col-lg-3">
@@ -111,11 +131,11 @@
                             </div>
                         </div>
                         
-                        <div class="col-lg-6">
+                        <div class="col-md-6 col-lg-4">
                             <!-- zone -->
                             <div class="row mb-3">
                                 <div>
-                                    <span><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank">USDA Hardiness Zone:</a></span>
+                                    <span><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank">USDA Hardiness Zone</a></span>
                                 </div>
                                 <div class="col-5">
                                     <select class="form-select h-100" id="zoneMin" name="zoneMin">
@@ -185,76 +205,114 @@
                             </div>
                         </div>
                 </section>
-                <!-- bloom -->
-                    <div class="row mb-3">
-                        <div>
-                            <label for="bloomSeason"></label>Bloom Season:</label>
+                
+                <section class="row mb-3">
+                    <div class="col-lg-7">
+                        <!-- origin -->
+                        <div class="row mb-3">
+                            <div class="col-lg-10">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="nativeOrigin" name="nativeOrigin" placeholder="origin">
+                                    <label for="nativeOrigin">Native Origin</label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-5">
-                            <select class="form-select h-100" id="seasonStart" name="seasonStart" aria-label="Season start select">
-                                <option selected>start</option>
-                                <option value="March">March</option>
-                                <option value="April">April</option>
-                                <option value="May">May</option>
-                                <option value="June">June</option>
-                                <option value="July">July</option>
-                                <option value="August">August</option>
-                                <option value="September">September</option>
-                                <option value="October">October</option>
-                                <option value="November">November</option>
-                                <option value="Spring">Spring</option>
-                                <option value="Early-Spring">Early-Spring</option>
-                                <option value="Mid-Spring">Mid-Spring</option>
-                                <option value="Late-Spring">Late-Spring</option>
-                                <option value="Summer">Summer</option>
-                                <option value="Early-Summer">Early-Summer</option>
-                                <option value="Mid-Summer">Mid-Summer</option>
-                                <option value="Late-Summer">Late-Summer</option>
-                                <option value="Early-Fall">Early-Fall</option>
-                                <option value="Fall">Fall</option>
-                                <option value="Late-Fall">Late-Fall</option>
-                                <option value="Year-Round">Year-Round</option>
-                            </select>
-                        </div>
-                        <div class="col text-center">
-                            <span>to</span>
-                        </div>
-                        <div class="col-5">
-                            <select class="form-select h-100" id="seasonEnd" name="seasonEnd" aria-label="Season end select">
-                                <option selected>end</option>
-                                <option value="March">March</option>
-                                <option value="April">April</option>
-                                <option value="May">May</option>
-                                <option value="June">June</option>
-                                <option value="July">July</option>
-                                <option value="August">August</option>
-                                <option value="September">September</option>
-                                <option value="October">October</option>
-                                <option value="November">November</option>
-                                <option value="Spring">Spring</option>
-                                <option value="Early-Spring">Early-Spring</option>
-                                <option value="Mid-Spring">Mid-Spring</option>
-                                <option value="Late-Spring">Late-Spring</option>
-                                <option value="Summer">Summer</option>
-                                <option value="Early-Summer">Early-Summer</option>
-                                <option value="Mid-Summer">Mid-Summer</option>
-                                <option value="Late-Summer">Late-Summer</option>
-                                <option value="Early-Fall">Early-Fall</option>
-                                <option value="Fall">Fall</option>
-                                <option value="Late-Fall">Late-Fall</option>
-                                <option value="Year-Round">Year-Round</option>
-                            </select>
+                    
+                        <div class="row mb-3">
+                            <div class="col-lg-3">
+                                <span></span>
+                            </div>
+                            <div class="col-lg-2 col-4">
+                                
+                            </div>
+                            <div class="col-lg-2 col-4">
+                                
+                            </div>
+                            <div class="col-3">
+                                
+                            </div>
                         </div>
                     </div>
-                    <!-- origin -->
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="nativeOrigin" name="nativeOrigin" placeholder="origin">
-                        <label for="nativeOrigin">Native Origin</label>
+                    
+                    <div class="col-md-6 col-lg-4">
+                        <!-- bloom -->
+                        <div class="row mb-3">
+                            <div>
+                                <label for="bloomSeason"></label>Bloom Season</label>
+                            </div>
+                            <div class="col-5">
+                                <select class="form-select h-100" id="seasonStart" name="seasonStart" aria-label="Season start select">
+                                    <option selected>start</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="Spring">Spring</option>
+                                    <option value="Early-Spring">Early-Spring</option>
+                                    <option value="Mid-Spring">Mid-Spring</option>
+                                    <option value="Late-Spring">Late-Spring</option>
+                                    <option value="Summer">Summer</option>
+                                    <option value="Early-Summer">Early-Summer</option>
+                                    <option value="Mid-Summer">Mid-Summer</option>
+                                    <option value="Late-Summer">Late-Summer</option>
+                                    <option value="Early-Fall">Early-Fall</option>
+                                    <option value="Fall">Fall</option>
+                                    <option value="Late-Fall">Late-Fall</option>
+                                    <option value="Year-Round">Year-Round</option>
+                                </select>
+                            </div>
+                            <div class="col text-center">
+                                <span>to</span>
+                            </div>
+                            <div class="col-5">
+                                <select class="form-select h-100" id="seasonEnd" name="seasonEnd" aria-label="Season end select">
+                                    <option selected>end</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="Spring">Spring</option>
+                                    <option value="Early-Spring">Early-Spring</option>
+                                    <option value="Mid-Spring">Mid-Spring</option>
+                                    <option value="Late-Spring">Late-Spring</option>
+                                    <option value="Summer">Summer</option>
+                                    <option value="Early-Summer">Early-Summer</option>
+                                    <option value="Mid-Summer">Mid-Summer</option>
+                                    <option value="Late-Summer">Late-Summer</option>
+                                    <option value="Early-Fall">Early-Fall</option>
+                                    <option value="Fall">Fall</option>
+                                    <option value="Late-Fall">Late-Fall</option>
+                                    <option value="Year-Round">Year-Round</option>
+                                </select>
+                            </div>
+                        </div>
                     </div>
-    
+            </section>
+
+
+
+
+
+
+
+
                     <div class="row mb-3">
                         
-                        <div class="col-4">
+                    </div>
+    
+                    <div class="row justify-content-between mb-3">
+                        
+                        <div class="col-md-4">
                             <!-- status -->
                             <div class="mb-3">
                                 <select class="form-select" id=status name="status" aria-label="Planting status select">
@@ -275,11 +333,11 @@
                             
                         </div>
                         
-                        <div class="col-4">
+                        <div class="col-md-6">
                             <!-- year planted -->
                             <div class="input-group mb-3">
-                                <span class="input-group-text">Year Planted:</span>
-                                <input type="number" class="form-control" id="yearPlanted" name="yearPlanted" min="1900" max="2099" step="1" value="2021" aria-label="Year planted" />
+                                <span class="input-group-text">Year <br> Planted</span>
+                                <input type="number" class="form-control" id="yearPlanted" name="yearPlanted" min="2010" max="2099" step="1" value="2021" aria-label="Year planted" />
                                 <select class="form-select" id="plantedSeason" name="plantedSeason">
                                     <option selected>season</option>
                                     <option value="Spring">Spring</option>
@@ -288,26 +346,35 @@
                                 </select>
                             </div>
                             <!-- number of plants -->
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">Number of Plants:</span>
-                                <input type="number" class="form-control" id="numPlanted" name="numPlanted">
+                            <div class="col-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">No. of <br> Plants</span>
+                                    <input type="number" class="form-control" id="numPlanted" name="numPlanted" min="0" placeholder="0">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-4">
-                            <!-- pests -->
-                            <div class="input-group">
-                                <span class="input-group-text">Known Pests:</span>
-                                <textarea class="form-control" id=pests name="pests"></textarea>
+                            <div class="col">
+                                <!-- pests -->
+                                <label for="pests" class="form-label">Known Pests/Diseases</label>
+                                <div class="input-group">
+                                    <span class="input-group-text text-white"><i class="fas fa-bug fa-lg"></i> <i class="fas fa-viruses fa-lg"></i></span>
+                                    <textarea class="form-control" id=pests name="pests" rows="3"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="row mb-3">
+                        
+                    </div>
                     
 
-                    <!-- notes -->
-                    <div class="input-group">
-                        <!-- <label for="notes" class="form-label">Notes:</label> -->
-                        <span class="input-group-text">Notes:</span>
+                    <div class="row">
+                        <!-- notes -->
+                    <label for="notes" class="form-label">Notes</label>
+                    <div class="input-group">  
+                        <span class="input-group-text text-white"><i class="fas fa-pencil-alt fa-lg"></i></span>
                         <textarea class="form-control" id=notes name="notes" rows="3"></textarea>
+                    </div>
                     </div>
                     <!-- plotID, hidden -->
                     <input type="hidden" id="plotID" name= "plotID" value="<%= plot._id %>"> 
