@@ -94,7 +94,7 @@
                 <section class="row mb-3">
                         <div class="col-lg-7">
                             <!-- height -->
-                            <div class="row mb-3">
+                            <div class="row gx-3 mb-3">
                                 <div class="col-lg-3">
                                     <span>Growth Height <i class="fas fa-arrows-alt-v fa-sm"></i></span>
                                 </div>
@@ -112,7 +112,7 @@
                                 </div>
                             </div>
                             <!-- spread -->
-                            <div class="row mb-3">
+                            <div class="row gx-3 mb-3">
                                 <div class="col-lg-3">
                                     <span>Spread <i class="fas fa-arrows-alt-h fa-sm"></i></span>
                                 </div>
@@ -129,11 +129,20 @@
                                     </select>
                                 </div>
                             </div>
+                            <!-- origin -->
+                            <div class="row mb-3">
+                                <div class="col-lg-10">
+                                    <div class="form-floating mb-3">
+                                        <input type="text" class="form-control" id="nativeOrigin" name="nativeOrigin" placeholder="origin">
+                                        <label for="nativeOrigin">Native Origin</label>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="col-md-6 col-lg-4">
                             <!-- zone -->
-                            <div class="row mb-3">
+                            <div class="row gx-3 mb-3">
                                 <div>
                                     <span><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank">USDA Hardiness Zone</a></span>
                                 </div>
@@ -203,40 +212,9 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                </section>
-                
-                <section class="row mb-3">
-                    <div class="col-lg-7">
-                        <!-- origin -->
-                        <div class="row mb-3">
-                            <div class="col-lg-10">
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="nativeOrigin" name="nativeOrigin" placeholder="origin">
-                                    <label for="nativeOrigin">Native Origin</label>
-                                </div>
-                            </div>
-                        </div>
-                    
-                        <div class="row mb-3">
-                            <div class="col-lg-3">
-                                <span></span>
-                            </div>
-                            <div class="col-lg-2 col-4">
-                                
-                            </div>
-                            <div class="col-lg-2 col-4">
-                                
-                            </div>
-                            <div class="col-3">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-6 col-lg-4">
-                        <!-- bloom -->
-                        <div class="row mb-3">
+
+                            <!-- bloom -->
+                        <div class="row gx-3 mb-3">
                             <div>
                                 <label for="bloomSeason"></label>Bloom Season</label>
                             </div>
@@ -296,20 +274,10 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
-            </section>
+                        </div>
 
+                </section>
 
-
-
-
-
-
-
-                    <div class="row mb-3">
-                        
-                    </div>
-    
                     <div class="row justify-content-between mb-3">
                         
                         <div class="col-md-4">
@@ -335,8 +303,9 @@
                         
                         <div class="col-md-6">
                             <!-- year planted -->
+                            <label for="yearPlanted" class="form-label">Year Planted</label>
                             <div class="input-group mb-3">
-                                <span class="input-group-text">Year <br> Planted</span>
+                                <span class="input-group-text text-white"><i class="far fa-calendar-alt fa-lg"></i></span>
                                 <input type="number" class="form-control" id="yearPlanted" name="yearPlanted" min="2010" max="2099" step="1" value="2021" aria-label="Year planted" />
                                 <select class="form-select" id="plantedSeason" name="plantedSeason">
                                     <option selected>season</option>
@@ -346,9 +315,10 @@
                                 </select>
                             </div>
                             <!-- number of plants -->
+                            <label for="numPlanted" class="form-label">Number of Plants</label>
                             <div class="col-6">
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text">No. of <br> Plants</span>
+                                    <span class="input-group-text text-white"><i class="fas fa-seedling"></i><i class="fas fa-seedling"></i></span>
                                     <input type="number" class="form-control" id="numPlanted" name="numPlanted" min="0" placeholder="0">
                                 </div>
                             </div>
@@ -363,21 +333,16 @@
                         </div>
                     </div>
 
-                    <div class="row mb-3">
-                        
-                    </div>
-                    
-
                     <div class="row">
                         <!-- notes -->
-                    <label for="notes" class="form-label">Notes</label>
-                    <div class="input-group">  
-                        <span class="input-group-text text-white"><i class="fas fa-pencil-alt fa-lg"></i></span>
-                        <textarea class="form-control" id=notes name="notes" rows="3"></textarea>
+                        <label for="notes" class="form-label">Notes</label>
+                        <div class="input-group">  
+                            <span class="input-group-text text-white"><i class="fas fa-pencil-alt fa-lg"></i></span>
+                            <textarea class="form-control" id=notes name="notes" rows="3"></textarea>
+                        </div>
                     </div>
-                    </div>
-                    <!-- plotID, hidden -->
-                    <input type="hidden" id="plotID" name= "plotID" value="<%= plot._id %>"> 
+                        <!-- plotID, hidden -->
+                        <input type="hidden" id="plotID" name= "plotID" value="<%= plot._id %>"> 
                     <div class="mt-3">
                         <!-- save/close -->
                         <button class="btn btn-primary" type="submit" value="Upload">Save</button>
@@ -386,8 +351,6 @@
                         Cancel
                         </button>
                     </div>
-
-    
             </form>
     <!-- form END -->
             </div>
