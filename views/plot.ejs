@@ -2,30 +2,339 @@
 <%- include('./partials/header.ejs'); -%>
 <div class="container bg-white p-3">
 
-    <div class="mx-3 mt-2">
+    <section class="mx-3 mt-2">
         <!-- "season dropdown" "create a plot button" -->
-            <div class="d-flex row justify-content-end">
-                <div class="col-lg-4 col-sm-5  my-2">
-                    <select class="h-100 w-100" >
-                        <option>Season</option>
-                    </select>
-                </div>
-                <div class="col-lg-5 col-sm-7">
-                    <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#plantForm" aria-expanded="false" aria-controls="plantForm">
-                        <i class="fas fa-seedling fa-lg pe-2"></i>Add a Plant
-                    </button>
-                </div>
-                
+        <div class="d-flex row justify-content-end">
+            <div class="col-lg-4 col-sm-5  my-2">
+                <select class="h-100 w-100" >
+                    <option>Season</option>
+                </select>
             </div>
+            <div class="col-lg-5 col-sm-7">
+                <button class="btn btn-primary w-100" type="button" data-bs-toggle="collapse" data-bs-target="#plantForm" aria-expanded="false" aria-controls="plantForm">
+                    <i class="fas fa-seedling fa-lg pe-2"></i>Add a Plant
+                </button>
+            </div>
+            
+        </div>
+        <div class="collapse" id="plantForm">
+            <div class="card card-body">
+    <!-- form START -->
+            <form action="/plant/createPlant" enctype="multipart/form-data" method="POST">
+                    <!-- plant name -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nameCommon" name="plantName" placeholder="plant name">
+                        <label for="plantName">Plant Name</label>
+                    </div>
+                    <!-- SCI -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nameSCI" name="plantNameSCI" placeholder="scientific name">
+                        <label for="plantNameSCI">Scientific Name</label>
+                    </div>
+                    <!-- image -->
+                    <div class="mb-3">
+                        <label for="imgUpload" class="form-label">Image <i class="fas fa-image"></i></label>
+                        <input type="file" class="form-control" id="imageUpload" name="file">
+                    </div>
+                <section class="row mb-3">
+                        <!-- light -->
+                    <div class="col-4">
+                        <select class="form-select h-100" id="light" name="light" aria-label="Sun exposure select">
+                            <option selected>Sun:</option>
+                            <option value="Full-Shade">Full-Shade</option>
+                            <option value="Shade-Partial">Full-Shade to Part-Sun</option>
+                            <option value="Sun-Partial">Full-Sun to Part-Shade</option>
+                            <option value="Full-Sun">Full-Sun</option>
+                            <option value="Sun-Shade">Sun to Shade</option>
+                        </select>
+                    </div>
+                    <!-- water -->
+                    <div class="col-4">
+                        <select class="form-select h-100" id="water" name="water" aria-label="Water needs select">
+                            <option selected>Water:</option>
+                            <option value="Wet/Keep-Moist">Wet/Keep-Moist</option>
+                            <option value="Average">Average</option>
+                            <option value="Drought-Tolerant">Drought-Tolerant</option>
+                        </select>
+                    </div>
+                    <!-- soil -->
+                    <div class="col-4">
+                        <select class="form-select h-100" id="soil" name="soil" aria-label="Soil select">
+                            <option selected>Soil:</option>
+                            <option value="Average-Soil">Average-Soil</option>
+                            <option value="Well-Drained">Well-Drained</option>
+                            <option value="Rich/Loam">Rich/Loam</option>
+                            <option value="Clay">Clay</option>
+                            <option value="Sandy">Sandy</option>
+                            <option value="Rocky">Rocky</option>
+                        </select>
+                    </div>
+                </section>
+
+                <section class="row mb-3">
+                        <div class="col-lg-6">
+                            <!-- height -->
+                            <div class="row mb-3">
+                                <div class="col-lg-3">
+                                    <span>Growth Height <i class="fas fa-arrows-alt-v fa-sm"></i></span>
+                                </div>
+                                <div class="col-lg-2 col-4">
+                                    <input type="text" class="form-control" id="minHeight" name="minHeight" placeholder="min">
+                                </div>
+                                <div class="col-lg-2 col-4">
+                                    <input type="text" class="form-control" id="maxHeight" name="maxHeight" placeholder="max">
+                                </div>
+                                <div class="col-3">
+                                    <select class="form-select h-100" id=heightInc name="heightInc">
+                                        <option value="in" selected>in</option>
+                                        <option value="cm">cm</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <!-- spread -->
+                            <div class="row mb-3">
+                                <div class="col-lg-3">
+                                    <span>Spread <i class="fas fa-arrows-alt-h fa-sm"></i></span>
+                                </div>
+                                <div class="col-lg-2 col-4">
+                                    <input type="text" class="form-control" id="minSpread" name="minSpread" placeholder="min">
+                                </div>
+                                <div class="col-lg-2 col-4">
+                                    <input type="text" class="form-control" id="maxSpread" name="maxSpread" placeholder="max">
+                                </div>
+                                <div class="col-3">
+                                    <select class="form-select h-100" id=spreadInc name="spreadInc">
+                                        <option value="in" selected>in</option>
+                                        <option value="cm">cm</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <!-- zone -->
+                            <div class="row mb-3">
+                                <div>
+                                    <span><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank">USDA Hardiness Zone:</a></span>
+                                </div>
+                                <div class="col-5">
+                                    <select class="form-select h-100" id="zoneMin" name="zoneMin">
+                                        <option selected>min</option>
+                                        <option value="1a">1a</option>
+                                        <option value="1b">1b</option>
+                                        <option value="2a">2a</option>
+                                        <option value="2b">2b</option>
+                                        <option value="3a">3a</option>
+                                        <option value="3b">3b</option>
+                                        <option value="4a">4a</option>
+                                        <option value="4b">4b</option>
+                                        <option value="5a">5a</option>
+                                        <option value="5b">5b</option>
+                                        <option value="6a">6a</option>
+                                        <option value="6b">6b</option>
+                                        <option value="7a">7a</option>
+                                        <option value="7b">7b</option>
+                                        <option value="8a">8a</option>
+                                        <option value="8b">8b</option>
+                                        <option value="9a">9a</option>
+                                        <option value="9b">9b</option>
+                                        <option value="10a">10a</option>
+                                        <option value="10b">10b</option>
+                                        <option value="11a">11a</option>
+                                        <option value="11b">11b</option>
+                                        <option value="12a">12a</option>
+                                        <option value="12b">12b</option>
+                                        <option value="13a">13a</option>
+                                        <option value="13b">13b</option>
+                                    </select>
+                                </div>
+                                <div class="col text-center">
+                                    <span>to</span>
+                                </div>
+                                <div class="col-5">
+                                    <select class="form-select h-100" id="zoneMax" name="zoneMax">
+                                        <option selected>max</option>
+                                        <option value="1a">1a</option>
+                                        <option value="1b">1b</option>
+                                        <option value="2a">2a</option>
+                                        <option value="2b">2b</option>
+                                        <option value="3a">3a</option>
+                                        <option value="3b">3b</option>
+                                        <option value="4a">4a</option>
+                                        <option value="4b">4b</option>
+                                        <option value="5a">5a</option>
+                                        <option value="5b">5b</option>
+                                        <option value="6a">6a</option>
+                                        <option value="6b">6b</option>
+                                        <option value="7a">7a</option>
+                                        <option value="7b">7b</option>
+                                        <option value="8a">8a</option>
+                                        <option value="8b">8b</option>
+                                        <option value="9a">9a</option>
+                                        <option value="9b">9b</option>
+                                        <option value="10a">10a</option>
+                                        <option value="10b">10b</option>
+                                        <option value="11a">11a</option>
+                                        <option value="11b">11b</option>
+                                        <option value="12a">12a</option>
+                                        <option value="12b">12b</option>
+                                        <option value="13a">13a</option>
+                                        <option value="13b">13b</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+                <!-- bloom -->
+                    <div class="row mb-3">
+                        <div>
+                            <label for="bloomSeason"></label>Bloom Season:</label>
+                        </div>
+                        <div class="col-5">
+                            <select class="form-select h-100" id="seasonStart" name="seasonStart" aria-label="Season start select">
+                                <option selected>start</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="Spring">Spring</option>
+                                <option value="Early-Spring">Early-Spring</option>
+                                <option value="Mid-Spring">Mid-Spring</option>
+                                <option value="Late-Spring">Late-Spring</option>
+                                <option value="Summer">Summer</option>
+                                <option value="Early-Summer">Early-Summer</option>
+                                <option value="Mid-Summer">Mid-Summer</option>
+                                <option value="Late-Summer">Late-Summer</option>
+                                <option value="Early-Fall">Early-Fall</option>
+                                <option value="Fall">Fall</option>
+                                <option value="Late-Fall">Late-Fall</option>
+                                <option value="Year-Round">Year-Round</option>
+                            </select>
+                        </div>
+                        <div class="col text-center">
+                            <span>to</span>
+                        </div>
+                        <div class="col-5">
+                            <select class="form-select h-100" id="seasonEnd" name="seasonEnd" aria-label="Season end select">
+                                <option selected>end</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="Spring">Spring</option>
+                                <option value="Early-Spring">Early-Spring</option>
+                                <option value="Mid-Spring">Mid-Spring</option>
+                                <option value="Late-Spring">Late-Spring</option>
+                                <option value="Summer">Summer</option>
+                                <option value="Early-Summer">Early-Summer</option>
+                                <option value="Mid-Summer">Mid-Summer</option>
+                                <option value="Late-Summer">Late-Summer</option>
+                                <option value="Early-Fall">Early-Fall</option>
+                                <option value="Fall">Fall</option>
+                                <option value="Late-Fall">Late-Fall</option>
+                                <option value="Year-Round">Year-Round</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- origin -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nativeOrigin" name="nativeOrigin" placeholder="origin">
+                        <label for="nativeOrigin">Native Origin</label>
+                    </div>
     
-            <div class="">
-                <h2 class="title-font text-uppercase"><span><%= plot.name %></span></h2>
-                
+                    <div class="row mb-3">
+                        
+                        <div class="col-4">
+                            <!-- status -->
+                            <div class="mb-3">
+                                <select class="form-select" id=status name="status" aria-label="Planting status select">
+                                    <option selected>Planting Status:</option>
+                                    <option value="To-Plant">To-Plant</option>
+                                    <option value="Planted">Planted</option>
+                                </select>
+                            </div>
+                            <!-- current health -->
+                            <div class="mb-3">
+                                <select class="form-select" id=health name="health">
+                                    <option selected>Current Health:</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Thriving">Thriving</option>
+                                    <option value="Failed">Failed</option>
+                                </select>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="col-4">
+                            <!-- year planted -->
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Year Planted:</span>
+                                <input type="number" class="form-control" id="yearPlanted" name="yearPlanted" min="1900" max="2099" step="1" value="2021" aria-label="Year planted" />
+                                <select class="form-select" id="plantedSeason" name="plantedSeason">
+                                    <option selected>season</option>
+                                    <option value="Spring">Spring</option>
+                                    <option value="Summer">Summer</option>
+                                    <option value="Fall">Fall</option>
+                                </select>
+                            </div>
+                            <!-- number of plants -->
+                            <div class="input-group mb-3">
+                                <span class="input-group-text">Number of Plants:</span>
+                                <input type="number" class="form-control" id="numPlanted" name="numPlanted">
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <!-- pests -->
+                            <div class="input-group">
+                                <span class="input-group-text">Known Pests:</span>
+                                <textarea class="form-control" id=pests name="pests"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <!-- notes -->
+                    <div class="input-group">
+                        <!-- <label for="notes" class="form-label">Notes:</label> -->
+                        <span class="input-group-text">Notes:</span>
+                        <textarea class="form-control" id=notes name="notes" rows="3"></textarea>
+                    </div>
+                    <!-- plotID, hidden -->
+                    <input type="hidden" id="plotID" name= "plotID" value="<%= plot._id %>"> 
+                    <div class="mt-3">
+                        <!-- save/close -->
+                        <button class="btn btn-primary" type="submit" value="Upload">Save</button>
+                        <!-- <button type="reset" class="btn cancel" onclick="closeForm()">Close</button> -->
+                        <button class="btn btn-secondary" type="reset" data-bs-toggle="collapse" data-bs-target="#plantForm" aria-expanded="true" aria-controls="plantForm">
+                        Cancel
+                        </button>
+                    </div>
+
+    
+            </form>
+    <!-- form END -->
             </div>
-        
         </div>
     
-        <!-- all plants for user-->
+        <div class="">
+            <h2 class="title-font text-uppercase"><span><%= plot.name %></span></h2>
+            
+        </div>
+        
+    </section>
+    
+    <div class="col-8">
+            <!-- all plants for user-->
         <section class="container-fluid p-0">
             <div class="row row-md-cols-2 gx-3 gy-4">
                 <% for(var i=0; i < plants.length; i++) {%>
@@ -52,286 +361,16 @@
                 <% } %>    
             </div>
         </section>
+    </div>
+        
 
         <section>
             <p>
-                <!-- <a class="btn btn-primary" data-bs-toggle="collapse" href="#plantForm" role="button" aria-expanded="false" aria-controls="plantForm">
-                    <i class="fas fa-seedling fa-lg pe-2"></i>Add a Plant
-                </a> -->
                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#plantForm" aria-expanded="false" aria-controls="plantForm">
                     <i class="fas fa-seedling fa-lg pe-2"></i>Add a Plant
                 </button>
             </p>
-            <div class="collapse" id="plantForm">
-                <div class="card card-body">
-                <form action="/plant/createPlant" enctype="multipart/form-data" method="POST">
-                        <!-- plant name -->
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nameCommon" name="plantName" placeholder="plant name">
-                            <label for="plantName">Plant Name</label>
-                        </div>
-                        <!-- SCI -->
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nameSCI" name="plantNameSCI" placeholder="scientific name">
-                            <label for="plantNameSCI">Scientific Name</label>
-                        </div>
-                        <!-- image -->
-                        <div class="mb-3">
-                            <input type="file" class="form-control" id="imageUpload" name="file">
-                            <label for="imgUpload" class="form-label">Image:</label>
-                        </div>
-                    <section class="row mb-3">
-                            <!-- light -->
-                        <div class="col-4">
-                            <select class="form-select h-100" id="light" name="light" aria-label="Sun exposure select">
-                                <option selected>Sun Exposure:</option>
-                                <option value="Full-Shade">Full-Shade</option>
-                                <option value="Shade-Partial">Full-Shade to Part-Sun</option>
-                                <option value="Sun-Partial">Full-Sun to Part-Shade</option>
-                                <option value="Full-Sun">Full-Sun</option>
-                                <option value="Sun-Shade">Sun to Shade</option>
-                            </select>
-                        </div>
-                        <!-- water -->
-                        <div class="col-4">
-                            <select class="form-select h-100" id="water" name="water" aria-label="Water needs select">
-                                <option selected>Water:</option>
-                                <option value="Wet/Keep-Moist">Wet/Keep-Moist</option>
-                                <option value="Average">Average</option>
-                                <option value="Drought-Tolerant">Drought-Tolerant</option>
-                            </select>
-                        </div>
-                        <!-- soil -->
-                        <div class="col-4">
-                            <select class="form-select h-100" id="soil" name="soil" aria-label="Soil select">
-                                <option selected>Soil:</option>
-                                <option value="Average-Soil">Average-Soil</option>
-                                <option value="Well-Drained">Well-Drained</option>
-                                <option value="Rich/Loam">Rich/Loam</option>
-                                <option value="Clay">Clay</option>
-                                <option value="Sandy">Sandy</option>
-                                <option value="Rocky">Rocky</option>
-                            </select>
-                        </div>
-                    </section>
-
-
-                    <section class="row mb-3">
-                            <div class="col-lg-6">
-                                <!-- height -->
-                                <div class="row mb-3">
-                                    <div class="col-lg-3">
-                                        <span>Growth Height:</span>
-                                    </div>
-                                    <div class="col-lg-2 col-4">
-                                        <input type="text" class="form-control" id="minHeight" name="minHeight" placeholder="min">
-                                    </div>
-                                    <div class="col-lg-2 col-4">
-                                        <input type="text" class="form-control" id="maxHeight" name="maxHeight" placeholder="max">
-                                    </div>
-                                    <div class="col-3">
-                                        <select class="form-select h-100" id=heightInc name="heightInc">
-                                            <option value="in" selected>in</option>
-                                            <option value="cm">cm</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <!-- spread -->
-                                <div class="row mb-3">
-                                    <div class="col-lg-3">
-                                        <span>Spread:</span>
-                                    </div>
-                                    <div class="col-lg-2 col-4">
-                                        <input type="text" class="form-control" id="minSpread" name="minSpread" placeholder="min">
-                                    </div>
-                                    <div class="col-lg-2 col-4">
-                                        <input type="text" class="form-control" id="maxSpread" name="maxSpread" placeholder="max">
-                                    </div>
-                                    <div class="col-3">
-                                        <select class="form-select h-100" id=spreadInc name="spreadInc">
-                                            <option value="in" selected>in</option>
-                                            <option value="cm">cm</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="col-lg-6">
-                                <!-- zone -->
-                                <div class="row mb-3">
-                                    <div class="col-4">
-                                        <span><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank">USDA Hardiness Zone:</a></span>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <select class="form-select h-100" id="zoneMin" name="zoneMin">
-                                            <option selected>min</option>
-                                            <option value="1a">1a</option>
-                                            <option value="1b">1b</option>
-                                            <option value="2a">2a</option>
-                                            <option value="2b">2b</option>
-                                            <option value="3a">3a</option>
-                                            <option value="3b">3b</option>
-                                            <option value="4a">4a</option>
-                                            <option value="4b">4b</option>
-                                            <option value="5a">5a</option>
-                                            <option value="5b">5b</option>
-                                            <option value="6a">6a</option>
-                                            <option value="6b">6b</option>
-                                            <option value="7a">7a</option>
-                                            <option value="7b">7b</option>
-                                            <option value="8a">8a</option>
-                                            <option value="8b">8b</option>
-                                            <option value="9a">9a</option>
-                                            <option value="9b">9b</option>
-                                            <option value="10a">10a</option>
-                                            <option value="10b">10b</option>
-                                            <option value="11a">11a</option>
-                                            <option value="11b">11b</option>
-                                            <option value="12a">12a</option>
-                                            <option value="12b">12b</option>
-                                            <option value="13a">13a</option>
-                                            <option value="13b">13b</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-2">
-                                        <span>to</span>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <select class="form-select h-100" id="zoneMax" name="zoneMax">
-                                            <option selected>max</option>
-                                            <option value="1a">1a</option>
-                                            <option value="1b">1b</option>
-                                            <option value="2a">2a</option>
-                                            <option value="2b">2b</option>
-                                            <option value="3a">3a</option>
-                                            <option value="3b">3b</option>
-                                            <option value="4a">4a</option>
-                                            <option value="4b">4b</option>
-                                            <option value="5a">5a</option>
-                                            <option value="5b">5b</option>
-                                            <option value="6a">6a</option>
-                                            <option value="6b">6b</option>
-                                            <option value="7a">7a</option>
-                                            <option value="7b">7b</option>
-                                            <option value="8a">8a</option>
-                                            <option value="8b">8b</option>
-                                            <option value="9a">9a</option>
-                                            <option value="9b">9b</option>
-                                            <option value="10a">10a</option>
-                                            <option value="10b">10b</option>
-                                            <option value="11a">11a</option>
-                                            <option value="11b">11b</option>
-                                            <option value="12a">12a</option>
-                                            <option value="12b">12b</option>
-                                            <option value="13a">13a</option>
-                                            <option value="13b">13b</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                    </section>
-                        
-        
-                        <div class="mb-3">
-                            <label for="bloomSeason" class="form-label"></label>Bloom Season:</label>
-                            <select id="seasonStart" name="seasonStart">
-                                <option value=" "> </option>
-                                <option value="March">March</option>
-                                <option value="April">April</option>
-                                <option value="May">May</option>
-                                <option value="June">June</option>
-                                <option value="July">July</option>
-                                <option value="August">August</option>
-                                <option value="September">September</option>
-                                <option value="October">October</option>
-                                <option value="November">November</option>
-                                <option value="Spring">Spring</option>
-                                <option value="Early-Spring">Early-Spring</option>
-                                <option value="Mid-Spring">Mid-Spring</option>
-                                <option value="Late-Spring">Late-Spring</option>
-                                <option value="Summer">Summer</option>
-                                <option value="Early-Summer">Early-Summer</option>
-                                <option value="Mid-Summer">Mid-Summer</option>
-                                <option value="Late-Summer">Late-Summer</option>
-                                <option value="Early-Fall">Early-Fall</option>
-                                <option value="Fall">Fall</option>
-                                <option value="Late-Fall">Late-Fall</option>
-                                <option value="Year-Round">Year-Round</option>
-                            </select>
-                            <span>to</span>
-                            <select id="seasonEnd" name="seasonEnd">
-                                <option value=" "> </option>
-                                <option value="March">March</option>
-                                <option value="April">April</option>
-                                <option value="May">May</option>
-                                <option value="June">June</option>
-                                <option value="July">July</option>
-                                <option value="August">August</option>
-                                <option value="September">September</option>
-                                <option value="October">October</option>
-                                <option value="November">November</option>
-                                <option value="Spring">Spring</option>
-                                <option value="Early-Spring">Early-Spring</option>
-                                <option value="Mid-Spring">Mid-Spring</option>
-                                <option value="Late-Spring">Late-Spring</option>
-                                <option value="Summer">Summer</option>
-                                <option value="Early-Summer">Early-Summer</option>
-                                <option value="Mid-Summer">Mid-Summer</option>
-                                <option value="Late-Summer">Late-Summer</option>
-                                <option value="Early-Fall">Early-Fall</option>
-                                <option value="Fall">Fall</option>
-                                <option value="Late-Fall">Late-Fall</option>
-                                <option value="Year-Round">Year-Round</option>
-                            </select>
-                        </div>
-        
-                        <div>
-                            <label for="nativeOrigin" class="form-label">Native Origin:</label>
-                            <input type="text" class="form-control" id="nativeOrigin" name="nativeOrigin">
-                        </div>
-        
-                        <div>
-                            <label for="status" class="form-label">Planting Status:</label>
-                            <select id=status name="status">
-                                <option value=" "> </option>
-                                <option value="To-Plant">To-Plant</option>
-                                <option value="Planted">Planted</option>
-                            </select>
-                        </div>
-        
-                        <div>
-                            <label for="yearPlanted" class="form-label">Year Planted:</label>
-                            <input type="number" id="yearPlanted" name="yearPlanted" min="1900" max="2099" step="1" value="2021" />
-                        </div>
-        
-                        <div>
-                            <label for="numPlanted" class="form-label">Number of Plants:</label>
-                            <input type="number" class="form-control" id="numPlanted" name="numPlanted">
-                        </div>
-        
-                        <div>
-                            <label for="health" class="form-label">Current Health:</label>
-                            <select id=health name="health">
-                                <option value=" "> </option>
-                                <option value="Active">Active</option>
-                                <option value="Thriving">Thriving</option>
-                                <option value="Failed">Failed</option>
-                            </select>
-                        </div>
-        
-                        <div>
-                            <label for="notes" class="form-label">Notes:</label>
-                            <textarea id=notes name="notes"></textarea>
-                        </div>
-        
-                        <input type="hidden" id="plotID" name= "plotID" value="<%= plot._id %>"> 
-        
-                        <button type="submit" class="btn" value="Upload">Save</button>
-                        <button type="reset" class="btn cancel" onclick="closeForm()">Close</button>
-        
-                </form>
-                </div>
-            </div>
+            
         </section>
 
     <div class="">
