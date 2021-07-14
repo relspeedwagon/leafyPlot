@@ -76,9 +76,9 @@
     box-shadow: 0 0 0 0.25rem rgb(232 65 127 / 70%);
   }
 
-/* ul, li {
-  list-style: none;
-} */
+.input-group-text {
+  background-color: #a3a5a6
+}
 
 .plot-card {
   border-bottom-right-radius: 4rem;
