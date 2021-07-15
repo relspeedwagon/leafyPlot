@@ -26,6 +26,18 @@ const PlotSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
+    avgSun: {
+        type: String,
+        required: false,
+    },
+    soilType: {
+        type: String,
+        required: false,
+    },
+    notes: {
+        type: String,
+        required: false,
+    },
     public: {
         type: Boolean,
         default: false,

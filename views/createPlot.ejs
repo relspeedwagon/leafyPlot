@@ -1,87 +1,160 @@
 <%- include('./partials/header.ejs'); -%>
+
 <div class="container">
-    
+    <div class="row justify-content-center my-5">
+        <h3>Start a Plot</h3>
 
-    <div class="mt-5">
-        <a class="btn" href="/profile">Back</a>
-        <form action="/plot/createPlot" enctype="multipart/form-data" method="POST">
-            <div class="mb-3">
-                <label for="plotName" class="form-label">Plot Name:</label>
-                <input type="text" class="form-control" id="name" name="plotName">
-            </div>
-
-            <div>
-                <label for="seasonID">Planting Year:</label>
-                <select id="seasonID" name="seasonID">
-                    <option value="N/A">Not Specified</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
-                </select>
-            </div>
-            
-            <div class="mb-3">
-                <label for="imgUpload" class="form-label">Image:</label>
-                <input type="file" class="form-control" id="imageUpload" name="file">
-            </div>
-
-            <div class="mb-3">
-                <label for="zone" class="form-label"><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank">USDA Plant Hardiness Zone:</a></label>
-                <select id="zone" name="zone">
-                    <option value="N/A">N/A</option>
-                    <option value="Indoors">Indoor Planting</option>
-                    <option value="1a">1a</option>
-                    <option value="1b">1b</option>
-                    <option value="2a">2a</option>
-                    <option value="2b">2b</option>
-                    <option value="3a">3a</option>
-                    <option value="3b">3b</option>
-                    <option value="4a">4a</option>
-                    <option value="4b">4b</option>
-                    <option value="5a">5a</option>
-                    <option value="5b">5b</option>
-                    <option value="6a">6a</option>
-                    <option value="6b">6b</option>
-                    <option value="7a">7a</option>
-                    <option value="7b">7b</option>
-                    <option value="8a">8a</option>
-                    <option value="8b">8b</option>
-                    <option value="9a">9a</option>
-                    <option value="9b">9b</option>
-                    <option value="10a">10a</option>
-                    <option value="10b">10b</option>
-                    <option value="11a">11a</option>
-                    <option value="11b">11b</option>
-                    <option value="12a">12a</option>
-                    <option value="12b">12b</option>
-                    <option value="13a">13a</option>
-                    <option value="13b">13b</option>
-                    
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label for="location" class="form-label">Location (i.e. "Front of house"):</label>
-                <input type="text" class="form-control" id="location" name="location">
-            </div>
-
-            <div class="buttons">
-                <div class="buttonContainer">
-                    <button type="submit" class="" value="Upload">Save</button>
-                </div>
-            </div>
-        </form>
     </div>
 
+    <form action="/plot/createPlot" enctype="multipart/form-data" method="POST">
+        <!-- plot name -->
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="plotName" name="plotName" placeholder="plot name">
+            <label for="plotName">Garden Plot Name<span class="req-prop">*</span></label>
+        </div>
+
+        <!-- plot location -->
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="location" name="location" placeholder="location">
+            <label for="location">Plot Location (i.e. "Front fence")</label>
+        </div>
+        
+        <div class="row g-3">
+            <div class="col-md-6">
+                <!-- image -->
+                <div><label for="imgUpload">Plot Profile Image</label></div>
+                <div class="input-group mb-3">
+                    <div class="input-group-text text-white" for="imgUpload"><i class="fas fa-image fa-lg"></i></div>
+                    <input type="file" class="form-control" id="imageUpload" name="file">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <!-- season ID -->
+                <div><label for="seasonID">Planting Year<span class="req-prop">*</span></label></div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text text-white"><i class="far fa-calendar-alt fa-lg"></i></span>
+                    <select class="form-select" id="seasonID" name="seasonID">
+                        <option selected>select current season</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row gy-2 gx-3 mb-3 mt-3">
+            
+
+            <div class="col-lg-4">
+                <!-- zone -->
+                <div class="row gx-3 mb-3">
+                    <div>
+                        <span><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" target="_blank">USDA Hardiness Zone</a></span>
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-text text-white" for="zone"><i class="fas fa-globe-americas fa-lg"></i></div>
+                        <select class="form-select h-100" id="zone" name="zone">
+                            <option selected>select zone</option>
+                            <option value="Indoors">Indoor Planting</option>
+                            <option value="1a">1a</option>
+                            <option value="1b">1b</option>
+                            <option value="2a">2a</option>
+                            <option value="2b">2b</option>
+                            <option value="3a">3a</option>
+                            <option value="3b">3b</option>
+                            <option value="4a">4a</option>
+                            <option value="4b">4b</option>
+                            <option value="5a">5a</option>
+                            <option value="5b">5b</option>
+                            <option value="6a">6a</option>
+                            <option value="6b">6b</option>
+                            <option value="7a">7a</option>
+                            <option value="7b">7b</option>
+                            <option value="8a">8a</option>
+                            <option value="8b">8b</option>
+                            <option value="9a">9a</option>
+                            <option value="9b">9b</option>
+                            <option value="10a">10a</option>
+                            <option value="10b">10b</option>
+                            <option value="11a">11a</option>
+                            <option value="11b">11b</option>
+                            <option value="12a">12a</option>
+                            <option value="12b">12b</option>
+                            <option value="13a">13a</option>
+                            <option value="13b">13b</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+                <!-- light -->
+                <div class="col-lg-4">
+                    <div>
+                        <label for="avgSun">Location Sun Exposure</label>
+                    </div>
+                        <div class="input-group">
+                            <div class="input-group-text text-white" for="avgSun"><i class="fas fa-sun fa-lg"></i></div>
+                                <select class="form-select h-100" id="avgSun" name="avgSun" aria-label="Average sun select">
+                                    <option selected>(select best desc. for this location)</option>
+                                    <option value="Full-Shade">Full-Shade</option>
+                                    <option value="Shade-Partial">Full-Shade to Part-Sun</option>
+                                    <option value="Sun-Partial">Full-Sun to Part-Shade</option>
+                                    <option value="Full-Sun">Full-Sun</option>
+                                    <option value="Morning-Sun">Morning-Sun</option>
+                                    <option value="Afternoon-Sun">Afternoon-Sun</option>
+                                </select>
+                        </div>
+                </div>
+                
+                <!-- soil -->
+                <div class="col-lg-4">
+                    <div><label for="soilType">Location Soil Type</label></div>
+                    <div class="input-group">
+                        <div class="input-group-text text-white" for="soil"><i class="fas fa-ellipsis-v fa-lg"></i></div>
+                            <select class="form-select h-100" id="soilType" name="soilType" aria-label="Soil select">
+                                <option selected>(select best desc. for this location)</option>
+                                <option value="Average-Soil">Average-Soil</option>
+                                <option value="Well-Drained">Well-Drained</option>
+                                <option value="Clay">Clay</option>
+                                <option value="Silt">Silt</option>
+                                <option value="Rich/Loam">Rich/Loam</option>
+                                <option value="Sandy">Sandy</option>
+                                <option value="Rocky">Rocky</option>
+                            </select>
+                    </div>
+                </div>
+        </div>
+
+            <div class="row justify-content-between mb-3">
+                
+                <div class="col-md-7">
+
+                    <!-- notes -->
+                    <div>
+                        <label for="notes" class="form-label">Notes</label>
+                    </div>
+                    <div class="input-group mb-3">  
+                        <span class="input-group-text text-white"><i class="fas fa-pencil-alt fa-lg"></i></span>
+                        <textarea class="form-control" id=notes name="notes" rows="4"></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="mt-3">
+                <!-- save/close -->
+                <button class="btn btn-primary" type="submit" value="Upload">Save and Exit</button>
+                <a class="btn btn-secondary" href="/profile">Exit Without Saving</a>
+
+                
+            </div>
+    </form>
+
 </div>
-<!--    name: req.body.plotName,
-        seasonID: req.body.seasonID,
-        image: result.secure_url,
-        cloudinaryId: result.public_id,
-        zone: req.body.zone,
-        location: req.body.location,
-        public: req.body.public,
-        user: req.user.id, -->
 
 <%- include('./partials/footer.ejs'); -%>

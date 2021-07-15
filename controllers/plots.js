@@ -39,6 +39,9 @@ module.exports = {
         imageProviderId: result.public_id,
         zone: req.body.zone,
         location: req.body.location,
+        avgSun: req.body.avgSun,
+        soilType: req.body.soilType,
+        notes: req.body.notes,
         public: req.body.public,
         user: req.user.id,
       });
@@ -48,6 +51,8 @@ module.exports = {
       console.log(err);
     }
   },
+
+  // -----------must update with new fields----
   editPlot: async (req, res) => {
     try {
       await Plot.findOneAndUpdate(
