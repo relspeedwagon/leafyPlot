@@ -1,9 +1,9 @@
 <!-- read only, view details of a plant -->
 <%- include('partials/header') -%>
 <div class="container">
-    <div class="row justify-content-center my-5">
+    <div class="row justify-content-center my-2">
 
-        <div class="col-lg-8">
+        <div class="col-lg-6">
             <div class="plot-card card img-fluid border-light">
                             
                 <img src="<%= plant.image %>" class="card-img plot-image" alt="Plant Image">
@@ -26,22 +26,15 @@
                     </div>
                 </div>
             </div>
-            <div class="row g-3">
-                <div class="col">
-                    <form action="/plant/deletePlant/<%= plant.id %>?_method=DELETE" method="POST" class="col-3">
-                        <button class="btn btn-danger" type="submit"><span style="font-size: 1.5rem"><i class="fas fa-recycle pe-2"></i></span><span>Compost</span></button>
-                    </form>
-                </div>
-                <div class="col">
-                    <a class="btn btn-primary" href="/plant/<%= plant.id %>/edit" role="button"><i class="fas fa-pencil-alt fa-lg pe-2"></i>Edit Plant Details</a>
-                </div>
-    
-            </div>
+            <!-- ------- -->
+            <div class="row border-bottom border-1 p-0 m-0" style="height: 10px;"></div>
+            <!-- ------- -->
+
             <div>
                 <div class="row gy-2 gx-3 mb-4 mt-3">
                     <div class="col-lg-4">
                         <!-- plant name -->
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <span class="label-text text-muted">Plant Name</span>
                             <div>
                                 <span><%= plant.nameCommon %></span>
@@ -59,7 +52,7 @@
                     </div>
                 </div>
                 
-                <div class="row gy-2 gx-3 mb-4">
+                <div class="row gy-2 gx-3 my-4">
                         <!-- light -->
                     <div class="col-lg-4">
                         <div>
@@ -77,7 +70,6 @@
                         <div>
                             <span><i class="label-text text-muted fas fa-tint fa-lg pe-2"></i><%= plant.water %></span>
                         </div>
-                        
                     </div>
                     <!-- soil -->
                     <div class="col-lg-4">
@@ -89,29 +81,32 @@
                         </div>
                     </div>
                 </div>
+                <!-- ------- -->
+                <div class="row border-bottom border-1 p-0 m-0" style="height: 10px;"></div>
+                <!-- ------- -->
             
-                <div class="row mb-4">
+                <div class="row my-3">
                         <div class="col-lg-7">
                             <!-- height -->
-                            <div class="row gx-3 mb-3">
-                                <div class="col-lg-4">
-                                    <span>Growth Height <i class="fas fa-arrows-alt-v fa-sm"></i></span>
+                            <div class="mb-3">
+                                <div>
+                                    <span class="label-text text-muted">Growth Height</span>
                                 </div>
-                                <div class="col-lg-2 col-4">
-                                    <div><%= plant.height %></div>
+                                <div>
+                                    <div><i class="label-text text-muted fas fa-arrows-alt-v fa-lg pe-3"></i><%= plant.height %></div>
                                 </div>
                             </div>
                             <!-- spread -->
-                            <div class="row gx-3 mb-3">
-                                <div class="col-lg-4">
-                                    <span>Spread <i class="fas fa-arrows-alt-h fa-sm"></i></span>
+                            <div class="mb-3">
+                                <div>
+                                    <span class="label-text text-muted">Spread</span>
                                 </div>
-                                <div class="col-lg-2 col-4">
-                                    <span><%= plant.spread %></span>
+                                <div>
+                                    <span><i class="label-text text-muted fas fa-arrows-alt-h fa-lg pe-3"></i><%= plant.spread %></span>
                                 </div>
                             </div>
                             <!-- origin -->
-                            <div class="row mb-3">
+                            <div class="row">
                                 <div class="col-lg-11">
                                     <div class="mb-3">
                                         <span class="label-text text-muted">Native Origin</span>
@@ -136,7 +131,7 @@
                             </div>
             
                             <!-- bloom -->
-                        <div class="row gx-3 mb-3">
+                        <div class="row gx-3">
                             <div>
                                 <span class="label-text text-muted">Bloom Season</span>
                             </div>
@@ -146,67 +141,78 @@
                         </div>
                     </div>
                 </div>
-            
-                    <div class="row justify-content-between mb-3">
+                <!-- ------- -->
+                <div class="row border-bottom border-1 p-0 m-0" style="height: 10px;"></div>
+                <!-- ------- -->
+                    <div class="row justify-content-between my-3">
                         
                         <div class="col-md-5">
                             <!-- status -->
                             <div>
-                                <span>Planting Status</span>
+                                <span class="label-text text-muted">Planting Status</span>
                             </div>
                             <div class="mb-3">
-                                <div class=""><i class="fas fa-check fa-lg"></i></div>
-                                <span><%= plant.status %></span>
+                                <span><i class="label-text text-muted fas fa-check fa-lg pe-2"></i><%= plant.status %></span>
                             </div>
                             <!-- current health -->
                             <div>
-                                <span>Current Health</span>
+                                <span class="label-text text-muted">Current Health</span>
                             </div>
                             <div class="mb-3">
-                                <div class=""><i class="fas fa-smile fa-lg"></i><br><i class="fas fa-sad-tear fa-lg"></i></div>
-                                <span><%= plant.health %></span>
+                                <span><i class="label-text text-muted fas fa-smile fa-lg"></i><i class="label-text text-muted fas fa-sad-tear fa-lg pe-2"></i><%= plant.health %></span>
                             </div>
                             <!-- notes -->
                             <div>
-                                <span>Notes</span>
+                                <span class="label-text text-muted">Notes</span>
                             </div>
                             <div class="mb-3">  
-                                <span class=""><i class="fas fa-pencil-alt fa-lg"></i></span>
-                                <span><%= plant.notes %></span>
+                                <p>
+                                    <span><i class="label-text text-muted fas fa-pencil-alt fa-lg pe-2"></i></span><%= plant.notes %>
+                                </p>
                             </div>
-            
                         </div>
                         
                         <div class="col-md-6">
                             <!-- year planted -->
-                            <span>Year Planted</span>
+                            <div>
+                                <span class="label-text text-muted">Year Planted</span>
+                            </div>
                             <div class="mb-3">
-                                <span class=""><i class="far fa-calendar-alt fa-lg"></i></span>
-                                <span><%= plant.planted.year %>, <%= plant.planted.season %></span>
+                                <span><i class="label-text text-muted far fa-calendar-alt fa-lg pe-2"></i><%= plant.planted.year %>, <%= plant.planted.season %></span>
                             </div>
                             <!-- number of plants -->
-                            <span>Number of Plants</span>
+                            <span class="label-text text-muted">Number of Plants</span>
                             <div class="col-6">
                                 <div class="mb-3">
-                                    <span class=""><i class="fas fa-seedling"></i><i class="fas fa-seedling"></i></span>
+                                    <span ><i class="label-text text-muted fas fa-seedling"></i><i class="label-text text-muted fas fa-seedling pe-2"></i></span>
                                     <span><%= plant.numPlanted %></span>
                                 </div>
                             </div>
                             <div class="col">
                                 <!-- pests -->
-                                <span>Known Pests/Diseases</span>
+                                <span class="label-text text-muted">Known Pests & Diseases</span>
                                 <div>
-                                    <span class=""><i class="fas fa-bug fa-lg"></i> <i class="fas fa-viruses fa-lg"></i></span>
-                                    <span><%= plant.pests %></span>
+                                    <p>
+                                        <span class=""><i class="label-text text-muted fas fa-bug fa-lg"></i><i class="label-text text-muted fas fa-viruses fa-lg pe-2"></i></span><%= plant.pests %>
+                                    </p>
                                 </div>
                             </div>
                         </div>
                     </div>
             
                 </div>
+                <div class="row justify-content-end m-3">
+                    <form action="/plant/deletePlant/<%= plant.id %>?_method=DELETE" method="POST" class="col-3">
+                        <button class="btn btn-danger" type="submit"><span style="font-size: 1.5rem"><i class="fas fa-recycle pe-2"></i></span><span>Compost</span></button>
+                    </form>
+                    <div class="col">
+                        <a class="btn btn-primary" href="/plant/<%= plant.id %>/edit" role="button"><i class="fas fa-pencil-alt fa-lg pe-2"></i>Edit Plant Details</a>
+                    </div>
+                </div>
+
+
         </div>
     </div>
-
 </div>
 
 <%- include('partials/footer') -%>
