@@ -12,7 +12,7 @@
   border: #E8417F;
 }
   .btn-primary:hover {
-    background-color: #37C301;
+    background-color: #06B1F9;
   }
   .btn-primary:focus {
     background-color: #E8417F;
@@ -27,13 +27,19 @@
   border: #C9C9C9;
 }
 
-.btn-danger {
+.btn-warning {
+  color: white;
   background-color: #2B9A00;
   border: #2B9A00;
 }
-.btn-danger:hover {
+.btn-warning:hover {
+  color: white;
   background-color: #217600;
   border: #217600;
+}
+
+.link-primary {
+  color:#E8417F;
 }
 
 .req-prop {
