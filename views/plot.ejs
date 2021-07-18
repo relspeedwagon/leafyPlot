@@ -1,11 +1,11 @@
 
 <%- include('./partials/header.ejs'); -%>
-<div class="container bg-white">
+<div class="container-md">
     <div class="row justify-content-center my-3">
 
         <div class="col-lg-10">
             <div class="px-2">
-                <div class="plot-card card img-fluid border-light">
+                <div class="image-card card img-fluid border-light">
                             
                     <img src="<%= plot.image %>" class="card-img plot-image" alt="User's Garden Plot">
                     
@@ -16,7 +16,7 @@
                                 <h4 class="title-font text-capitalize ps-2 mt-0"><%= plot.location %></h4>
                             </div>
                             
-                            <div class="col-4 d-flex bg-dark overlay-right-hd ps-5 pt-3 mt-4">
+                            <div class="col-lg-4 col-5 d-flex bg-dark overlay-right-hd ps-3 pt-3 mt-4">
                                 <a  class="text-white" style="text-decoration: none;" href="/profile">
                                     <div class="d-flex">
                                         <span class="pe-2"><i class="fas fa-angle-up fa-2x"></i></span>
@@ -57,12 +57,12 @@
                 <div class="col">
                     <!-- all plants for user-->
                     <section class="container-fluid p-0">
-                        <div class="row row-xl-cols-3 row-sm-cols-2">
+                        <div class="row row-xxl-cols-3 row-sm-cols-2">
                             <% for(var i=0; i < plants.length; i++) {%>
                                 
-                                <div class="col-xl-4 col-md-6 gx-3 gy-4">
+                                <div class="col-xxl-4 col-sm-6 gx-3 gy-4">
                                     <a href="/plant/<%= plants[i]._id%>">
-                                        <div class="plot-card card img-fluid border-light">
+                                        <div class="image-card card img-fluid border-light">
                                             
                                             <img src="<%= plants[i].image %>" class="card-img plot-image" alt="User's Garden Plot">
                                             
@@ -71,7 +71,7 @@
                                                     <div class="col-6 d-flex bg-dark text-white overlay-left ps-4">
                                                         <span class="align-self-center"> <%= plants[i].nameCommon %> </span>
                                                     </div>
-                                                    <div class="col-2 d-flex bg-dark text-white overlay-right">
+                                                    <div class="col-3 d-flex bg-dark text-white overlay-right">
                                                         <span class="align-self-center"><i class="fas fa-angle-double-right fa-2x"></i></span>
                                                     </div>
                                                 </div>
