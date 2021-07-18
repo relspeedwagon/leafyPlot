@@ -8,18 +8,18 @@
 }
 
 .btn-primary {
-  background-color: #E8417F;
-  border: #E8417F;
+  background-color: #8781BD;
+  border: #8781BD;
 }
   .btn-primary:hover {
     background-color: #06B1F9;
   }
   .btn-primary:focus {
-    background-color: #E8417F;
-    box-shadow: 0 0 0 0.2rem rgb(232 65 127 / 70%);
+    background-color: #8781BD;
+    box-shadow: 0 0 0 0.2rem rgb(135 129 189 / 70%);
   }
   .btn-primary:active {
-    box-shadow: 0 0 0 0.25rem rgb(232 65 127 / 70%);
+    box-shadow: 0 0 0 0.25rem rgb(135 129 189 / 70%);
   }
 
 .btn-secondary {
@@ -29,8 +29,8 @@
 
 .btn-warning {
   color: white;
-  background-color: #2B9A00;
-  border: #2B9A00;
+  background-color: #235f0b;
+  border: #235f0b;
 }
 .btn-warning:hover {
   color: white;
@@ -39,11 +39,16 @@
 }
 
 .link-primary {
-  color:#E8417F;
+  color:#37C301;
+  font-weight: bolder;
+  text-decoration: none;
 }
+  .link-primary:hover {
+    color:#06B1F9;
+  }
 
 .req-prop {
-  color:#E8417F;
+  color:#37C301;
   font-size: smaller;
 }
 
