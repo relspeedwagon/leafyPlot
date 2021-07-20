@@ -28,7 +28,74 @@
                     </div>
                 </div>
             </div>
-            <section class="">
+
+            
+
+            <section>
+                <!-- ------- -->
+                <div class="row border-bottom border-1 py-0 px-2 my-0 mx-2" style="height: 10px;"></div>
+                <!-- ------- -->
+    
+                <div class="row my-3 mx-1">
+                    <div class="col ps-4">
+                        <!-- year planted -->
+                        <div>
+                            <span class="label-text text-muted">Planting Year</span>
+                        </div>
+                        <div class="mb-4">
+                            <span><i class="label-text text-muted far fa-calendar-alt fa-lg pe-2"></i><%= plot.seasonID %></span>
+                        </div>
+                        
+                    </div>
+                    <!-- light -->
+                    <div class="col ps-4">
+                        <div>
+                            <span class="label-text text-muted">Average Sun</span>
+                        </div>
+                        <div>
+                            <span><i class="label-text text-muted fas fa-sun fa-lg pe-2"></i><%= plot.avgSun %></span>
+                        </div>
+                    </div>
+                    
+                    <!-- soil -->
+                    <div class="col ps-4">
+                        <div>
+                            <span class="label-text text-muted">Soil Type</span>
+                        </div>
+                        <div>
+                            <span><i class="label-text text-muted fas fa-ellipsis-v fa-lg pe-2"></i><%= plot.soilType %></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-3 mx-1">
+                    <div class="col ps-4">
+                        <!-- zone -->
+                        <div class="row gx-3 mb-3">
+                            <div>
+                                <span class="label-text text-muted"><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" class="link-primary" target="_blank">USDA Hardiness Zone</a></span>
+                            </div>
+                            <div>
+                                <span><i class="label-text text-muted fas fa-globe-americas fa-lg pe-2"></i><%= plot.zone %></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-8 ps-3">
+                        <!-- notes -->
+                        <div>
+                            <span class="label-text text-muted">Notes</span>
+                        </div>
+                        <div class="mb-3">  
+                            <p>
+                                <span><i class="label-text text-muted fas fa-pencil-alt fa-lg pe-2"></i></span><%= plot.notes %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- ------- -->
+                <div class="row border-bottom border-1 py-0 px-2 my-0 mx-2" style="height: 10px;"></div>
+                <!-- ------- -->
+            
                 <!-- "season dropdown" "create a plot button" -->
                 <div class="row mb-2 mt-3 mx-0 px-0">
                     
