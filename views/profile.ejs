@@ -9,8 +9,13 @@
                 
             </div>
         </div>
-        
-        <div class="col-lg-5 col-sm-7 py-0 px-2">
+    
+    </div>
+    <div class="row justify-content-between mb-2 mt-3 mx-0 px-0 ">
+        <div class="col-sm-5 col-md-6 py-0 px-2">
+            <h1 class="title-font-op text-uppercase ps-3">Plots</h1>
+        </div>
+        <div class="col-sm-7 col-md-6 py-0 px-2">
             <a class="btn btn-primary w-100" href="/startPlot" role="button"><i class="fas fa-tractor fa-lg pe-2"></i>Start a Plot</a>
         </div>
         
@@ -22,7 +27,7 @@
 
     <!-- all plots for user-->
     <div class="container-fluid p-0">
-        <div class="row row-md-cols-2 gx-3 gy-4">
+        <div class="row row-md-cols-2 gx-3 gy-4 mb-5">
             <% for(var i=0; i < plots.length; i++) {%>
                 
                 <div class="col-lg-6">
@@ -47,7 +52,20 @@
             <% } %>    
         </div>
     </div>
+    <div class="row justify-content-between mb-2 mt-5 mx-0 px-0 ">
+        <div style="height: 20px;"></div>
+        <div class="col-md-6 py-0 px-2">
+            <h1 class="title-font-op text-uppercase ps-3">Collections</h1>
+        </div>
+        <div class="col-md-6 py-0 px-2">
+            <a class="btn btn-primary btn-alt w-100" href="/startCollection" role="button"><i class="fas fa-book-open fa-lg pe-2"></i>Add a Collection</a>
+        </div>
+        
+        <!-- ------- -->
+        <div class="row border-bottom border-1 py-0 px-2 my-0 mx-2" style="height: 10px;"></div>
+        <!-- ------- -->
     
+    </div>
 
 </div>
 
