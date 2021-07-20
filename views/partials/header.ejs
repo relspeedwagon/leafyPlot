@@ -25,11 +25,17 @@
           </button>
           <div class="collapse navbar-collapse" id="navMenu"> 
             <ul class="navbar-nav ms-auto">
+              <li>
+                <a class="flex-sm-fill text-sm-center nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Hello, <%= user.userName %>!</a>
+              </li>
               <li class="nav-item">
                 <a href="/profile" class="nav-link">Home</a>
               </li>
               <li class="nav-item">
                 <a href="/profile" class="nav-link">Plots</a>
+              </li>
+              <li class="nav-item">
+                <a href="/logout" class="nav-link">Logout</a>
               </li>
             </ul>
           </div>

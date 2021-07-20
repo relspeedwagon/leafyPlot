@@ -91,12 +91,12 @@
   background-color: none;
   opacity: 0.7;
 }
-  .overlay-right {
-    border-top-left-radius: 1.5rem;
-  }
-  .overlay-left {
-    border-top-right-radius: 1.5rem;
-  }
+    .overlay-right {
+      border-top-left-radius: 1.5rem;
+    }
+    .overlay-left {
+      border-top-right-radius: 1.5rem;
+    }
 
 
 .page-head {
@@ -115,12 +115,37 @@
       background-color: none;
       opacity: 0.7;
     }
+        .head-overlay-plant {
+          position: relative;
+          overflow: hidden;
+          padding: 0px;
+          margin: 0px;
+          width: 100%;
+          height: 120px;
+          background-color: none;
+          opacity: 0.7;
+        }
     .overlay-left-hd {
       border-top-right-radius: 2rem;
     }
     .overlay-right-hd {
       border-top-left-radius: 2rem;
     }
+    .overlay-prof-lr {
+      border-top-left-radius: 2rem;
+      border-bottom-right-radius: 2rem;
+    }
+
+.profile-hd {
+  height: 22vh;
+  background-color: #8781BD;
+}
+.head-overlay.head-overlay-profile {
+  height: 65%;
+}
+.bg-custom {
+  background-color: #383B3F;
+}
 
 .label-text {
   font-weight: 500;

@@ -5,7 +5,7 @@ module.exports = {
   getPlotPlants: async (req, res) => {
     try {
       const plants = await Plant.find({ plotID: req.plot._id }).sort( { createdAt: "desc" });
-      res.render("plot.ejs", { plants: plants, plot: req.plot });
+      res.render("plot.ejs", { plants: plants, plot: req.plot, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -22,7 +22,7 @@ module.exports = {
   getPlant: async (req, res) => {
     try {
       const plant = await Plant.findById(req.params.id);
-      res.render("plant.ejs", { plant: plant, plot: req.plot });
+      res.render("plant.ejs", { plant: plant, plot: req.plot, user: req.user });
     } catch (err) {
       console.log(err);
     }
