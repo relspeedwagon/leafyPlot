@@ -5,8 +5,9 @@ const Plot = require("../models/Plot");
 module.exports = {  
   getUserPlots: async (req, res) => {
     try {
-      const plots = await Plot.find({ user: req.user.id }).sort( { createdAt: "desc" });;
-      res.render("profile.ejs", { plots: plots, user: req.user });
+      const plots = await Plot.find({ user: req.user.id, plotType: "plot" }).sort( { createdAt: "desc" });
+      const colls = await Plot.find({ user: req.user.id, plotType: "collection" }).sort( { createdAt: "desc" });
+      res.render("profile.ejs", { plots: plots, colls: colls, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -25,7 +26,11 @@ module.exports = {
   getPlotCreate: (req, res) => {
     res.render("create-plot.ejs", { user: req.user });
   },
-  
+
+  getCollCreate: (req, res) => {
+    res.render("start-collection.ejs", { user: req.user });
+  },
+
   createPlot: async (req, res) => {
     try {
       // Upload image to cloudinary
@@ -35,7 +40,9 @@ module.exports = {
 
       await Plot.create({
         name: req.body.plotName,
+        plotType: req.body.plotType,
         seasonID: req.body.seasonID,
+        desc: req.body.description,
         image: result.secure_url,
         imageProviderId: result.public_id,
         zone: req.body.zone,

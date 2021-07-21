@@ -5,9 +5,17 @@ const PlotSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    plotType: {
+        type: String,
+        required: true,
+    },
     seasonID: {
         type: String,
         required: true,
+    },
+    desc: {
+        type: String,
+        required: false,
     },
     // add add'l model/object ref for multiple photos?
     image: {
