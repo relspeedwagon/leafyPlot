@@ -1,12 +1,13 @@
 <%- include('./partials/header.ejs'); -%>
 
 <div class="container">
-    <div class="row justify-content-center my-5">
-        <h3>Start a Plot</h3>
-
+    <div class="row justify-content-center mt-5 mb-1">
+        <div class="col py-0 px-2">
+            <h2 class="color-primary title-font-op text-uppercase ps-2">Start a Plot</h2>
+        </div>
     </div>
 
-    <form action="/plot/createPlot" enctype="multipart/form-data" method="POST">
+    <form action="/plot/create-plot" enctype="multipart/form-data" method="POST">
         <!-- plot name -->
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="plotName" name="plotName" placeholder="plot name">
@@ -22,7 +23,7 @@
         <div class="row g-3">
             <div class="col-md-6">
                 <!-- image -->
-                <div><label for="imgUpload">Plot Profile Image</label></div>
+                <div><label for="imgUpload">Plot Profile Image<span class="req-prop ps-1">*</span></label></div>
                 <div class="input-group mb-3">
                     <div class="input-group-text text-white" for="imgUpload"><i class="fas fa-image fa-lg"></i></div>
                     <input type="file" class="form-control" id="imageUpload" name="file">

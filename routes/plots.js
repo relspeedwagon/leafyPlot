@@ -9,11 +9,11 @@ router.param('id', plotsController.getPlotDetails);
 
 router.get("/:id", ensureAuth, plantsController.getPlotPlants);
 
-router.post("/createPlot", upload.single("file"), plotsController.createPlot);
+router.post("/create-plot", upload.single("file"), plotsController.createPlot);
 
-router.put("/editPlot/:id", plotsController.editPlot);
+router.put("/edit-plot/:id", plotsController.editPlot);
 
-router.delete("/deletePlot/:id", plotsController.deletePlot);
+router.delete("/delete-plot/:id", plotsController.deletePlot);
 
 module.exports = router;
 
