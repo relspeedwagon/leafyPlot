@@ -1,0 +1,51 @@
+
+<%- include('./partials/header.ejs'); -%>
+<div class="container-md">
+    <div class="row justify-content-center my-3">
+
+        <div class="col-lg-10">
+            
+            <div class="row justify-content-center m-0 p-0">
+                <div class="col">
+                    <!-- all plants for user-->
+                    <section class="container-fluid p-0">
+                        <div class="row row-xxl-cols-3 row-sm-cols-2">
+                            <% for(var i=0; i < plants.length; i++) {%>
+                                
+                                <div class="col-xxl-4 col-sm-6 gx-3 gy-4">
+                                    <a href="/plant/<%= plants[i]._id%>">
+                                        <div class="image-card card img-fluid border-light">
+                                            
+                                            <img src="<%= plants[i].image %>" class="card-img plot-image" alt="Plant Image">
+                                            
+                                            <div class="d-flex align-items-end card-img-overlay p-0">
+                                                <div class="d-flex justify-content-between row p-overlay">
+                                                    <div class="col-7 d-flex bg-dark text-white overlay-left ps-4">
+                                                        <span class="align-self-center"> <%= plants[i].nameCommon %> </span>
+                                                    </div>
+                                                    <div class="col-3 d-flex bg-dark text-white overlay-right">
+                                                        <span class="align-self-center"><i class="fas fa-angle-double-right fa-2x"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            <% } %>    
+                        </div>
+                    </section>
+                </div>
+            </div>
+                
+        </div>
+
+    </div>
+
+
+    
+
+</div>
+
+<%- include('./partials/footer.ejs'); -%>
+
+<!-- footer -->

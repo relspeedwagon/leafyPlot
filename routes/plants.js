@@ -8,12 +8,12 @@ router.param('id', plantsController.getPlantDetails);
 
 router.get("/:id", ensureAuth, plantsController.getPlant);
 
-router.post("/createPlant", upload.single("file"), plantsController.createPlant);
+router.post("/create-plant", upload.single("file"), plantsController.createPlant);
 
 router.get("/:id/edit", plantsController.getPlantEditor);
 
-router.post("/editPlant/:id", plantsController.editPlant);
+router.post("/edit-plant/:id", plantsController.editPlant);
 
-router.delete("/deletePlant/:id", plantsController.deletePlant);
+router.delete("/delete-plant/:id", plantsController.deletePlant);
 
 module.exports = router;

@@ -23,8 +23,9 @@ module.exports = {
   },
   
   getPlotCreate: (req, res) => {
-    res.render("createPlot.ejs", { user: req.user });
+    res.render("create-plot.ejs", { user: req.user });
   },
+  
   createPlot: async (req, res) => {
     try {
       // Upload image to cloudinary

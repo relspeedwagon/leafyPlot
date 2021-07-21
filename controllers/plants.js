@@ -10,6 +10,14 @@ module.exports = {
       console.log(err);
     }
   },
+  getUserPlants: async (req, res) => {
+    try {
+      const plants = await Plant.find({ user: req.user.id }).sort( { createdAt: "desc" });
+      res.render("all-plants.ejs", { plants: plants, user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   getPlantDetails: async (req, res, next, id) => {
     try {
     req.plant = await Plant.findById(id);
@@ -18,7 +26,7 @@ module.exports = {
     } catch (err) {
       next(err);
     }
-},
+  },
   getPlant: async (req, res) => {
     try {
       const plant = await Plant.findById(req.params.id);
@@ -69,7 +77,7 @@ module.exports = {
   getPlantEditor: async (req, res) => {
     try {
       // const plant = await Plant.findById(req.params.id);
-      res.render("editPlant.ejs", { plant: req.plant });
+      res.render("edit-plant.ejs", { plant: req.plant });
     } catch (err) {
       console.log(err);
     }
