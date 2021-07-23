@@ -1,12 +1,12 @@
 <form action="/plant/create-plant" enctype="multipart/form-data" method="POST">
     <!-- plant name -->
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="nameCommon" name="plantName" placeholder="plant name">
+        <input type="text" class="form-control" id="nameCommon" name="nameCommon" placeholder="plant name">
         <label for="plantName">Plant Name<span class="req-prop ps-1">*</span></label>
     </div>
     <!-- SCI -->
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="nameSCI" name="plantNameSCI" placeholder="scientific name">
+        <input type="text" class="form-control" id="nameSCI" name="nameSCI" placeholder="scientific name">
         <label for="plantNameSCI">Scientific Name</label>
     </div>
     <!-- image -->
@@ -23,7 +23,7 @@
                 <div class="input-group">
                     <div class="input-group-text text-white" for="light"><i class="fas fa-sun fa-lg"></i></div>
                         <select class="form-select h-100" id="light" name="light" aria-label="Sun exposure select">
-                            <option selected> </option>
+                            <option selected></option>
                             <option value="Full-Shade">Full-Shade</option>
                             <option value="Shade-Partial">Full-Shade to Part-Sun</option>
                             <option value="Sun-Partial">Full-Sun to Part-Shade</option>
@@ -266,7 +266,7 @@
                 <div class="input-group mb-3">
                     <div class="input-group-text text-white" for="plantedStatus"><i class="fas fa-check fa-lg"></i></div>
                     <select class="form-select" id=plantedStatus name="plantedStatus" aria-label="Planting status select">
-                        <option selected> </option>
+                        <option value="" selected></option>
                         <option value="To-Plant">To-Plant</option>
                         <option value="Planted">Planted</option>
                     </select>
@@ -302,7 +302,7 @@
                     <span class="input-group-text text-white"><i class="far fa-calendar-alt fa-lg"></i></span>
                     <input type="number" class="form-control" id="yearPlanted" name="yearPlanted" min="2010" max="2099" step="1" value="2021" aria-label="Year planted" />
                     <select class="form-select" id="seasonPlanted" name="seasonPlanted">
-                        <option selected>season</option>
+                        <option value="" selected>season</option>
                         <option value="Spring">Spring</option>
                         <option value="Summer">Summer</option>
                         <option value="Fall">Fall</option>

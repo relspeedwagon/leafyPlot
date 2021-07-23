@@ -42,28 +42,41 @@ module.exports = {
       function(error, result) { console.log(result, error); });
 
       const plant = await Plant.create({
-        nameCommon: req.body.plantName,
-        nameSCI: req.body.plantNameSCI,
+        nameCommon: req.body.nameCommon,
+        nameSCI: req.body.nameSCI,
         image: result.secure_url,
         imageProviderId: result.public_id,
         light: req.body.light,
         water: req.body.water,
         soil: req.body.soil,
-        height: `${req.body.minHeight} ${req.body.maxHeight} ${req.body.heightInc}`,
-        spread: `${req.body.minSpread} ${req.body.maxSpread} ${req.body.spreadInc}`,
-        zoneMin: req.body.zoneMin,
-        zoneMax: req.body.zoneMax,
-        bloomSeason: `${req.body.seasonStart} ${req.body.seasonEnd}`,
-        nativeOrigin: req.body.nativeOrigin,
+        height: {
+          min: req.body.minHeight,
+          max: req.body.maxHeight,
+          inc: req.body.heightInc,
+        },
+        spread: {
+          min: req.body.minSpread,
+          max: req.body.maxSpread,
+          inc: req.body.spreadInc,
+        },
+        nativeOrigin: req.body.nativeOrigin,     
+        zone: {
+          min: req.body.zoneMin,
+          max: req.body.zoneMax,
+        },
+        bloomSeason: {
+          start: req.body.seasonStart,
+          end: req.body.seasonEnd,
+        },
         planted: {
             status: req.body.plantedStatus,
             year: req.body.yearPlanted,
             season: req.body.seasonPlanted,
         },
-        numPlanted: req.body.numPlanted,
         health: req.body.health,
-        pests: req.body.pests,
         notes: req.body.notes,
+        numPlanted: req.body.numPlanted,
+        pests: req.body.pests,
         plotID: req.body.plotID,
         user: req.user,
       });
@@ -88,21 +101,40 @@ module.exports = {
       {$set:
         {
           nameCommon: req.body.plantName,
-          nameSCI: req.body.plantNameSCI,
-          light: req.body.light,
-          // water: req.body.water,
-          soil: req.body.soil,
-          height: `${req.body.minHeight} - ${req.body.maxHeight} ${req.body.heightInc}`,
-          spread: `${req.body.minSpread} - ${req.body.maxSpread} ${req.body.spreadInc}`,
-          zoneMin: req.body.zoneMin,
-          zoneMax: req.body.zoneMax,
-          bloomSeason: `${req.body.seasonStart} - ${req.body.seasonEnd}`,
-          nativeOrigin: req.body.nativeOrigin,
-          status: req.body.status,
-          yearPlanted: req.body.yearPlanted,
-          numPlanted: req.body.numPlanted,
-          health: req.body.health,
-          notes: req.body.notes,
+        nameSCI: req.body.plantNameSCI,
+        // image: result.secure_url,
+        // imageProviderId: result.public_id,
+        light: req.body.light,
+        water: req.body.water,
+        soil: req.body.soil,
+        height: {
+          min: req.body.minHeight,
+          max: req.body.maxHeight,
+          inc: req.body.heightInc,
+        },
+        spread: {
+          min: req.body.minSpread,
+          max: req.body.maxSpread,
+          inc: req.body.spreadInc,
+        },      
+        zone: {
+          min: req.body.zoneMin,
+          max: req.body.zoneMax,
+        },
+        bloomSeason: {
+          start: req.body.seasonStart,
+          end: req.body.seasonEnd,
+        },
+        nativeOrigin: req.body.nativeOrigin,
+        planted: {
+            status: req.body.plantedStatus,
+            year: req.body.yearPlanted,
+            season: req.body.seasonPlanted,
+        },
+        numPlanted: req.body.numPlanted,
+        health: req.body.health,
+        pests: req.body.pests,
+        notes: req.body.notes,
           }
       }
       );

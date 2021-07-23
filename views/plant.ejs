@@ -97,7 +97,7 @@
                             <span class="label-text text-muted">Growth Height</span>
                         </div>
                         <div>
-                            <div><i class="label-text text-muted fas fa-arrows-alt-v fa-lg pe-3"></i><%= plant.height %></div>
+                            <span><i class="label-text text-muted fas fa-arrows-alt-v fa-lg pe-3"></i><%= plant.height.min %><span class="px-2">-</span><%= plant.height.max %><span class="px-1"><%= plant.height.inc %></span> </span>
                         </div>
                     </div>
                     <!-- spread -->
@@ -106,7 +106,7 @@
                             <span class="label-text text-muted">Spread</span>
                         </div>
                         <div>
-                            <span><i class="label-text text-muted fas fa-arrows-alt-h fa-lg pe-3"></i><%= plant.spread %></span>
+                            <span><i class="label-text text-muted fas fa-arrows-alt-h fa-lg pe-3"></i><%= plant.spread.min %><span class="px-2">-</span><%= plant.spread.max %><span class="px-1"><%= plant.spread.inc %></span> </span>
                         </div>
                     </div>
                     <!-- origin -->
@@ -129,7 +129,7 @@
                             <span class="label-text text-muted"><a href="https://planthardiness.ars.usda.gov/PHZMWeb/" class="link-primary" target="_blank">USDA Hardiness Zone</a></span>
                         </div>
                         <div>
-                            <span><i class="label-text text-muted fas fa-globe-americas fa-lg pe-2"></i><%= plant.zoneMin %><span class="px-2">-</span><%= plant.zoneMax %></span>
+                            <span><i class="label-text text-muted fas fa-globe-americas fa-lg pe-2"></i><%= plant.zone.min %><span class="px-2">-</span><%= plant.zone.max %></span>
                         </div>
                     </div>
                     <!-- bloom -->
@@ -138,7 +138,7 @@
                             <span class="label-text text-muted">Bloom Season</span>
                         </div>
                         <div>
-                            <span><i class="label-text text-muted far fa-sun fa-lg pe-2"></i><%= plant.bloomSeason %></span>
+                            <span><i class="label-text text-muted far fa-sun fa-lg pe-2"></i><%= plant.bloomSeason.start %><span class="px-2">-</span><%= plant.bloomSeason.end %></span>
                         </div>
                     </div>
                 </div>
@@ -156,7 +156,7 @@
                         <span class="label-text text-muted">Planting Status</span>
                     </div>
                     <div class="mb-3">
-                        <span><i class="label-text text-muted fas fa-check fa-lg pe-2"></i><%= plant.status %></span>
+                        <span><i class="label-text text-muted fas fa-check fa-lg pe-2"></i><%= plant.planted.status %></span>
                     </div>
                     <!-- current health -->
                     <div>

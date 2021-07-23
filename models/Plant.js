@@ -31,33 +31,32 @@ const PlantSchema = new mongoose.Schema({
         required: false,
     },
     height: {
-        type: String,
-        required: false,
+        min: {type: String, required: false},
+        max: {type: String, required: false},
+        inc: {type: String, required: false},
     },
     spread: {
-        type: String,
-        required: false,
+        min: {type: String, required: false},
+        max: {type: String, required: false},
+        inc: {type: String, required: false},
     },
-    zoneMin: {
-        type: String,
-        required: false,
+    zone: {
+        min: {type: String, required: false},
+        max: {type: String, required: false},
     },
-    zoneMax: {
-        type: String,
-        required: false,
-    },
+    
     bloomSeason: {
-        type: String,
-        required: false,
+        start: {type: String, required: false},
+        end: {type: String, required: false},
     },
     nativeOrigin: {
         type: String,
         required: false,
     },
     planted: {
-        status: String,
-        year: Number,
-        season: String,
+        status: {String, required: false},
+        year: {Number, required: false},
+        season: {String, required: false},
     },
     numPlanted: {
         type: Number,
