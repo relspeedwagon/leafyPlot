@@ -77,7 +77,7 @@ module.exports = {
   getPlantEditor: async (req, res) => {
     try {
       // const plant = await Plant.findById(req.params.id);
-      res.render("edit-plant.ejs", { plant: req.plant });
+      res.render("edit-plant.ejs", { plant: req.plant, user: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -91,8 +91,6 @@ module.exports = {
         {
           nameCommon: req.body.plantName,
           nameSCI: req.body.plantNameSCI,
-          // image: result.secure_url,
-          // imageProviderId: result.public_id,
           light: req.body.light,
           // water: req.body.water,
           soil: req.body.soil,

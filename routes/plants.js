@@ -12,7 +12,7 @@ router.post("/create-plant", upload.single("file"), plantsController.createPlant
 
 router.get("/:id/edit", plantsController.getPlantEditor);
 
-router.post("/edit-plant/:id", plantsController.editPlant);
+router.post("/edit-plant/:id", upload.single("file"), plantsController.editPlant);
 
 router.delete("/delete-plant/:id", plantsController.deletePlant);
 
