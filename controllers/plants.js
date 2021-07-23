@@ -21,7 +21,6 @@ module.exports = {
   getPlantDetails: async (req, res, next, id) => {
     try {
     req.plant = await Plant.findById(id);
-    console.log(req.plant);
     next();
     } catch (err) {
       next(err);
@@ -50,11 +49,11 @@ module.exports = {
         light: req.body.light,
         water: req.body.water,
         soil: req.body.soil,
-        height: `${req.body.minHeight} - ${req.body.maxHeight} ${req.body.heightInc}`,
-        spread: `${req.body.minSpread} - ${req.body.maxSpread} ${req.body.spreadInc}`,
+        height: `${req.body.minHeight} ${req.body.maxHeight} ${req.body.heightInc}`,
+        spread: `${req.body.minSpread} ${req.body.maxSpread} ${req.body.spreadInc}`,
         zoneMin: req.body.zoneMin,
         zoneMax: req.body.zoneMax,
-        bloomSeason: `${req.body.seasonStart} - ${req.body.seasonEnd}`,
+        bloomSeason: `${req.body.seasonStart} ${req.body.seasonEnd}`,
         nativeOrigin: req.body.nativeOrigin,
         planted: {
             status: req.body.plantedStatus,
@@ -83,7 +82,6 @@ module.exports = {
     }
   },
   editPlant: async (req, res) => {
-    console.log(req)
     try {
       await Plant.findOneAndUpdate(
         { _id: req.params.id },
