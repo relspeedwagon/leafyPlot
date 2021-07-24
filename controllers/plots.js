@@ -16,7 +16,6 @@ module.exports = {
   getPlotDetails: async (req, res, next, id) => {
       try {
       req.plot = await Plot.findById(id);
-      console.log(req.plot);
       next();
       } catch (err) {
         next(err);
@@ -60,7 +59,13 @@ module.exports = {
     }
   },
 
-  // -----------must update with new fields----
+  getPlotEditor: async (req, res) => {
+    try {
+      res.render("edit-plot.ejs", { plot: req.plot, user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   editPlot: async (req, res) => {
     try {
       await Plot.findOneAndUpdate(
@@ -68,10 +73,14 @@ module.exports = {
         {
           name: req.body.plotName,
           seasonID: req.body.seasonID,
-          image: result.secure_url,
-          //image mgmt to be added
+          desc: req.body.description,
+          // image: result.secure_url,
+          // imageProviderId: result.public_id,
           zone: req.body.zone,
           location: req.body.location,
+          avgSun: req.body.avgSun,
+          soilType: req.body.soilType,
+          notes: req.body.notes,
           public: req.body.public,
         }
       );

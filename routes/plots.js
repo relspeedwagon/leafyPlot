@@ -11,7 +11,9 @@ router.get("/:id", ensureAuth, plantsController.getPlotPlants);
 
 router.post("/create-plot", upload.single("file"), plotsController.createPlot);
 
-router.put("/edit-plot/:id", plotsController.editPlot);
+router.get("/:id/edit", plotsController.getPlotEditor);
+
+router.post("/edit-plot/:id", upload.single("file"), plotsController.editPlot);
 
 router.delete("/delete-plot/:id", plotsController.deletePlot);
 

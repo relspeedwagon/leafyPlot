@@ -100,7 +100,7 @@ module.exports = {
         { _id: req.params.id },
       {$set:
         {
-          nameCommon: req.body.plantName,
+        nameCommon: req.body.plantName,
         nameSCI: req.body.plantNameSCI,
         // image: result.secure_url,
         // imageProviderId: result.public_id,
