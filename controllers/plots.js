@@ -92,16 +92,25 @@ module.exports = {
   },
   deletePlot: async (req, res) => {
     try {
-      // Find post by id
+      // Find plot by id
       let plot = await Plot.findById({ _id: req.params.id });
-      // Delete image from cloudinary
+      let plotPlants = await Plant.find({ plotID: req.params.id });
+
+      // Delete plot image from cloudinary
       await cloudinary.uploader.destroy(plot.imageProviderId);
-      // Delete post from db
-      await Plot.remove({ _id: req.params.id });
-      console.log("Deleted Plot");
-      res.redirect("/home");
+      // await cloudinary.uploader.destroy(plotPlants[i].imageProviderId);
+
+      // Delete plot from db
+      await Plot.deleteOne({ _id: req.params.id });
+      await Plant.deleteMany(  {
+        _id: {
+          $in: plotPlants
+        }
+      });
+      console.log("Deleted Plot and Plants");
+      res.redirect("/profile");
     } catch (err) {
-      res.redirect("/home");
+      res.redirect("/profile");
     }
   },
 };
