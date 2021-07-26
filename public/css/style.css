@@ -43,13 +43,13 @@
 
 .btn-warning {
   color: white;
-  background-color: #235f0b;
-  border: #235f0b;
+  background-color: #6D757D;
+  border: #6D757D;
 }
     .btn-warning:hover {
       color: white;
-      background-color: #217600;
-      border: #217600;
+      background-color: #2B9A00;
+      border: #2B9A00;
     }
 
 .link-primary {
