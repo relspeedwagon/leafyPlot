@@ -97,13 +97,14 @@ module.exports = {
       let plotPlants = await Plant.find({ plotID: req.params.id });
       let plantImgIds = plotPlants.map(p=> p.imageProviderId);
 
-      // Delete plot image from cloudinary
+      // delete plot image from cloudinary
       await cloudinary.uploader.destroy(plot.imageProviderId);
 
+      //delete plant images 
       await cloudinary.api.delete_resources(plantImgIds,
       function(error, result) {console.log(result, error); });
 
-      // Delete plot from db
+      // delete plot from db
       await Plot.deleteOne({ _id: req.params.id });
       await Plant.deleteMany(  {
         _id: {

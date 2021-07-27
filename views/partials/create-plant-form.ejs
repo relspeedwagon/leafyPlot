@@ -84,7 +84,8 @@
                     </div>
                     <div class="col-3">
                         <select class="form-select h-100" id=heightInc name="heightInc">
-                            <option value="in" selected>in</option>
+                            <option value="" selected></option>
+                            <option value="in">in</option>
                             <option value="cm">cm</option>
                         </select>
                     </div>
@@ -102,7 +103,8 @@
                     </div>
                     <div class="col-3">
                         <select class="form-select h-100" id=spreadInc name="spreadInc">
-                            <option value="in" selected>in</option>
+                            <option value="" selected></option>
+                            <option value="in">in</option>
                             <option value="cm">cm</option>
                         </select>
                     </div>
@@ -265,8 +267,8 @@
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-text text-white" for="plantedStatus"><i class="fas fa-check fa-lg"></i></div>
-                    <select class="form-select" id=plantedStatus name="plantedStatus" aria-label="Planting status select">
-                        <option value="" selected></option>
+                    <select class="form-select" id=plantedStatus name="plantedStatus">
+                        <option selected> </option>
                         <option value="To-Plant">To-Plant</option>
                         <option value="Planted">Planted</option>
                     </select>
@@ -300,9 +302,9 @@
                 <label for="yearPlanted" class="form-label">Year Planted</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text text-white"><i class="far fa-calendar-alt fa-lg"></i></span>
-                    <input type="number" class="form-control" id="yearPlanted" name="yearPlanted" min="2010" max="2099" step="1" value="2021" aria-label="Year planted" />
+                    <input type="number" class="form-control" id="yearPlanted" name="yearPlanted" min="2010" max="2099" step="1">
                     <select class="form-select" id="seasonPlanted" name="seasonPlanted">
-                        <option value="" selected>season</option>
+                        <option selected>season</option>
                         <option value="Spring">Spring</option>
                         <option value="Summer">Summer</option>
                         <option value="Fall">Fall</option>

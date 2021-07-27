@@ -5,7 +5,12 @@ module.exports = {
   getPlotPlants: async (req, res) => {
     try {
       const plants = await Plant.find({ plotID: req.plot._id }).sort( { createdAt: "desc" });
-      res.render("plot.ejs", { plants: plants, plot: req.plot, user: req.user });
+      if (req.plot.plotType == "collection"){
+        res.render("collection.ejs", { plants: plants, plot: req.plot, user: req.user });
+      } else {
+        res.render("plot.ejs", { plants: plants, plot: req.plot, user: req.user });
+      }
+      
     } catch (err) {
       console.log(err);
     }
@@ -20,7 +25,7 @@ module.exports = {
   },
   getPlantDetails: async (req, res, next, id) => {
     try {
-    req.plant = await Plant.findById(id);
+    req.plant = await Plant.findById(id).populate({ path: "plotID", select: "plotType" });
     next();
     } catch (err) {
       next(err);
@@ -29,7 +34,11 @@ module.exports = {
   getPlant: async (req, res) => {
     try {
       const plant = await Plant.findById(req.params.id);
-      res.render("plant.ejs", { plant: plant, plot: req.plot, user: req.user });
+      if (req.plant.plotID.plotType == "collection"){
+        res.render("coll-plant.ejs", { plant: plant, user: req.user });
+      } else {
+        res.render("plant.ejs", { plant: plant, user: req.user });
+      }
     } catch (err) {
       console.log(err);
     }
@@ -88,7 +97,6 @@ module.exports = {
   },
   getPlantEditor: async (req, res) => {
     try {
-      // const plant = await Plant.findById(req.params.id);
       res.render("edit-plant.ejs", { plant: req.plant, user: req.user });
     } catch (err) {
       console.log(err);
@@ -153,9 +161,13 @@ module.exports = {
       // Delete plant from db
       await Plant.remove({ _id: req.params.id });
       console.log("Deleted Plant");
-      res.redirect("/plot/" + plant.plotID);
+      if (req.plant.plotID.plotType == "collection"){
+        res.redirect("/coll/" + plant.plotID);
+      } else {
+        res.redirect("/plot/" + plant.plotID);
+      }
     } catch (err) {
-      res.redirect("/plot");
+      res.redirect("/profile");
     }
   },
 };
