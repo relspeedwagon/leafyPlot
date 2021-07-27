@@ -30,11 +30,20 @@
     .btn-primary:active {
       box-shadow: 0 0 0 0.25rem rgb(135 129 189 / 70%);
     }
-    .btn-primary.btn-alt {
-      background-color: #BD8CBF;
-      border: #BD8CBF;
+  .btn-primary.btn-alt {
+    background-color: #BD8CBF;
+    border: #BD8CBF;
+  }
+    .btn-primary.btn-alt:hover {
+      background-color: #06B1F9;
     }
-    
+    .btn-primary.btn-alt:focus {
+      background-color: #8781BD;
+      box-shadow: 0 0 0 0.2rem rgb(135 129 189 / 70%);
+    }
+    .btn-primary.btn-alt:active {
+      box-shadow: 0 0 0 0.25rem rgb(135 129 189 / 70%);
+    }
 
 .btn-secondary {
   background-color: #C9C9C9;
@@ -115,20 +124,10 @@
       padding: 0px;
       margin: 0px;
       width: 100%;
-      height: 100px;
+      height:fit-content;
       background-color: none;
       opacity: 0.7;
     }
-        .head-overlay-plant {
-          position: relative;
-          overflow: hidden;
-          padding: 0px;
-          margin: 0px;
-          width: 100%;
-          height: 120px;
-          background-color: none;
-          opacity: 0.7;
-        }
     .overlay-left-hd {
       border-top-right-radius: 2rem;
     }

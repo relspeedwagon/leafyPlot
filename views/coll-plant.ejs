@@ -7,17 +7,12 @@
             <div class="image-card card img-fluid border-light">
                 <img src="<%= plant.image %>" class="card-img plot-image" alt="Plant Image">
                 <div class="d-flex align-items-end card-img-overlay p-0">
-                    <div class="d-flex justify-content-between row head-overlay-plant">
-                        <div class="col-7 bg-dark text-white overlay-left-hd ps-4 pt-3">
-                            <h2 class="title-font text-uppercase mb-0"><%= plant.nameCommon %></h2>
-                            <h4 class="title-font text-lowercase ps-2 mt-0"><%= plant.nameSCI %></h4>
-                        </div>
-                        
-                        <div class="col-4 d-flex bg-dark overlay-right-hd ps-5 pt-3 mt-4">
+                    <div class="row d-flex justify-content-end head-overlay">                        
+                        <div class="col-3 bg-dark overlay-right-hd pt-3 mt-4">
                             <a  class="text-white" style="text-decoration: none;" href="/coll/<%= plant.plotID %>">
-                                <div class="d-flex">
-                                    <span class="pe-2"><i class="fas fa-angle-up fa-2x"></i></span>
-                                    <h5 class="mt-1"><span>Back</span></h5>
+                                <div class="d-flex justify-content-center">
+                                    <span class="pe-2"><i class="fas fa-angle-up fa-lg"></i></span>
+                                    <h6><span class="me-3">Back</span></h6>
                                 </div>
                             </a>
                         </div>
@@ -32,18 +27,10 @@
                 <div class="col-lg-4">
                     <!-- plant name -->
                     <div class="mb-4">
-                        <h5 class="title-font-op text-uppercase">Plant Details</h5>
+                        <h5 class="title-font-op text-uppercase"><%= plant.nameCommon %></h5>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <!-- plant name -->
-                    <div class="mb-4">
-                        <span class="label-text text-muted">Plant Name</span>
-                        <div>
-                            <span><%= plant.nameCommon %></span>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="col-lg-4">
                     <!-- SCI -->
                     <div class="mb-4">
