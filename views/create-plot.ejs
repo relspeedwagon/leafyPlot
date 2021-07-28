@@ -7,11 +7,17 @@
         </div>
     </div>
 
-    <form action="/plot/create-plot" enctype="multipart/form-data" method="POST">
+    <form class="needs-validation" action="/plot/create-plot" enctype="multipart/form-data" method="POST" novalidate>
         <!-- plot name -->
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="plotName" name="plotName" placeholder="plot name">
+        <div class="form-floating has-validation mb-3">
+            <input type="text" class="form-control" id="plotName" name="plotName" placeholder="plot name" required>
             <label for="plotName">Garden Plot Name<span class="req-prop ps-1">*</span></label>
+            <div class="valid-feedback">
+                * Required field, all set!
+            </div>
+            <div class="invalid-feedback">
+                * Plot Name is required
+            </div>
         </div>
 
         <!-- plot type -->
@@ -27,18 +33,24 @@
             <div class="col-md-6">
                 <!-- image -->
                 <div><label for="imgUpload">Plot Profile Image<span class="req-prop ps-1">*</span></label></div>
-                <div class="input-group mb-3">
+                <div class="input-group has-validation mb-3">
                     <div class="input-group-text text-white" for="imgUpload"><i class="fas fa-image fa-lg"></i></div>
-                    <input type="file" class="form-control" id="imageUpload" name="file">
+                    <input type="file" class="form-control" id="imageUpload" name="file" aria-label="image file" required>
+                    <div class="valid-feedback">
+                        * Required field, all set!
+                    </div>
+                    <div class="invalid-feedback">
+                        * Plot Profile Image is required, please choose a file
+                    </div>
                 </div>
             </div>
 
             <div class="col-md-6">
                 <!-- season ID -->
                 <div><label for="seasonID">Planting Year<span class="req-prop ps-1">*</span></label></div>
-                <div class="input-group mb-3">
+                <div class="input-group has-validation mb-3">
                     <span class="input-group-text text-white"><i class="far fa-calendar-alt fa-lg"></i></span>
-                    <select class="form-select" id="seasonID" name="seasonID">
+                    <select class="form-select" id="seasonID" name="seasonID" required>
                         <option selected>select current season</option>
                         <option value="2021">2021</option>
                         <option value="2022">2022</option>
@@ -46,6 +58,12 @@
                         <option value="2024">2024</option>
                         <option value="2025">2025</option>
                     </select>
+                    <div class="valid-feedback">
+                        * Required field, all set!
+                    </div>
+                    <div class="invalid-feedback">
+                        * Planting Year is required, please select the current planting year
+                    </div>
                 </div>
             </div>
         </div>

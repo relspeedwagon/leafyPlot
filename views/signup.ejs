@@ -15,8 +15,15 @@
                 <form action="/signup" method="POST">
                     <div class="mb-3">
                         <label for="userName" class="form-label">User Name</label>
-                        <input type="text" class="form-control" id="userName" name="userName">
-                      </div>
+                        <div class="input-group has-validation">
+                          <span class="input-group-text" id="usernamePrepend">@</span>
+                          <input type="text" class="form-control" id="userName" name="userName" aria-describedby="usernamePrepend validationServerUsernameFeedback" required>
+                          <div id="validationServerUsernameFeedback" class="invalid-feedback">
+                            Please choose a username.
+                          </div>
+                        </div>
+                        
+                    </div>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email address</label>
                       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
