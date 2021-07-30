@@ -64,7 +64,7 @@ module.exports = {
     });
   },
   
-  postSignup: (req, res, next) => {
+  postSignup: async (req, res, next) => {
     try {
       const validationErrors = [];
     if (!validator.isEmail(req.body.email))

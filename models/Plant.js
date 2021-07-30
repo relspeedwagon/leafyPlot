@@ -54,9 +54,9 @@ const PlantSchema = new mongoose.Schema({
         required: false,
     },
     planted: {
-        status: {String, required: false},
-        year: {Number, required: false},
-        season: {String, required: false},
+        status: {type: String, required: false},
+        year: {type: Number, required: false},
+        season: {type: String, required: false},
     },
     numPlanted: {
         type: Number,
