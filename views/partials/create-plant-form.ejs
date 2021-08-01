@@ -41,7 +41,7 @@
                 <div class="input-group">
                     <div class="input-group-text text-white" for="light"><i class="fas fa-sun fa-lg"></i></div>
                         <select class="form-select h-100" id="light" name="light" aria-label="Sun exposure select">
-                            <option selected></option>
+                            <option value="" disabled selected>Select...</option>
                             <option value="Full-Shade">Full-Shade</option>
                             <option value="Shade-Partial">Full-Shade to Part-Sun</option>
                             <option value="Sun-Partial">Full-Sun to Part-Shade</option>
@@ -58,7 +58,7 @@
             <div class="input-group">
                 <div class="input-group-text text-white" for="water"><i class="fas fa-tint fa-lg"></i></div>
                     <select class="form-select h-100" id="water" name="water" aria-label="Water needs select">
-                        <option selected></option>
+                        <option value="" disabled selected>Select...</option>
                         <option value="Wet/Keep-Moist">Wet/Keep-Moist</option>
                         <option value="Average">Average</option>
                         <option value="Drought-Tolerant">Drought-Tolerant</option>
@@ -74,7 +74,7 @@
             <div class="input-group">
                 <div class="input-group-text text-white" for="soil"><i class="fas fa-ellipsis-v fa-lg"></i></div>
                     <select class="form-select h-100" id="soil" name="soil" aria-label="Soil select">
-                        <option selected></option>
+                        <option value="" disabled selected>Select...</option>
                         <option value="Average-Soil">Average-Soil</option>
                         <option value="Well-Drained">Well-Drained</option>
                         <option value="Rich/Loam">Rich/Loam</option>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="col-3">
                         <select class="form-select h-100" id=heightInc name="heightInc">
-                            <option value="" selected></option>
+                            <option value="" disabled selected>in/cm</option>
                             <option value="in">in</option>
                             <option value="cm">cm</option>
                         </select>
@@ -121,7 +121,7 @@
                     </div>
                     <div class="col-3">
                         <select class="form-select h-100" id=spreadInc name="spreadInc">
-                            <option value="" selected></option>
+                            <option value="" disabled selected>in/cm</option>
                             <option value="in">in</option>
                             <option value="cm">cm</option>
                         </select>
@@ -146,7 +146,7 @@
                     </div>
                     <div class="col-5">
                         <select class="form-select h-100" id="zoneMin" name="zoneMin">
-                            <option selected>min</option>
+                            <option value="" disabled selected>min</option>
                             <option value="1a">1a</option>
                             <option value="1b">1b</option>
                             <option value="2a">2a</option>
@@ -180,7 +180,7 @@
                     </div>
                     <div class="col-5">
                         <select class="form-select h-100" id="zoneMax" name="zoneMax">
-                            <option selected>max</option>
+                            <option value="" disabled selected>max</option>
                             <option value="1a">1a</option>
                             <option value="1b">1b</option>
                             <option value="2a">2a</option>
@@ -218,7 +218,7 @@
                 </div>
                 <div class="col-5">
                     <select class="form-select h-100" id="seasonStart" name="seasonStart" aria-label="Season start select">
-                        <option selected>start</option>
+                        <option value="" disabled selected>start</option>
                         <option value="March">March</option>
                         <option value="April">April</option>
                         <option value="May">May</option>
@@ -247,7 +247,7 @@
                 </div>
                 <div class="col-5">
                     <select class="form-select h-100" id="seasonEnd" name="seasonEnd" aria-label="Season end select">
-                        <option selected>end</option>
+                        <option value="" disabled selected>end</option>
                         <option value="March">March</option>
                         <option value="April">April</option>
                         <option value="May">May</option>
@@ -286,7 +286,7 @@
                 <div class="input-group mb-3">
                     <div class="input-group-text text-white" for="plantedStatus"><i class="fas fa-check fa-lg"></i></div>
                     <select class="form-select" id=plantedStatus name="plantedStatus">
-                        <option selected> </option>
+                        <option value="" disabled selected>Select current status...</option>
                         <option value="To-Plant">To-Plant</option>
                         <option value="Planted">Planted</option>
                     </select>
@@ -298,7 +298,7 @@
                 <div class="input-group mb-3">
                     <div class="input-group-text text-white" for="health"><i class="fas fa-smile fa-lg"></i><br><i class="fas fa-sad-tear fa-lg"></i></div>
                     <select class="form-select" id=health name="health">
-                        <option selected> </option>
+                        <option value="" disabled selected>Select current health...</option>
                         <option value="Active">Active</option>
                         <option value="Thriving">Thriving</option>
                         <option value="Failed">Failed</option>
@@ -320,9 +320,9 @@
                 <label for="yearPlanted" class="form-label">Year Planted</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text text-white"><i class="far fa-calendar-alt fa-lg"></i></span>
-                    <input type="number" class="form-control" id="yearPlanted" name="yearPlanted" min="2010" max="2099" step="1">
+                    <input type="number" class="form-control" id="yearPlanted" name="yearPlanted" min="2010" max="2099" step="1" value="2021">
                     <select class="form-select" id="seasonPlanted" name="seasonPlanted">
-                        <option selected>season</option>
+                        <option value="" disabled selected>season planted...</option>
                         <option value="Spring">Spring</option>
                         <option value="Summer">Summer</option>
                         <option value="Fall">Fall</option>
