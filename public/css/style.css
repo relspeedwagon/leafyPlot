@@ -62,12 +62,13 @@
     }
 
 .link-primary {
-  color:#37C301;
-  font-weight: bolder;
+  color:#06B1F9;
   text-decoration: none;
+  font-size: smaller;
 }
     .link-primary:hover {
       color:#06B1F9;
+      font-weight: bold;
     }
 
 .req-prop {
