@@ -1,8 +1,8 @@
 <%- include('partials/index-header') -%>
 
 <main class="container">
-  <div class="row justify-content-center">
-    <section class="col-6 mt-5">
+  <div class="row justify-content-center align-items-center" style="height: 60vh;">
+    <div class="col-6 mt-5" style="height:fit-content">
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
       <% }) %> <% } %> <% if (locals.messages.info) { %> <%
@@ -33,7 +33,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-    </section>
+    </div>
   </div>
 </main>
 
