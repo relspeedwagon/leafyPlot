@@ -159,6 +159,10 @@
 .carousel-item {
   object-fit: cover;
   object-position: center;
-  max-height: 90vh;
+  height: 90vh;
   overflow: hidden;
+}
+.carousel-image {
+  min-width: 100%;
+  min-height: 100%;
 }
