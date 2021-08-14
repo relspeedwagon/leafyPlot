@@ -13,6 +13,8 @@ router.post("/create-plot", upload.single("file"), plotsController.createPlot);
 
 router.get("/:id/edit", plotsController.getPlotEditor);
 
+router.post("/edit-image/:id", upload.single("file"), plotsController.editPlotImage);
+
 router.post("/edit-plot/:id", upload.single("file"), plotsController.editPlot);
 
 router.delete("/delete-plot/:id", plotsController.deletePlot);

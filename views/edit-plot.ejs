@@ -181,7 +181,7 @@
             <p class="p-4">
                 <em>Replacing plot image <strong>deletes</strong> the current saved photo from the system and replaces it with the newly uploaded image (Note: you can always save a new image, but replacement cannot be undone)</em>
             </p>
-            <form class="needs-validation p-4" action="/plot/change-img/<%= plot.id %>" method="POST" novalidate>
+            <form class="needs-validation p-4" action="/plot/edit-image/<%= plot.id %>" enctype="multipart/form-data" method="POST" novalidate>
                 <div>
                     <!-- image -->
                     <div><label for="imgUpload">New Image</label></div>

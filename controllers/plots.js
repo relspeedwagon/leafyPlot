@@ -66,6 +66,35 @@ module.exports = {
       console.log(err);
     }
   },
+  editPlotImage: async (req, res) => {
+    try {
+      // Upload new image to cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path,
+        { aspect_ratio: "16:7", gravity: "auto", crop: "fill" },
+        function(error, result) { console.log(result, error); });
+        console.log("New image uploaded");
+
+      // Find plot by id
+      let plot = await Plot.findById({ _id: req.params.id });
+      console.log("Plot found");
+
+      // delete old plot image from cloudinary
+      await cloudinary.uploader.destroy(plot.imageProviderId);
+      console.log("Old image deleted");
+
+      await Plot.findOneAndUpdate(
+        { _id: plot.id },
+        {
+          image: result.secure_url,
+          imageProviderId: result.public_id,
+        }
+      );
+      console.log("Plot image has been replaced");
+      res.redirect(`/plot/${req.params.id}/edit`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
   editPlot: async (req, res) => {
     try {
       await Plot.findOneAndUpdate(
@@ -74,8 +103,6 @@ module.exports = {
           name: req.body.plotName,
           seasonID: req.body.seasonID,
           desc: req.body.description,
-          // image: result.secure_url,
-          // imageProviderId: result.public_id,
           zone: req.body.zone,
           location: req.body.location,
           avgSun: req.body.avgSun,
