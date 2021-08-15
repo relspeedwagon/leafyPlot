@@ -71,19 +71,19 @@ module.exports = {
       // Upload new image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path,
         { aspect_ratio: "16:7", gravity: "auto", crop: "fill" },
-        function(error, result) { console.log(result, error); });
+        function(error, result) { 
+          if (error){
+            console.log(error);
+            res.redirect(`/plot/${req.params.id}/edit`);
+          } 
+        });
         console.log("New image uploaded");
-
-      // Find plot by id
-      let plot = await Plot.findById({ _id: req.params.id });
-      console.log("Plot found");
-
-      // delete old plot image from cloudinary
-      await cloudinary.uploader.destroy(plot.imageProviderId);
-      console.log("Old image deleted");
+        // delete old plot image from cloudinary
+        await cloudinary.uploader.destroy(req.plot.imageProviderId);
+        console.log("Old image deleted");
 
       await Plot.findOneAndUpdate(
-        { _id: plot.id },
+        { _id: req.plot.id },
         {
           image: result.secure_url,
           imageProviderId: result.public_id,
