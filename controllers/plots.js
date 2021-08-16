@@ -61,7 +61,11 @@ module.exports = {
 
   getPlotEditor: async (req, res) => {
     try {
-      res.render("edit-plot.ejs", { plot: req.plot, user: req.user });
+      if (req.plot.plotType === "collection") {
+        res.render("edit-collection.ejs", { plot: req.plot, user: req.user });
+      } else {
+        res.render("edit-plot.ejs", { plot: req.plot, user: req.user });
+      }
     } catch (err) {
       console.log(err);
     }
