@@ -170,6 +170,8 @@
     </form>
 
 </div>
+
+<!-- ------------- modal --------- -->
 <div class="modal fade" id="plotImgEdit" tabindex="-1" aria-labelledby="editImgLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -179,11 +181,11 @@
             </div>
             <div class="modal-body p-4">
             <p class="p-4">
-                <em>Replacing plot image <strong>deletes</strong> the current saved photo from the system and replaces it with the newly uploaded image (Note: you can always save a new image, but replacement cannot be undone)</em>
+                <em>This action <strong>deletes</strong> the current saved photo from the system and replaces it with the newly uploaded image (Note: you can always save a new image, but replacement cannot be undone)</em>
             </p>
             <form class="needs-validation p-4" action="/plot/edit-image/<%= plot.id %>" enctype="multipart/form-data" method="POST" novalidate>
                 <div>
-                    <!-- image -->
+                    <!-- image upload -->
                     <div><label for="imgUpload">New Image</label></div>
                     <div class="input-group has-validation mb-3">
                         <div class="input-group-text text-white" for="imgUpload"><i class="fas fa-image fa-lg"></i></div>

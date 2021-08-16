@@ -102,6 +102,35 @@ module.exports = {
       console.log(err);
     }
   },
+  editPlantImage: async (req, res) => {
+    try {
+      // Upload new image to cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path,
+        { aspect_ratio: "16:7", gravity: "auto", crop: "fill" },
+        function(error, result) { 
+          if (error){
+            console.log(error);
+            res.redirect(`/plant/${req.params.id}/edit`);
+          } 
+        });
+        console.log("New image uploaded");
+        // delete old plant image from cloudinary
+        await cloudinary.uploader.destroy(req.plant.imageProviderId);
+        console.log("Old image deleted");
+
+      await Plant.findOneAndUpdate(
+        { _id: req.plant.id },
+        {
+          image: result.secure_url,
+          imageProviderId: result.public_id,
+        }
+      );
+      console.log("Plant image has been replaced");
+      res.redirect(`/plant/${req.params.id}/edit`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
   editPlant: async (req, res) => {
     try {
       await Plant.findOneAndUpdate(
