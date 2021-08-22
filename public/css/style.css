@@ -111,14 +111,14 @@ body {
   margin: 0px;
   width: 100%;
   height:fit-content;
-  background-color: none;
-  opacity: 0.7;
+  /* background-color: none;
+  opacity: 0.7; */
 }
     .overlay-right {
-      border-top-left-radius: 1.5rem;
+      border-top-left-radius: 1.2rem;
     }
     .overlay-left {
-      border-top-right-radius: 1.5rem;
+      border-top-right-radius: 1.2rem;
     }
 
 
@@ -160,7 +160,7 @@ body {
   background-color: #383B3F;
 }
 
-.bg-op-overlay {
+.bg-sheer-black {
   background-color:rgba(0, 0, 0, 0.5);
 }
 
@@ -184,6 +184,14 @@ body {
   min-height: 100%;
 }
 
+.carousel-image-box {
+  overflow: hidden;
+}
+
 .carousel-row {
   /* width: 80%; */
+}
+
+.blue-test {
+  border: 8px solid cornflowerblue;
 }
