@@ -1,5 +1,9 @@
 const express = require("express");
+const favicon = require('serve-favicon')
+const path = require('path')
 const app = express();
+const iconPath = path.join(__dirname, 'public', 'favicon.ico');
+const options = {  maxAge: 200 * 60 * 60 * 24 * 1000 }
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
@@ -27,6 +31,7 @@ app.set("view engine", "ejs");
 
 //Static Folder
 app.use(express.static("public"));
+app.use(favicon(iconPath, options));
 
 //Body Parsing
 app.use(express.urlencoded({ extended: true }));
