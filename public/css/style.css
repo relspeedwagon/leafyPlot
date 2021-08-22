@@ -6,10 +6,22 @@
 body {
   /* padding-top: -10px;
   padding-bottom: 3rem; */
+  /* background-image: url('../images/BgSmall.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:contain; */
+}
+
+.index-main {
   background-image: url('../images/BgSmall.png');
   background-position: center;
-  /* background-repeat: no-repeat; */
-  background-size:cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+footer {
+  height: 300px;
+  background-color: rgba(38, 38, 38, 0.85);
 }
 
 .doc-name {
@@ -164,6 +176,10 @@ body {
   background-color:rgba(0, 0, 0, 0.5);
 }
 
+.bg-ultra-sheer-black {
+  background-color:rgba(0, 0, 0, 0.3);
+}
+
 .label-text {
   font-weight: 500;
   font-size: 1.05rem;
@@ -176,7 +192,7 @@ body {
 .carousel-item {
   object-fit: cover;
   object-position: center;
-  height: 45vh;
+  height: 42vh;
   overflow: hidden;
 }
 .carousel-image {
@@ -184,9 +200,13 @@ body {
   min-height: 100%;
 }
 
-.carousel-image-box {
+/* .carousel-card-img {
+  min-height: 100%;
+} */
+
+/* .carousel-image-box {
   overflow: hidden;
-}
+} */
 
 .carousel-row {
   /* width: 80%; */
