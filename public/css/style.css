@@ -160,13 +160,17 @@ body {
   background-color: #383B3F;
 }
 
+.bg-op-overlay {
+  background-color:rgba(0, 0, 0, 0.5);
+}
+
 .label-text {
   font-weight: 500;
   font-size: 1.05rem;
 }
 
-.carousel-inner {
-  opacity: 0.6;
+.carousel-caption-bg {
+  background-color:rgba(0, 0, 0, 0.5);
 }
 
 .carousel-item {
@@ -176,7 +180,10 @@ body {
   overflow: hidden;
 }
 .carousel-image {
-  /* min-width: 100%; */
+  min-width: 100%;
   min-height: 100%;
-  opacity: 1.0;
+}
+
+.carousel-row {
+  /* width: 80%; */
 }
