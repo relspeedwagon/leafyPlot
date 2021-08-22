@@ -1,11 +1,13 @@
 <%- include('partials/index-header') -%>
-<main class="index-main container-fluid d-flex align-items-center mx-0 px-0" style="height: 100vh; margin-top: -4rem;">
-		
-    <div class="container-fluid py-3 px-0">
-        <div class="row pt-2 pb-1">
-            <h1 class="text-center text-capitalize text-white fw-bold">Simplified Garden Management</h1>
+<div class="container-fluid mx-0 px-0">
+    <div class="d-flex flex-column index-headline px-0">
+        <h1 class="text-center text-capitalize color-primary fw-bold">Plan Your Dream Garden</h1>
+        <div class="d-flex justify-content-center mt-4 mb-2">
+            <a href="/signup" class="nav-link btn btn-primary text-white justify-self-center py-1 px-5" role="button" style="width: fit-content;"> Get Started</a>
         </div>
-        <div id="mainCarousel" class="carousel slide bg-inverse align-self-center w-100 ms-auto me-auto" data-bs-ride="carousel">
+    </div>
+    <main class="index-main container-fluid mx-0 px-0">
+        <div id="mainCarousel" class="carousel slide bg-inverse w-100 ms-auto me-auto" data-bs-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></li>
                 <li data-bs-target="#mainCarousel" data-bs-slide-to="1"></li>
@@ -87,11 +89,8 @@
                 <span class="visually-hidden">Next</span>
             </a>
         </div>
-    </div>
-    
-</main>
-<div class="container">
-    
+        
+    </main>
     
 </div>
     
