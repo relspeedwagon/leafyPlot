@@ -7,6 +7,7 @@
   
 } */
 
+
 .index-main {
   height: 120vh;
   background-image: url('../images/FullBGv2.png');
@@ -25,6 +26,9 @@ footer {
   height: 200px;
   background-color: rgba(38, 38, 38, 0.85);
   margin-top: 5rem;
+}
+.min-view-ht {
+  min-height: 70vh;
 }
 
 /* ---------------text styles------------------- */
@@ -58,6 +62,11 @@ footer {
 
 .input-group-text {
   background-color: #a3a5a6
+}
+
+.label-text {
+  font-weight: 500;
+  font-size: 1.05rem;
 }
 
 /* ---------------btn styles------------------- */
@@ -201,11 +210,14 @@ footer {
     background-color: rgba(189, 140, 191, .5);
   }
 
-.bg-green-sheer {
-  background-color: rgba(62,224,0, .5);
-  /* background-color: rgba(72,255,0, .5); */
-  /* background-color: rgba(55,195,1, .5); */
+.color-green {
+  color: #37C301;
 }
+  .bg-green-sheer {
+    background-color: rgba(62,224,0, .5);
+    /* background-color: rgba(72,255,0, .5); */
+    /* background-color: rgba(55,195,1, .5); */
+  }
 .bg-custom {
   background-color: #383B3F;
 }
@@ -218,11 +230,7 @@ footer {
   background-color:rgba(0, 0, 0, 0.3);
 }
 
-.label-text {
-  font-weight: 500;
-  font-size: 1.05rem;
-}
-
+/* ------carousel styles---------- */
 #mainCarousel {
   margin-top: 3.5rem;
 }
