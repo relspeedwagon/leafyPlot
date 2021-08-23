@@ -3,20 +3,15 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-body {
-  /* padding-top: -10px;
-  padding-bottom: 3rem; */
-  /* background-image: url('../images/BgSmall.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size:contain; */
-}
+/* body {
+  
+} */
 
 .index-main {
   height: 120vh;
   background-image: url('../images/FullBGv2.png');
   background-size: cover;
-  padding-top: 16%;
+  padding-top: 12%;
   margin-top: -2%;
   /* opacity: .8; */
 }
@@ -27,8 +22,9 @@ body {
 }
 
 footer {
-  height: 300px;
-  background-color: rgba(38, 38, 38, 0.75);
+  height: 200px;
+  background-color: rgba(38, 38, 38, 0.85);
+  margin-top: 5rem;
 }
 
 /* ---------------text styles------------------- */
@@ -215,7 +211,7 @@ footer {
 .carousel-item {
   object-fit: cover;
   object-position: center;
-  height: 50vh;
+  height: 45vh;
   overflow: hidden;
 }
 .carousel-image {
