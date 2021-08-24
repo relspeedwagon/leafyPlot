@@ -3,43 +3,43 @@
 <div class="container-md">
     <div class="row justify-content-center my-3">
         <div class="col-lg-10">
-            <div class="row justify-content-between mb-2 mt-3 mx-0 px-0 ">
-                <div class="col-sm-5 col-md-6 py-0 px-2">
-                    <h1 class="title-font-op text-uppercase ps-3">All Plants</h1>
+            <!-- headline & top bar -->
+            <div class="row justify-content-between mb-0 mt-3 mx-0 px-0 ">
+                <div class="col-sm-5 col-md-6 py-0 px-0">
+                    <h1 class="title-font-op text-uppercase ps-0">All Plants</h1>
                 </div>
-                
                 <!-- ------- -->
-                <div class="row border-bottom border-1 py-0 px-2 my-0 mx-2" style="height: 10px;"></div>
+                <div class="border-bottom border-1 p-0 mx-0 mt-0 mb-3" style="height: 5px;"></div>
                 <!-- ------- -->
-            
             </div>
-
+            
+            <!-- if no plants for user -->
             <% if ( plants.length == 0 ) {%>
                 <div class="col">
-        
-                    <div class="card placeholder-card border-light">
-                        <div class="d-flex p-0">
-                            <div class="d-flex justify-content-between row plc-overlay">
-                                <div class="col-2 d-flex justify-content-center bg-green-sheer text-white py-2">
-                                    <span class="align-self-center"><i class="fas fa-seedling fa-3x"></i></span>
-                                </div>
-                                <div class="col text-dark ps-4 pe-5 py-4">
-                                    <span class="doc-name align-self-center"> No Plants Yet! </span>
-                                    <p>
-                                        Plants can be added by <span class="color-primary fw-bolder">Starting A New Plot</span>, <span class="color-alt fw-bolder">Adding A Collection</span>, or navigating to an existing space and selecting <span class="color-green fw-bolder">Add A Plant</span>.<span class="ps-1"></span> Once Plants have been saved to an associated group, this section will display all Plant records for your home.<span class="ps-1"></span> Click <span class="text-secondary fw-bolder">Home</span> below to get started!
-                                    </p>
-                                </div>
-                                <div class="col-sm-1">
-        
+            
+                        <div class="card placeholder-card border-grey">
+                            <div class="d-flex min-card-h p-0">
+                                <div class="d-flex justify-content-between row plc-overlay">
+                                    <div class="col-2 d-flex min-card-h justify-content-center bg-green-sheer text-white py-2">
+                                        <span class="align-self-center"><i class="fas fa-seedling fa-3x"></i></span>
+                                    </div>
+                                    <div class="col text-dark ps-4 pe-5 pt-5 pb-4">
+                                        <span class="doc-name align-self-center"> No Plants Yet! </span>
+                                        <br><br>
+                                        <p>
+                                            Plants can be added by first <span class="color-primary fw-bolder">Starting A New Plot</span>, <span class="color-alt fw-bolder">Adding A Collection</span>, or navigating to an existing space and selecting <span class="color-green fw-bolder">Add A Plant</span>.<span class="ps-1"></span> Once Plants have been added, this page will display all Plant records for your home.<span class="ps-1"></span> Click <span class="text-secondary fw-bolder"><i class="fas fa-home px-1"></i>Home</span> below to get started!
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-1">
+            
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-        
-            </div>
-        
-            <% } %> 
             
+                </div>
+                <% } %> 
+            <!-- else, show all plants for user -->
             <div class="row justify-content-center m-0 p-0">
                 <div class="col">
                     <!-- all plants for user-->
@@ -71,24 +71,21 @@
                     </section>
                 </div>
             </div>
+
+            <!-- bottom bar and home button -->
             <div class="row justify-content-between mb-2 mt-3 mx-0 px-0 ">
                 
                 <!-- ------- -->
-                <div class="row border-bottom border-1 py-0 px-2 my-0 mx-2" style="height: 10px;"></div>
+                <div class="border-bottom border-1 p-0 m-0" style="height: 10px;"></div>
                 <!-- ------- -->
-                <div class="col-sm-4 py-0 px-2 my-3">
+                <div class="col-sm-4 py-0 px-0 my-3">
                     <a class="btn btn-secondary w-100" href="/profile" role="button"><i class="fas fa-home fa-lg pe-2"></i>Home</a>
                 </div>
             
             </div>
                 
         </div>
-
     </div>
-
-
-    
-
 </div>
 
 <%- include('./partials/footer.ejs'); -%>

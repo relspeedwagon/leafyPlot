@@ -195,6 +195,13 @@ footer {
   height: 65%;
 }
 
+.border-grey {
+  border-color: #C9C9C9;
+  border-width: thin;
+}
+.min-card-h {
+  min-height: 12.5rem;
+}
 
 /* -------custom colors-------------- */
 .color-primary {
