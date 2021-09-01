@@ -2,6 +2,8 @@ const passport = require("passport");
 const validator = require("validator");
 const User = require("../models/User");
 
+const welcomeEmail = require("../utils/welcomeEmail");
+
 module.exports = {
   getLogin: (req, res) => {
     if (req.user) {
@@ -106,7 +108,12 @@ module.exports = {
           if (err) {
             return next(err);
           }
+
           req.logIn(user, (err) => {
+
+            // send welcome email
+            welcomeEmail(`${user.email}`)
+
             if (err) {
               return next(err);
             }
