@@ -23,8 +23,8 @@
 }
 
 footer {
-  height: 200px;
-  background-color: rgba(38, 38, 38, 0.85);
+  min-height: 200px;
+  background-color: rgba(38, 38, 38, 1);
   margin-top: 5rem;
 }
 .min-view-ht {
@@ -114,8 +114,9 @@ footer {
 
 .btn-warning {
   color: white;
-  background-color: #6D757D;
-  border: #6D757D;
+  background-color: #5E5E5E;
+  border: #5E5E5E;
+  /* other grey #6D757D; */
 }
     .btn-warning:hover {
       color: white;
@@ -204,13 +205,13 @@ footer {
 }
 
 /* -------custom colors-------------- */
-.color-primary {
+.text-color-primary {
   color: #8781BD;
 }
   .bg-primary-sheer {
     background-color: rgba(135, 129, 189, .5);
   }
-.color-alt {
+.text-color-alt {
   color: #BD8CBF;
 }
   .bg-alt-sheer {
@@ -225,9 +226,13 @@ footer {
     /* background-color: rgba(72,255,0, .5); */
     /* background-color: rgba(55,195,1, .5); */
   }
-.bg-custom {
-  background-color: #383B3F;
+
+.text-grey {
+  color: #5E5E5E;
 }
+/* .bg-custom {
+  background-color: #383B3F;
+} */
 
 .bg-sheer-black {
   background-color:rgba(0, 0, 0, 0.5);
