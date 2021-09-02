@@ -4,17 +4,15 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 const contactEmail = async ( subject, contactName, fromEmail, message ) => {
         const msg = {
-            to: `${process.env.FROM_EMAIL}`,
+            to: "arielle.morabito@gmail.com",
             from: `${process.env.FROM_EMAIL}`,
             subject: "Contact from LeafyPlot",
             html: `
             <div>
-                <ul>
-                    <li><strong>Contact From:</strong> ${contactName}</li>
-                    <li><strong>Email:</strong> ${fromEmail}</li>
-                    <li><strong>Subject:</strong> ${subject}</li>
-                    <li><strong>Message:</strong> ${message}</li>
-                </ul>
+                    <p><strong>Contact From:</strong> ${contactName}</p>
+                    <p><strong>Email:</strong> ${fromEmail}</p>
+                    <p><strong>Subject:</strong> ${subject}</p>
+                    <p><strong>Message:</strong> ${message}</p>
             </div>`,
         };
 
@@ -27,7 +25,7 @@ const contactEmail = async ( subject, contactName, fromEmail, message ) => {
         if (error.response) {
             console.error(error.response.body)
         }
-        
+        res.redirect("/");
         }
         console.log("Email Sent")
     };

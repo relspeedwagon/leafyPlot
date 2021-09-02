@@ -11,6 +11,7 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 router.get("/", homeController.getIndex);
 router.get("/contact", homeController.getContactForm);
 router.post("/contact", homeController.postContact);
+router.get("/sent", homeController.getSent);
 
 router.get("/profile", ensureAuth, plotsController.getUserPlots);
 router.get("/all-plants", ensureAuth, plantsController.getUserPlants);

@@ -16,7 +16,6 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const plotRoutes = require("./routes/plots");
 const plantRoutes = require("./routes/plants");
-// const collRoutes = require("./routes/collections");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
