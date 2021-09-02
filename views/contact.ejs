@@ -1,0 +1,81 @@
+<% if (!user) { %>
+  <%- include('partials/index-header') -%>
+<% } %>
+
+<% if (user) { %>
+  <%- include('partials/header') -%>
+<% } %>
+
+    <main class="container">
+        <div class="row justify-content-center align-items-center" style="min-height: 60vh;">
+            <section class="col-lg-6 mt-5">
+              <div class="row justify-content-center mt-5 mb-1">
+                <div class="col py-0 px-2">
+                    <h3 class="text-color-primary title-font-op text-uppercase ps-2">Contact Us</h3>
+                </div>
+              </div>
+                <% if (locals.messages.errors) { %>
+                    <% messages.errors.forEach( el => { %>
+                        <div class="alert alert-danger"><%= el.msg %></div>
+                    <% }) %>    
+                <% } %>
+                <% if (locals.messages.info) { %>
+                    <% messages.info.forEach( el => { %>
+                        <div class="alert alert-info"><%= el.msg %></div>
+                    <% }) %>    
+                <% } %>
+                <form class="needs-validation" action="/contact" method="POST" novalidate>
+                    <% if (!user) { %>
+                      <div class="form-floating has-validation mb-3">
+                        <input type="text" class="form-control" id="contactName" name="contactName" placeholder="contact name" required>
+                        <label for="contactName" class="form-label"><i class="text-secondary far fa-user-circle fa-lg pe-2"></i>Your Name<span class="req-prop ps-1">*</span></label>
+                        <div id="validContactNameFeedback" class="invalid-feedback">Please include your name</div>
+                      </div>
+                    <% } %>
+
+                    <% if (user) { %>
+                      <div class="form-floating has-validation mb-3">
+                        <input 
+                          type="text" 
+                          class="form-control" 
+                          id="contactName" 
+                          name="contactName" 
+                          placeholder="username"
+                          value=" <% if (user) { %> <%= user.userName %> <% } %> " 
+                          required
+                        >
+                        <label for="contactName" class="form-label"><i class="text-secondary far fa-user-circle fa-lg pe-2"></i>Username<span class="req-prop ps-1">*</span></label>
+                        <div id="validContactNameFeedback" class="invalid-feedback">Please include your username</div>
+                      </div>
+                    <% } %>
+                    <div class="form-floating has-validation mb-3">
+                      <input 
+                        type="email" 
+                        class="form-control" 
+                        id="emailInput" 
+                        name="email" 
+                        placeholder="email address" 
+                        aria-describedby="emailHelp" 
+                        value=" <% if (user) { %> <%= user.email %> <% } %> "
+                        required
+                      >
+                      <label for="emailInput" class="form-label"><i class="text-secondary fas fa-at fa-lg pe-2"></i>Your Email<span class="req-prop ps-1">*</span></label>
+                      <div class="invalid-feedback">Please include your email</div>
+                    </div>
+                    <div class="form-floating has-validation mb-3">
+                      <input type="text" class="form-control" id="subject" name="subject" placeholder="subject" aria-describedby="subject" required>
+                      <label for="subject" class="form-label"><i class="text-secondary fas fa-envelope-open-text fa-lg pe-2"></i>Subject:<span class="req-prop ps-1">*</span></label>
+                      <div class="invalid-feedback">Please include a message subject</div>
+                    </div>
+                    <div class="form-floating has-validation mb-3">
+                      <textarea class="form-control" id=message name="message" placeholder="Your message" aria-describedby="message" style="height: 8rem;" required></textarea>
+                      <label for="message" class="form-label"><i class="text-secondary far fa-comments fa-lg pe-2"></i>Send us a message!<span class="req-prop ps-1">*</span></label>
+                      <div class="invalid-feedback">Please include a contact message</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                  </form>
+            </section>
+        </div>
+    </main>
+
+<%- include('partials/footer') -%>
