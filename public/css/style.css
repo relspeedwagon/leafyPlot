@@ -14,8 +14,16 @@
   background-size: cover;
   padding-top: 12%;
   margin-top: -2%;
-  /* opacity: .8; */
 }
+  .main-sheer {
+    min-height: 120vh;
+    max-height: fit-content;
+    background-image: url('../images/FullBGSheer.png');
+    background-size: cover;
+    padding-top: 6%;
+    padding-bottom: 12%;
+    margin-top: 2%;
+  }
 
 .index-headline {
   margin-top: 7%;
@@ -240,6 +248,10 @@ footer {
 
 .bg-ultra-sheer-black {
   background-color:rgba(0, 0, 0, 0.3);
+}
+
+.bg-sheer-white {
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 /* ------carousel styles---------- */
