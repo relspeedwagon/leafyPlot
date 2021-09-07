@@ -2,14 +2,14 @@
 <%- include('./partials/header.ejs'); -%>
 <div class="main-sheer container-fluid">
     <div class="row justify-content-center my-3">
-        <div class="col-lg-9 bg-sheer-white">
+        <div class="col-lg-10 bg-sheer-white px-4">
             <!-- headline & top bar -->
-            <div class="row justify-content-between mb-0 mt-3 mx-0 px-0 ">
-                <div class="col-sm-5 col-md-6 py-0 px-0">
-                    <h1 class="title-font-op text-uppercase ps-0">All Plants</h1>
+            <div class="row justify-content-between mb-0 mt-5 mx-0 px-0">
+                <div class="col-sm-5 col-md-6 py-0 px-2">
+                    <h1 class="title-font-op text-uppercase p-0 m-0">All Plants</h1>
                 </div>
                 <!-- ------- -->
-                <div class="border-bottom border-1 p-0 mx-0 mt-0 mb-3" style="height: 5px;"></div>
+                <div class="border-bottom border-1 p-0 mx-0 mt-0 mb-1" style="height: 5px;"></div>
                 <!-- ------- -->
             </div>
             
@@ -47,7 +47,7 @@
                         <div class="row row-xxl-cols-3 row-sm-cols-2">
                             <% for(var i=0; i < plants.length; i++) {%>
                                 
-                                <div class="col-xxl-4 col-sm-6 gx-3 gy-4">
+                                <div class="col-xxl-4 col-sm-6 gx-2 gy-3">
                                     <a href="/plant/<%= plants[i]._id%>">
                                         <div class="image-card card img-fluid border-light">
                                             
