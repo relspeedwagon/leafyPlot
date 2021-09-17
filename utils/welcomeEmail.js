@@ -2,19 +2,21 @@ require("dotenv").config({ path: "./config/.env" });
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-const welcomeEmail = async (to) => {
+const welcomeEmail = async (USER_EMAIL, USER_USERNAME, err) => {
         const msg = {
-            to,
+            to: `${USER_EMAIL}`,
             from: `${process.env.FROM_EMAIL}`, // Use the email address or domain you verified above
-            subject: 'Welcome to LeafyPlot',
-            text: 'and easy to do anywhere, even with Node.js',
-            html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+            templateId: 'd-03b7654f11864ad5a386ae1d7c87797c',
+            dynamicTemplateData: {
+                subject: 'Welcome to LeafyPlot',
+                username: `${USER_USERNAME}`
+            },
         };
 
         try {
         await sgMail.send(msg);
-        } catch (error) {
-        console.error(error);
+        } catch (err) {
+        console.error(err);
     
         if (error.response) {
             console.error(error.response.body)

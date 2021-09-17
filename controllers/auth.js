@@ -112,7 +112,7 @@ module.exports = {
           req.logIn(user, (err) => {
 
             // send welcome email
-            welcomeEmail(`${user.email}`)
+            welcomeEmail(`${user.email}`, `${user.userName}`, err)
 
             if (err) {
               return next(err);
