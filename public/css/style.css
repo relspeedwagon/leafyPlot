@@ -24,6 +24,12 @@
     padding-bottom: 12%;
     margin-top: -2%;
   }
+  .head-sheer {
+    max-height: fit-content;
+    background-image: url('../images/BGHeadSheer.png');
+    background-size: cover;
+    padding-bottom: 3%;
+  }
   .pattern-bar {
     height: 8px;
     min-width: 100%;
