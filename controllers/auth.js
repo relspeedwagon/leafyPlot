@@ -73,7 +73,7 @@ module.exports = {
   
   postSignup: async (req, res, next) => {
     try {
-      const validationErrors = [];
+      let validationErrors = await [];
     if (!validator.isEmail(req.body.email))
       validationErrors.push({ msg: "Please enter a valid email address." });
     if (!validator.isLength(req.body.password, { min: 8 }))
