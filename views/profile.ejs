@@ -2,14 +2,9 @@
 
 <div class="container">
 
-    <!-- <div class="row" style="height: 4rem;"></div> -->
-
-    <!-- Pattern BAR -->
-    <div class="pattern-bar mx-0"></div>
-
     <!--- PLOTS ------------------------>
     <!-- plot section header, button & bar -->
-    <div class="row justify-content-between mb-0 mx-0 px-0">
+    <div class="row justify-content-between mt-5 mb-0 mx-0 px-0">
         <div class="col-sm-5 col-md-6 ps-0">
             <h1 class="title-font-op text-uppercase p-0 m-0">Plots</h1>
         </div>
@@ -51,7 +46,7 @@
         <% } %> 
     </div>
     <!-- else, show all plots for user -->
-    <div class="row row-md-cols-2 gx-2 gy-3 mb-5">
+    <div class="row row-md-cols-2 gx-2 gy-3 mb-4">
         <% for(var i=0; i < plots.length; i++) {%>
             
             <div class="col-lg-6">
@@ -76,12 +71,9 @@
         <% } %>    
     </div>
 
-    <!-- Pattern BAR -->
-    <div class="pattern-bar mx-0"></div>
-
     <!-- COLLECTIONS -------------------->
     <!-- collections section header, button & bar -->
-    <div class="row justify-content-between mb-0 mx-0 px-0">
+    <div class="row justify-content-between mt-5 mb-0 mx-0 px-0">
         <div class="col-sm-6 ps-0">
             <h1 class="title-font-op text-uppercase p-0 m-0">Collections</h1>
         </div>
@@ -122,7 +114,7 @@
         <% } %> 
     </div>
     <!-- else, show all collections for user -->
-    <div class="row row-md-cols-2 gx-2 gy-3 mb-5">
+    <div class="row row-md-cols-2 gx-2 gy-3 mb-4">
         <% for(var i=0; i < colls.length; i++) {%>
             
             <div class="col-lg-6">
@@ -146,8 +138,11 @@
             </div>
         <% } %>    
     </div>
-    
 
+    
 </div>
+<!-- Pattern BAR -->
+<div class="head-sheer pb-5 pt-5"></div>
+<div class="pattern-bar"></div>
 
 <%- include('./partials/footer.ejs'); -%>
