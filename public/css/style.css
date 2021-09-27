@@ -102,6 +102,30 @@ footer {
     .btn-primary:active {
       box-shadow: 0 0 0 0.25rem rgb(135 129 189 / 70%);
     }
+
+  .btn-outline-primary {
+    border-color: #8781BD;
+    /* border-width: medium; */
+    color: #8781BD;
+    font-weight: bold;
+  }
+    .btn-outline-primary:hover {
+      background-color: #8781BD;
+      border-color: #8781BD;
+      color: white;
+      font-weight: normal;
+    }
+    .btn-outline-primary:focus {
+      background-color: #8781BD;
+      border-color: #8781BD;
+      box-shadow: 0 0 0 0.2rem rgb(135 129 189 / 70%);
+    }
+    .btn-outline-primary:active {
+      border-color: #8781BD;
+      box-shadow: 0 0 0 0.25rem rgb(135 129 189 / 70%);
+    }
+
+
   .btn-primary.btn-alt {
     background-color: #BD8CBF;
     border: #BD8CBF;
@@ -266,8 +290,14 @@ footer {
 
 /* ------carousel styles---------- */
 #mainCarousel {
-  margin-top: 3.5rem;
+  margin-top: .2rem;
+
 }
+  @media screen and (max-width: 992px) {
+    #mainCarousel {
+      margin-top: 3.2rem;
+    }
+  }
 
 .carousel-caption-bg {
   background-color:rgba(0, 0, 0, 0.5);
@@ -277,6 +307,7 @@ footer {
   object-fit: cover;
   object-position: center;
   height: 45vh;
+  min-height: 300px;
   overflow: hidden;
 }
 .carousel-image {
