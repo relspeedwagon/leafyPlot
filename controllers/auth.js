@@ -61,6 +61,16 @@ module.exports = {
       res.redirect("/");
     });
   },
+
+  getUserDetails: async (req, res) => {
+    try {
+      // const user = await Plot.find({ user: req.user.id, plotType: "plot" }).sort( { createdAt: "desc" });
+      // const colls = await Plot.find({ user: req.user.id, plotType: "collection" }).sort( { createdAt: "desc" });
+      res.render("my-account.ejs", { user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   
   getSignup: (req, res) => {
     if (req.user) {

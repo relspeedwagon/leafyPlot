@@ -1,0 +1,53 @@
+<%- include('./partials/header.ejs'); -%>
+<div class="container-md">
+    <div class="row justify-content-center my-3">
+        <div class="col-lg-10 mb-4">
+            <!-- ------- -->
+            <div class="border-bottom border-1 p-0 mx-0 mt-0 mb-3" style="height: 5px;"></div>
+            <!-- ------- -->
+
+            <div class="row mx-1 mt-3">
+                <div class="col ps-3">
+                    <h5 class="title-font-op text-uppercase">Account Details</h5>
+                </div>
+            </div>
+
+            <div class="row my-3 mx-1">
+                <div class="col ps-3">
+                    <!-- year planted -->
+                    <div>
+                        <span class="label-text text-muted">Username</span>
+                    </div>
+                    <div class="mb-4">
+                        <span><i class="label-text text-muted fas fa-user fa-lg pe-2"></i><%= user.userName %></span>
+                    </div>
+                    
+                </div>
+                <!-- light -->
+                <div class="col ps-3">
+                    <div>
+                        <span class="label-text text-muted">Account Email</span>
+                    </div>
+                    <div>
+                        <span><i class="label-text text-muted fas fa-at fa-lg pe-2"></i><%= user.email %></span>
+                    </div>
+                </div>
+                
+                <!-- soil -->
+                <div class="col ps-3">
+                    <div>
+                        <span class="label-text text-muted">Member Since</span>
+                    </div>
+                    <div>
+                        <span><i class="label-text text-muted far fa-calendar-alt fa-lg pe-2"></i><%= user.createdAt.toDateString().split(' ').slice(1).join(' ') %></span>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- ------- -->
+            <div class="border-bottom border-1 p-0 mx-0 mt-0 mb-3" style="height: 5px;"></div>
+            <!-- ------- -->
+        </div>
+    </div>
+</div>
+<%- include('./partials/footer.ejs'); -%>
