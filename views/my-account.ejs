@@ -1,7 +1,7 @@
 <%- include('./partials/header.ejs'); -%>
 <div class="container-md">
     <div class="row justify-content-center my-3">
-        <div class="col-lg-10 mb-4">
+        <div class="col-lg-10 mt-5 mb-4">
             <!-- ------- -->
             <div class="border-bottom border-1 p-0 mx-0 mt-0 mb-3" style="height: 5px;"></div>
             <!-- ------- -->
@@ -10,11 +10,22 @@
                 <div class="col ps-3">
                     <h5 class="title-font-op text-uppercase">Account Details</h5>
                 </div>
+                <div class="col-2 py-0">
+                    <a 
+                        class="nav-link text-dark fw-bold text-end p-0" 
+                        style="font-size: smaller;" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#accountForm" 
+                        aria-expanded="false" 
+                        aria-controls="accountForm"
+                        role="button">EDIT
+                    </a>
+                </div>
             </div>
 
             <div class="row my-3 mx-1">
                 <div class="col ps-3">
-                    <!-- year planted -->
+                    <!-- USERNAME -->
                     <div>
                         <span class="label-text text-muted">Username</span>
                     </div>
@@ -23,7 +34,7 @@
                     </div>
                     
                 </div>
-                <!-- light -->
+                <!-- EMAIL -->
                 <div class="col ps-3">
                     <div>
                         <span class="label-text text-muted">Account Email</span>
@@ -33,7 +44,7 @@
                     </div>
                 </div>
                 
-                <!-- soil -->
+                <!-- MEMBER SINCE -->
                 <div class="col ps-3">
                     <div>
                         <span class="label-text text-muted">Member Since</span>
@@ -47,6 +58,14 @@
             <!-- ------- -->
             <div class="border-bottom border-1 p-0 mx-0 mt-0 mb-3" style="height: 5px;"></div>
             <!-- ------- -->
+    
+            <div class="collapse" id="accountForm">
+                <div class="card card-body">
+                    <!-- form START -->
+                    <%- include('./partials/edit-account-form.ejs'); -%>       
+                    <!-- form END -->
+                </div>
+            </div>
         </div>
     </div>
 </div>

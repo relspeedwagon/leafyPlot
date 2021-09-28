@@ -16,7 +16,7 @@ module.exports = {
   
   postLogin: async (req, res, next) => {
     try {
-      let validationErrors = await [];
+      const validationErrors = await [];
       if (!validator.isEmail(req.body.email))
         validationErrors.push({ msg: "Please enter a valid email address." });
       if (validator.isEmpty(req.body.password))
@@ -83,7 +83,7 @@ module.exports = {
   
   postSignup: async (req, res, next) => {
     try {
-      let validationErrors = await [];
+      const validationErrors = await [];
     if (!validator.isEmail(req.body.email))
       validationErrors.push({ msg: "Please enter a valid email address." });
     if (!validator.isLength(req.body.password, { min: 8 }))
