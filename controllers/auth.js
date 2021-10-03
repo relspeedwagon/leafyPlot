@@ -1,5 +1,6 @@
 const passport = require("passport");
 const validator = require("validator");
+const bcrypt = require("bcrypt");
 const User = require("../models/User");
 
 const welcomeEmail = require("../utils/welcomeEmail");
@@ -30,26 +31,25 @@ module.exports = {
         gmail_remove_dots: false,
       });
       
-    } catch (error) {
-      
-    }
-  
-    passport.authenticate("local", (err, user, info) => {
-      if (err) {
-        return next(err);
-      }
-      if (!user) {
-        req.flash("errors", info);
-        return res.redirect("/login");
-      }
-      req.logIn(user, (err) => {
+      await passport.authenticate("local", (err, user, info) => {
         if (err) {
           return next(err);
         }
-        req.flash("success", { msg: "Success! You are logged in." });
-        res.redirect(req.session.returnTo || "/profile");
-      });
-    })(req, res, next);
+        if (!user) {
+          req.flash("errors", info);
+          return res.redirect("/login");
+        }
+        req.logIn(user, (err) => {
+          if (err) {
+            return next(err);
+          }
+          req.flash("success", { msg: "Success! You are logged in." });
+          res.redirect("/profile"); //req.session.returnTo ||
+        });
+      })(req, res, next);
+    } catch (error) {
+      
+    }
   },
   
   logout: (req, res) => {
@@ -64,8 +64,6 @@ module.exports = {
 
   getUserDetails: async (req, res) => {
     try {
-      // const user = await Plot.find({ user: req.user.id, plotType: "plot" }).sort( { createdAt: "desc" });
-      // const colls = await Plot.find({ user: req.user.id, plotType: "collection" }).sort( { createdAt: "desc" });
       res.render("my-account.ejs", { user: req.user });
     } catch (err) {
       console.log(err);
@@ -82,6 +80,7 @@ module.exports = {
   },
   
   postSignup: async (req, res, next) => {
+    console.log(req.body)
     try {
       const validationErrors = await [];
     if (!validator.isEmail(req.body.email))
@@ -138,6 +137,36 @@ module.exports = {
       }
     );
     } catch (err) {
+      console.log(err);
+    }
+  },
+
+  //ACCOUNT EDIT------------------------------------------------
+  accountUpdate: async (req, res) => {
+    console.log("this is the req body:", req.body)
+    try {
+      const validationErrors = await [];
+      const { userName, email, currentPassword } = req.body;
+
+      if (validationErrors.length) {
+        req.flash("errors", validationErrors);
+        return res.redirect("/my-account");
+        
+      } else {
+        req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false, });
+        User.findOne({ _id: req.user._id }, function(err, user) {
+          if (err) throw err;
+          
+          // test a matching password
+          user.comparePassword(currentPassword, function(err, isMatch) {
+              if (err) throw err;
+              console.log(currentPassword, isMatch);
+          });
+          
+      });
+        
+              }
+      } catch (err) {
       console.log(err);
     }
   },

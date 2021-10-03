@@ -15,6 +15,8 @@ router.get("/sent", homeController.getSent);
 
 router.get("/profile", ensureAuth, plotsController.getUserPlots);
 router.get("/my-account", ensureAuth, authController.getUserDetails);
+router.post("/edit-account", authController.accountUpdate);
+
 router.get("/all-plants", ensureAuth, plantsController.getUserPlants);
 router.get("/start-plot", ensureAuth, plotsController.getPlotCreate);
 router.get("/start-collection", ensureAuth, plotsController.getCollCreate);

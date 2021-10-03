@@ -139,8 +139,6 @@ module.exports = {
         {
         nameCommon: req.body.plantName,
         nameSCI: req.body.plantNameSCI,
-        // image: result.secure_url,
-        // imageProviderId: result.public_id,
         light: req.body.light,
         water: req.body.water,
         soil: req.body.soil,
