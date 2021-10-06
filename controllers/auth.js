@@ -146,27 +146,55 @@ module.exports = {
     console.log("this is the req body:", req.body)
     try {
       const validationErrors = await [];
-      const { userName, email, currentPassword } = req.body;
+      const { editUserName, editEmail, currentPassword } = req.body;
 
       if (validationErrors.length) {
         req.flash("errors", validationErrors);
         return res.redirect("/my-account");
-        
-      } else {
-        req.body.email = validator.normalizeEmail(req.body.email, { gmail_remove_dots: false, });
-        User.findOne({ _id: req.user._id }, function(err, user) {
+      }
+
+      req.body.editEmail = validator.normalizeEmail(req.body.editEmail, { gmail_remove_dots: false, });
+
+      const user = await User.findOne({ _id: req.user._id }, function(err, user) {
+        if (err) throw err;
+          // verify entered password
+        user.comparePassword(currentPassword, function(err, isMatch) {
           if (err) throw err;
           
-          // test a matching password
-          user.comparePassword(currentPassword, function(err, isMatch) {
-              if (err) throw err;
-              console.log(currentPassword, isMatch);
-          });
-          
+          if (!isMatch) {
+            validationErrors.push({ msg: "The password you entered is incorrect" });
+            req.flash("errors", validationErrors);
+            return res.redirect("/my-account");
+          } else {
+            console.log(currentPassword, isMatch)
+          }
+        });
+      })
+
+      if (user.userName != editUserName ){
+        console.log("username changed in form", user.userName, editUserName)
+        await User.find({ userName: editUserName }, function(err, nameInUse){
+          if (err) {
+            return next(err);
+          }
+          if (nameInUse != []){
+            console.log(nameInUse)
+            validationErrors.push({ msg: "The username you selected is already in use" });
+            req.flash("errors", validationErrors);
+            return res.redirect("/my-account");
+          } 
+        })
+      };
+
+      user.userName = editUserName
+      await  user.save((err) => {
+        if (err) {
+          return next(err);
+        }
       });
-        
-              }
-      } catch (err) {
+
+      res.redirect("/my-account");
+    } catch (err) {
       console.log(err);
     }
   },
