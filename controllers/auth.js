@@ -17,14 +17,14 @@ module.exports = {
   
   postLogin: async (req, res, next) => {
     try {
-      const validationErrors = await [];
+      const validationErrors = [];
       if (!validator.isEmail(req.body.email))
         validationErrors.push({ msg: "Please enter a valid email address." });
       if (validator.isEmpty(req.body.password))
         validationErrors.push({ msg: "Password cannot be blank." });
     
       if (validationErrors.length) {
-        req.flash("errors", validationErrors);
+        await req.flash("errors", validationErrors);
         return res.redirect("/login");
       }
       req.body.email = validator.normalizeEmail(req.body.email, {
@@ -82,7 +82,7 @@ module.exports = {
   postSignup: async (req, res, next) => {
     console.log(req.body)
     try {
-      const validationErrors = await [];
+      const validationErrors = [];
     if (!validator.isEmail(req.body.email))
       validationErrors.push({ msg: "Please enter a valid email address." });
     if (!validator.isLength(req.body.password, { min: 8 }))
@@ -106,7 +106,7 @@ module.exports = {
       password: req.body.password,
     });
   
-    User.findOne(
+    await User.findOne(
       { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
       (err, existingUser) => {
         if (err) {
@@ -145,55 +145,68 @@ module.exports = {
   accountUpdate: async (req, res) => {
     console.log("this is the req body:", req.body)
     try {
-      const validationErrors = await [];
+      const validationErrors = [];
       const { editUserName, editEmail, currentPassword } = req.body;
 
-      if (validationErrors.length) {
-        req.flash("errors", validationErrors);
-        return res.redirect("/my-account");
-      }
+      if (req.user.userName != editUserName){
+        console.log(req.user.userName, "to", editUserName)
 
-      req.body.editEmail = validator.normalizeEmail(req.body.editEmail, { gmail_remove_dots: false, });
-
-      const user = await User.findOne({ _id: req.user._id }, function(err, user) {
-        if (err) throw err;
-          // verify entered password
-        user.comparePassword(currentPassword, function(err, isMatch) {
-          if (err) throw err;
-          
-          if (!isMatch) {
-            validationErrors.push({ msg: "The password you entered is incorrect" });
-            req.flash("errors", validationErrors);
-            return res.redirect("/my-account");
-          } else {
-            console.log(currentPassword, isMatch)
-          }
-        });
-      })
-
-      if (user.userName != editUserName ){
-        console.log("username changed in form", user.userName, editUserName)
         await User.find({ userName: editUserName }, function(err, nameInUse){
           if (err) {
             return next(err);
           }
-          if (nameInUse != []){
-            console.log(nameInUse)
+          if (nameInUse.length > 0){
             validationErrors.push({ msg: "The username you selected is already in use" });
-            req.flash("errors", validationErrors);
-            return res.redirect("/my-account");
           } 
         })
       };
 
-      user.userName = editUserName
-      await  user.save((err) => {
-        if (err) {
-          return next(err);
-        }
-      });
+      if (req.user.email != editEmail){
+        console.log(req.user.email, "to", editEmail )
 
-      res.redirect("/my-account");
+        await User.find({ email: editEmail }, function(err, emailInUse){
+          if (err) {
+            return next(err);
+          }
+          if (emailInUse.length > 0){
+            validationErrors.push({ msg: "The email you selected is already in use" });
+          } else {
+              req.body.editEmail = validator.normalizeEmail(req.body.editEmail, { gmail_remove_dots: false, });
+          }
+        });
+      };
+
+      if (validationErrors.length) {
+        console.log(validationErrors)
+        req.flash("errors", validationErrors);
+        return res.redirect("/my-account");
+      } else {
+
+        await User.findOne({ _id: req.user._id }, function(err, user) {
+          if (err) throw err;
+        }).
+          then( (user) => {
+            // verify entered password
+            user.comparePassword(currentPassword, function(err, isMatch) {
+              if (err) throw err;
+              
+              if (!isMatch) {
+                console.log(currentPassword, "match =", isMatch);
+                validationErrors.push({ msg: "The password you entered is incorrect" });
+                req.flash("errors", validationErrors);
+                return res.redirect("/my-account");
+              } 
+
+              if (isMatch) {
+                user.userName = editUserName
+                user.email = editEmail
+                user.save();
+                res.redirect("/my-account");
+              }
+            });
+          })
+      }
+
     } catch (err) {
       console.log(err);
     }
