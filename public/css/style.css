@@ -42,12 +42,12 @@
 
 footer {
   min-height: 200px;
-  background-color: rgba(38, 38, 38, 1);
-  /* margin-top: 2.8rem; */
+  background-color: rgba(38, 38, 38, .9);
+  margin-top: -2rem;
 }
-.min-view-ht {
-  min-height: 70vh;
-}
+/* .min-view-ht {
+  min-height: 60vh;
+} */
 
 /* ---------------text styles------------------- */
 .doc-name {
