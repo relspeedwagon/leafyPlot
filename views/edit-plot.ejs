@@ -27,7 +27,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="col-lg-6">
                 <!-- plot name -->
@@ -54,14 +53,10 @@
                         <option value="2025">2025</option>
                     </select>
                 </div>
-
             </div>
-
         </div>
 
         <div class="row gy-2 gx-3 mb-3 mt-3">
-            
-
             <div class="col-lg-4">
                 <!-- zone -->
                 <div class="row gx-3 mb-3">
@@ -104,72 +99,84 @@
                 </div>
             </div>
 
-                <!-- light -->
-                <div class="col-lg-4">
-                    <div>
-                        <label for="avgSun">Location Sun Exposure</label>
-                    </div>
-                        <div class="input-group">
-                            <div class="input-group-text text-white" for="avgSun"><i class="fas fa-sun fa-lg"></i></div>
-                                <select class="form-select h-100" id="avgSun" name="avgSun" aria-label="Average sun select">
-                                    <option value="<%= plot.avgSun %>" selected><%= plot.avgSun %></option>
-                                    <option value="Full-Shade">Full-Shade</option>
-                                    <option value="Shade-Partial">Full-Shade to Part-Sun</option>
-                                    <option value="Sun-Partial">Full-Sun to Part-Shade</option>
-                                    <option value="Full-Sun">Full-Sun</option>
-                                    <option value="Morning-Sun">Morning-Sun</option>
-                                    <option value="Afternoon-Sun">Afternoon-Sun</option>
-                                </select>
-                        </div>
+            <!-- light -->
+            <div class="col-lg-4">
+                <div>
+                    <label for="avgSun">Location Sun Exposure</label>
                 </div>
-                
-                <!-- soil -->
-                <div class="col-lg-4">
-                    <div><label for="soilType">Location Soil Type</label></div>
                     <div class="input-group">
-                        <div class="input-group-text text-white" for="soil"><i class="fas fa-ellipsis-v fa-lg"></i></div>
-                            <select class="form-select h-100" id="soilType" name="soilType" aria-label="Soil select">
-                                <option value="<%= plot.soilType %>" selected><%= plot.soilType %></option>
-                                <option value="Average-Soil">Average-Soil</option>
-                                <option value="Well-Drained">Well-Drained</option>
-                                <option value="Clay">Clay</option>
-                                <option value="Silt">Silt</option>
-                                <option value="Rich/Loam">Rich/Loam</option>
-                                <option value="Sandy">Sandy</option>
-                                <option value="Rocky">Rocky</option>
+                        <div class="input-group-text text-white" for="avgSun"><i class="fas fa-sun fa-lg"></i></div>
+                            <select class="form-select h-100" id="avgSun" name="avgSun" aria-label="Average sun select">
+                                <option value="<%= plot.avgSun %>" selected><%= plot.avgSun %></option>
+                                <option value="Full-Shade">Full-Shade</option>
+                                <option value="Shade-Partial">Full-Shade to Part-Sun</option>
+                                <option value="Sun-Partial">Full-Sun to Part-Shade</option>
+                                <option value="Full-Sun">Full-Sun</option>
+                                <option value="Morning-Sun">Morning-Sun</option>
+                                <option value="Afternoon-Sun">Afternoon-Sun</option>
                             </select>
                     </div>
+            </div>
+                
+            <!-- soil -->
+            <div class="col-lg-4">
+                <div><label for="soilType">Location Soil Type</label></div>
+                <div class="input-group">
+                    <div class="input-group-text text-white" for="soil"><i class="fas fa-ellipsis-v fa-lg"></i></div>
+                        <select class="form-select h-100" id="soilType" name="soilType" aria-label="Soil select">
+                            <option value="<%= plot.soilType %>" selected><%= plot.soilType %></option>
+                            <option value="Average-Soil">Average-Soil</option>
+                            <option value="Well-Drained">Well-Drained</option>
+                            <option value="Clay">Clay</option>
+                            <option value="Silt">Silt</option>
+                            <option value="Rich/Loam">Rich/Loam</option>
+                            <option value="Sandy">Sandy</option>
+                            <option value="Rocky">Rocky</option>
+                        </select>
                 </div>
+            </div>
         </div>
 
-            <div class="row justify-content-between mb-3">
-                
-                <div class="col-md-7">
-
-                    <!-- notes -->
-                    <div>
-                        <label for="notes" class="form-label">Notes</label>
-                    </div>
-                    <div class="input-group mb-3">  
-                        <span class="input-group-text text-white"><i class="fas fa-pencil-alt fa-lg"></i></span>
-                        <textarea class="form-control" id=notes name="notes" rows="4"><%= plot.notes %></textarea>
-                    </div>
-
+        <div class="row justify-content-between mb-3">
+            <div class="col-lg-7">
+                <!-- notes -->
+                <div>
+                    <label for="notes" class="form-label">Notes</label>
                 </div>
-
+                <div class="input-group mb-3">  
+                    <span class="input-group-text text-white"><i class="fas fa-pencil-alt fa-lg"></i></span>
+                    <textarea class="form-control" id=notes name="notes" rows="4"><%= plot.notes %></textarea>
+                </div>
             </div>
+        </div>
 
-            <div class="mt-3">
-                <!-- save/close -->
-                <button class="btn btn-primary" type="submit" value="Upload">Save Changes</button>
-                <!-- <button type="reset" class="btn cancel" onclick="closeForm()">Close</button> -->
-                <a href="/plot/<%= plot.id %>" class="btn btn-secondary" role="button" >
-                Cancel
-                </a>
+        <div class="row justify-content-between my-3 mt-5">
+            <div class="col-lg-7">
+                <div class="row mx-0 px-0">
+                    <div class="col px-0 me-1">
+                        <!-- save/close -->
+                        <button 
+                            class="btn btn-primary w-100" 
+                            type="submit" 
+                            value="Upload">
+                            Save Changes
+                        </button>
+
+                    </div>
+                    <div class="col px-0 ms-1">
+                        <a 
+                            href="/plot/<%= plot.id %>" 
+                            class="btn btn-secondary w-100" 
+                            role="button" >
+                            Cancel
+                        </a>
+                    </div>
+                </div>
             </div>
-            <!-- ------- -->
-            <div class="row border-bottom border-1 p-0 m-0 mb-4" style="height: 10px;"></div>
-            <!-- ------- -->
+        </div>
+        <!-- ------- -->
+        <div class="row border-bottom border-1 p-0 m-0 mb-4" style="height: 10px;"></div>
+        <!-- ------- -->
     </form>
 
 </div>
