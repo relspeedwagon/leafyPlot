@@ -45,6 +45,9 @@ footer {
   background-color: rgba(38, 38, 38, .9);
   margin-top: -2rem;
 }
+.min-view-ht {
+  min-height: 85vh;
+}
 
 /* ---------------text styles------------------- */
 .doc-name {

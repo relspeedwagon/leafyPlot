@@ -1,8 +1,8 @@
 <%- include('partials/index-header') -%>
 
 <main class="container">
-  <div class="row justify-content-center align-items-center" style="height: 60vh;">
-    <div class="col-lg-6 mt-5" style="height:fit-content">
+  <div class="row min-view-ht justify-content-center align-items-center">
+    <div class="col-lg-6 mb-5">
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
       <% }) %> <% } %> <% if (locals.messages.info) { %> <%

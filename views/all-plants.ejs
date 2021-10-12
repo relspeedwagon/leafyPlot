@@ -1,8 +1,8 @@
 
 <%- include('./partials/header.ejs'); -%>
 <div class="container-fluid">
-    <div class="row justify-content-center my-3">
-        <div class="col-lg-10 border-grey px-4">
+    <div class="row justify-content-center my-3" style="min-height: 70vh;">
+        <div class="col-xl-8 col-lg-10 border-grey px-4">
             <!-- headline & top bar -->
             <div class="row justify-content-between mb-0 mt-5 mx-0 px-0">
                 <div class="col-sm-5 col-md-6 py-0 px-2">
@@ -39,7 +39,7 @@
                         </div>
             
                 </div>
-                <% } %> 
+            <% } %> 
             <!-- else, show all plants for user -->
             <div class="row justify-content-center m-0 p-0">
                 <div class="col">
@@ -79,6 +79,12 @@
                 <!-- ------- -->
                 <div class="border-bottom border-1 p-0 m-0" style="height: 10px;"></div>
                 <!-- ------- -->
+
+                <!-- spacer if no user plants -->
+                <% if ( plants.length == 0 ) {%>
+                    <div style="height: 8vh;"></div>
+                <% } %> 
+                
                 <div class="col-sm-4 py-0 px-0 my-3">
                     <a class="btn btn-secondary w-100" href="/profile" role="button"><i class="fas fa-home fa-lg pe-2"></i>Home</a>
                 </div>
