@@ -1,7 +1,7 @@
 <%- include('./partials/header.ejs'); -%>
 
 <div class="container-md">
-    <div class="row justify-content-center my-3">
+    <div class="row min-view-ht justify-content-center my-3">
         <div class="col-lg-10 mt-5 mb-4">
             <!-- ------- -->
             <div class="border-bottom border-1 p-0 mx-0 mt-0 mb-3" style="height: 5px;"></div>
@@ -48,7 +48,7 @@
                 <!-- MEMBER SINCE -->
                 <div class="col ps-3">
                     <div>
-                        <span class="label-text text-muted">Member Since</span>
+                        <span class="label-text text-muted">Using LeafyPlot Since</span>
                     </div>
                     <div>
                         <span><i class="label-text text-muted far fa-calendar-alt fa-lg pe-2"></i><%= user.createdAt.toDateString().split(' ').slice(1).join(' ') %></span>
