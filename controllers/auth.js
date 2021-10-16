@@ -1,8 +1,5 @@
 const passport = require("passport");
-const { check } = require("express-validator");
 const User = require("../models/User");
-
-const welcomeEmail = require("../utils/welcomeEmail");
 
 module.exports = {
   getLogin: (req, res) => {
@@ -16,20 +13,6 @@ module.exports = {
   
   postLogin: async (req, res, next) => {
     try {
-      const validationErrors = [];
-      if (!check(req.body.email).isEmail())
-        validationErrors.push({ msg: "Please enter a valid email address." });
-      if (check(req.body.password).isEmpty())
-        validationErrors.push({ msg: "Password cannot be blank." });
-    
-      if (validationErrors.length) {
-        await req.flash("errors", validationErrors);
-        return res.redirect("/login");
-      }
-      // req.body.email = validator.normalizeEmail(req.body.email, {
-      //   gmail_remove_dots: false,
-      // });
-      
       await passport.authenticate("local", (err, user, info) => {
         if (err) {
           return next(err);
@@ -38,13 +21,16 @@ module.exports = {
           req.flash("errors", info);
           return res.redirect("/login");
         }
-        req.logIn(user, (err) => {
-          if (err) {
-            return next(err);
-          }
-          req.flash("success", { msg: "Success! You are logged in." });
-          res.redirect("/profile"); //req.session.returnTo ||
-        });
+        //this conditional seems unnec, but seems to prevent redirect before req.login
+        if (user) {
+          req.logIn(user, (err) => {
+            if (err) {
+              return next(err);
+            }
+          });
+
+          res.redirect("/profile");
+        }
       })(req, res, next);
     } catch (error) {
       

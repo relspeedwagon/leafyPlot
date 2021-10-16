@@ -5,7 +5,7 @@ const userController = require("../controllers/user");
 const homeController = require("../controllers/home");
 const plotsController = require("../controllers/plots");
 const plantsController = require("../controllers/plants");
-const { newUserValidationRules, validate } = require("../middleware/validation");
+const { newUserRules, editUserRules, loginRules, validate } = require("../middleware/validation");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Main Routes
@@ -19,7 +19,7 @@ router.post("/login", authController.postLogin);
 router.get("/logout", authController.logout);
 
 router.get("/signup", userController.getSignup);
-router.post("/signup", newUserValidationRules(), validate, userController.postSignup);
+router.post("/signup", newUserRules(), validate, userController.postSignup);
 
 router.get("/my-account", ensureAuth, userController.getUserDetails);
 router.post("/edit-account", userController.accountUpdate);
