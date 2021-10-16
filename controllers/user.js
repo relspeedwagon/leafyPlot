@@ -50,36 +50,53 @@ module.exports = {
       password: req.body.password,
     });
   
-    await User.findOne(
-      { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
-      (err, existingUser) => {
+    // await User.findOne(
+    //   { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
+    //   (err, existingUser) => {
+    //     if (err) {
+    //       return next(err);
+    //     }
+    //     if (existingUser) {
+    //       req.flash("errors", {
+    //         msg: "Account with that email address or username already exists.",
+    //       });
+    //       return res.redirect("../signup");
+    //     }
+    //     user.save((err) => {
+    //       if (err) {
+    //         return next(err);
+    //       }
+
+    //       req.logIn(user, (err) => {
+
+    //         if (err) {
+    //           return next(err);
+    //         }
+    //         // send welcome email
+    //         welcomeEmail(`${user.email}`, `${user.userName}`)
+
+    //         res.redirect("/profile");
+    //       });
+    //     });
+    //   }
+    // );
+
+    await user.save((err) => {
+      if (err) {
+        return next(err);
+      }
+
+      req.logIn(user, (err) => {
+
         if (err) {
           return next(err);
         }
-        if (existingUser) {
-          req.flash("errors", {
-            msg: "Account with that email address or username already exists.",
-          });
-          return res.redirect("../signup");
-        }
-        user.save((err) => {
-          if (err) {
-            return next(err);
-          }
+        // send welcome email
+        welcomeEmail(`${user.email}`, `${user.userName}`)
 
-          req.logIn(user, (err) => {
-
-            if (err) {
-              return next(err);
-            }
-            // send welcome email
-            welcomeEmail(`${user.email}`, `${user.userName}`)
-
-            res.redirect("/profile");
-          });
-        });
-      }
-    );
+        res.redirect("/profile");
+      });
+    });
     } catch (err) {
       console.log(err);
     }

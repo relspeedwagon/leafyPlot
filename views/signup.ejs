@@ -67,7 +67,7 @@
                     <div class="pt-2">
                       <% if (locals.messages.errors) { %>
                         <% messages.errors.forEach( el => { %>
-                            <div class="alert alert-danger"><%= el.msg %></div>
+                            <div class="alert alert-danger"><%= el %></div>
                         <% }) %>    
                     <% } %>
                     <% if (locals.messages.info) { %>
