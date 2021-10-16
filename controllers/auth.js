@@ -1,6 +1,5 @@
 const passport = require("passport");
-const validator = require("validator");
-const bcrypt = require("bcrypt");
+const { check } = require("express-validator");
 const User = require("../models/User");
 
 const welcomeEmail = require("../utils/welcomeEmail");
@@ -18,18 +17,18 @@ module.exports = {
   postLogin: async (req, res, next) => {
     try {
       const validationErrors = [];
-      if (!validator.isEmail(req.body.email))
+      if (!check(req.body.email).isEmail())
         validationErrors.push({ msg: "Please enter a valid email address." });
-      if (validator.isEmpty(req.body.password))
+      if (check(req.body.password).isEmpty())
         validationErrors.push({ msg: "Password cannot be blank." });
     
       if (validationErrors.length) {
         await req.flash("errors", validationErrors);
         return res.redirect("/login");
       }
-      req.body.email = validator.normalizeEmail(req.body.email, {
-        gmail_remove_dots: false,
-      });
+      // req.body.email = validator.normalizeEmail(req.body.email, {
+      //   gmail_remove_dots: false,
+      // });
       
       await passport.authenticate("local", (err, user, info) => {
         if (err) {
