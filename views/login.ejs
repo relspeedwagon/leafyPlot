@@ -4,32 +4,41 @@
   <div class="row min-view-ht justify-content-center align-items-center">
     <div class="col-lg-6 mb-5">
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-      <div class="alert alert-danger"><%= el.msg %></div>
-      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+      <div class="alert alert-danger"><%= el %></div>
+      <% }) %> 
+      
+      <% } %> <% if (locals.messages.info) { %> <%
       messages.info.forEach( el => { %>
-      <div class="alert alert-info"><%= el.msg %></div>
+      <div class="alert alert-info"><%= el %></div>
       <% }) %> <% } %>
-      <form action="/login" method="POST">
+
+      <form class="needs-validation" action="/login" method="POST" novalidate>
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label text-color-primary title-font-op text-uppercase fs-5"
+          <label for="emailInput" class="form-label text-color-primary title-font-op text-uppercase fs-5"
             >Email</label
           >
           <input
             type="email"
             class="form-control"
-            id="exampleInputEmail1"
+            id="emailInput" 
             aria-describedby="emailHelp"
             name="email"
+            aria-describedby="emailHelp" 
+            required
           />
+          <div id="validationServerEmailFeedback" class="invalid-feedback">Email required for signin</div>
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label text-color-primary title-font-op text-uppercase fs-5">Password</label>
-            <input
+          <label for="password" class="form-label text-color-primary title-font-op text-uppercase fs-5">Password</label>
+          <input
             type="password"
             class="form-control"
-            id="exampleInputPassword1"
+            id="password"
             name="password"
-            />
+            aria-describedby="passwordHelp" 
+            required
+          />
+          <div id="validationServerPasswordFeedback" class="invalid-feedback">Password cannot be blank</div>
         </div>
         <div class="col-sm-4 offset-sm-8">
           <button type="submit" class="btn btn-primary fs-5" style="width: 100%;">Log In</button>

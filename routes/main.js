@@ -5,7 +5,7 @@ const userController = require("../controllers/user");
 const homeController = require("../controllers/home");
 const plotsController = require("../controllers/plots");
 const plantsController = require("../controllers/plants");
-const { newUserRules, editUserRules, loginRules, validateSignup,validateLogin, validateEdit } = require("../middleware/validation");
+const { newUserRules, editUserRules, loginRules, validateSignup, validateLogin, validateEdit } = require("../middleware/validation");
 const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
 //Main Routes

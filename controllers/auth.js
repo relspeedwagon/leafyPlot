@@ -19,7 +19,7 @@ module.exports = {
         }
         if (!user) {
           req.flash("errors", info);
-          return res.redirect("/login");
+          return res.render("login.ejs");
         }
         //this conditional seems unnec, but seems to prevent redirect before req.login
         if (user) {

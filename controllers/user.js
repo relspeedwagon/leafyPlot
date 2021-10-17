@@ -59,7 +59,8 @@ module.exports = {
     console.log("this is the req body:", req.body)
     try {
       const validationErrors = [];
-      const { editUserName, editEmail, currentPassword } = req.body;
+      const successMessages = [];
+      const { editUserName, editEmail, currentPassword, newPassword, confirmNewPassword } = req.body;
 
       // if (req.user.userName != editUserName){
       //   console.log(req.user.userName, "to", editUserName)
@@ -111,10 +112,23 @@ module.exports = {
               } 
 
               if (isMatch) {
-                user.userName = editUserName
-                user.email = editEmail
+                if (newPassword != currentPassword && newPassword === confirmNewPassword){
+                  user.password = newPassword
+                  successMessages.push("Your password has been changed")
+                }
+
+                if (editUserName != user.userName){
+                  user.userName = editUserName
+                  successMessages.push("Your username has been changed")
+                }
+
+                if (editEmail != user.email){
+                  user.email = editEmail
+                  successMessages.push("Your email has been updated")
+                }
+                
                 user.save();
-                res.redirect("/my-account");
+                return res.render("my-account.ejs", { user: req.user, message: req.flash("info", successMessages) });
               }
             });
           })

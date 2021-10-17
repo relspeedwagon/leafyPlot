@@ -68,6 +68,12 @@
                 <% } %>
             </div>
 
+            <% if (locals.messages.info) { %> 
+                <% messages.info.forEach( el => { %>
+                <div class="alert alert-info"><%= el %></div>
+                <% }) %> 
+            <% } %>
+
             <div class="collapse" id="accountForm">
                 <div class="card card-body">
                     <!-- form START -->

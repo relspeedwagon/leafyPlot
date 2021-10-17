@@ -57,14 +57,6 @@ const editUserRules = () => {
             return Promise.reject('Username already in use')
           })
       }).withMessage('The new username you selcted is already in use by another account'),
-      
-    // body('email')
-    //   .exists()
-    //   .isEmail()
-    //   .withMessage('Please enter a valid email'),
-
-    // body('email')
-    // .normalizeEmail(req.body.email, { gmail_remove_dots: false }),
 
     body('editEmail')
       .if(value => {
@@ -78,19 +70,29 @@ const editUserRules = () => {
         });
       }).withMessage('The new email you entered is already in use by another account'),
 
-    // body('password')
-    //   .exists()
-    //   .isLength({ min: 8 }),
+      body('currentPassword')
+        // if the new password is provided...
+        .if((value, { req }) => req.body.newPassword)
+        // OR
+        .if(body('newPassword').exists())
+        // ...then the old password must be too...
+        .notEmpty().withMessage('Current password is required for password change')
+        // ...and they must not be equal.
+        .custom((value, { req }) => value !== req.body.newPassword)
+        .withMessage('New password cannot be the same as current password'),
 
-    // body('confirmPassword').custom((value, { req }) => {
-    //   if (value !== req.body.password) {
-    //     throw new Error('Password confirmation does not match');
-    //   }
-    //   return true;
-    // }),
+      body('newPassword')
+        // if confirm password exists
+        .if(body('confirmNewPassword').exists())
+        // then new password can't be empty
+        .notEmpty().withMessage('New password must be entered to confirm password')
+        // and they have to match
+        .custom((value, { req }) => value === req.body.newPassword)
+        .withMessage('Password confirmation must match new password'),
   ]
 }
 
+// some issue with the login rules, "password" errs not showing up
 const loginRules = () => {
   return [
     body('email')
