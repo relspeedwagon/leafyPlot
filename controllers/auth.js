@@ -31,6 +31,7 @@ module.exports = {
 
           res.redirect("/profile");
         }
+
       })(req, res, next);
     } catch (error) {
       
