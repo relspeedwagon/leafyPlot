@@ -1,9 +1,5 @@
 const passport = require("passport");
-const validator = require("validator");
-const bcrypt = require("bcrypt");
 const User = require("../models/User");
-
-const welcomeEmail = require("../utils/welcomeEmail");
 
 module.exports = {
   getLogin: (req, res) => {
@@ -17,20 +13,6 @@ module.exports = {
   
   postLogin: async (req, res, next) => {
     try {
-      const validationErrors = [];
-      if (!validator.isEmail(req.body.email))
-        validationErrors.push({ msg: "Please enter a valid email address." });
-      if (validator.isEmpty(req.body.password))
-        validationErrors.push({ msg: "Password cannot be blank." });
-    
-      if (validationErrors.length) {
-        await req.flash("errors", validationErrors);
-        return res.redirect("/login");
-      }
-      req.body.email = validator.normalizeEmail(req.body.email, {
-        gmail_remove_dots: false,
-      });
-      
       await passport.authenticate("local", (err, user, info) => {
         if (err) {
           return next(err);
@@ -47,9 +29,9 @@ module.exports = {
             }
           });
 
-          res.redirect("/profile"); //req.session.returnTo ||
+          res.redirect("/profile");
         }
-        
+
       })(req, res, next);
     } catch (error) {
       

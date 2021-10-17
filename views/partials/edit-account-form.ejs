@@ -23,18 +23,6 @@
         <input type="password" class="form-control" id="confirmNewPassword" name="confirmNewPassword" placeholder="confirm password" aria-describedby="confirmNewPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must be 8-16 characters">
         <label for="confirmNewPassword" class="form-label fst-italic">Confirm New Password</label>
     </div>
-    <div class="pt-2">
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <% if (locals.messages.info) { %>
-        <% messages.info.forEach( el => { %>
-            <div class="alert alert-info"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    </div>
     <div class="col-sm-4 offset-sm-8">
         <button type="submit" class="btn btn-primary fs-5" style="width: 100%;">Save</button>
     </div>
