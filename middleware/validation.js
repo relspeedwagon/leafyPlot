@@ -14,7 +14,7 @@ const newUserRules = () => {
             return Promise.reject('Username already in use');
           }
         });
-      }).withMessage('The username you selcted is already in use by another account'),
+      }).withMessage('That username is already in use'),
       
     body('email')
       .exists()
@@ -56,7 +56,7 @@ const editUserRules = () => {
           return User.findOne({ userName: editUsername }).then(user => {
             return Promise.reject('Username already in use')
           })
-      }).withMessage('The new username you selcted is already in use by another account'),
+      }).withMessage('That username is already in use'),
 
     body('editEmail')
       .if(value => {

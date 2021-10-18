@@ -268,7 +268,7 @@ footer {
   }
 
 .text-grey {
-  color: #5E5E5E;
+  color: #979797;
 }
 /* .bg-custom {
   background-color: #383B3F;
@@ -300,6 +300,7 @@ footer {
 
 .carousel-caption-bg {
   background-color:rgba(0, 0, 0, 0.45);
+  border-radius: 10px;
 }
 
 .carousel-item {
