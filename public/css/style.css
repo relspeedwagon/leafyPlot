@@ -8,7 +8,7 @@
   background-image: url('../images/FullBGv2.png');
   background-size: cover;
   padding-top: 12%;
-  margin-top: -2%;
+  margin-top: -7%;
 }
   .main-sheer {
     min-height: 120vh;
@@ -36,7 +36,7 @@
   }
 
 .index-headline {
-  margin-top: 7%;
+  margin-top: 8%;
   /* margin-bottom: 10%; */
 }
 
@@ -104,8 +104,8 @@ footer {
     }
 
   .btn-outline-primary {
+    background-color: rgba(255, 255, 255, 0.6);
     border-color: #8781BD;
-    /* border-width: medium; */
     color: #8781BD;
     font-weight: bold;
   }
@@ -176,7 +176,6 @@ footer {
 }
 .placeholder-card {
   min-height: 6rem;
-  /* border-bottom-right-radius: 3.5rem; */
   border-top-left-radius: 3.5rem;
   overflow: hidden;
 }
@@ -290,7 +289,7 @@ footer {
 
 /* ------carousel styles---------- */
 #mainCarousel {
-  margin-top: .2rem;
+  margin-top: 0;
 
 }
   @media screen and (max-width: 992px) {
@@ -300,7 +299,7 @@ footer {
   }
 
 .carousel-caption-bg {
-  background-color:rgba(0, 0, 0, 0.5);
+  background-color:rgba(0, 0, 0, 0.45);
 }
 
 .carousel-item {
