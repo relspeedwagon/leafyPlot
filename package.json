@@ -41,5 +41,8 @@
     "passport-local": "^1.0.0",
     "serve-favicon": "^2.5.0",
     "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.1"
   }
 }
