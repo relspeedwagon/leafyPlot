@@ -76,6 +76,15 @@ footer {
   font-size: larger;
 }
 
+.header-font {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  color: rgba(90, 88, 94, 0.85);
+  /* color: rgba(0, 0, 0, 0.3); */
+  /* color: rgba(55,195,1, .85); */
+}
+
 .title-font {
   font-family: 'Kumbh Sans', sans-serif;
 }
@@ -132,10 +141,10 @@ footer {
     font-weight: bold;
   }
     .btn-outline-primary:hover {
-      background-color: #8781BD;
+      background-color: rgba(135,129,189, .85);
       border-color: #8781BD;
       color: white;
-      font-weight: normal;
+      font-weight: 600;
     }
     .btn-outline-primary:focus {
       background-color: #8781BD;
