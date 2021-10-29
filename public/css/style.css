@@ -81,7 +81,6 @@ footer {
   font-size: 5rem;
   font-weight: 700;
   color: rgba(90, 88, 94, 0.9);
-  /* color: rgba(0, 0, 0, 0.3); */
   /* color: rgba(55,195,1, .85); */
 }
 
@@ -235,9 +234,6 @@ footer {
 
 .page-head {
   height: 200px;
-  /* overflow: hidden;
-  border-bottom-right-radius: 4rem;
-  border-top-left-radius: 4rem; */
 }
     .head-overlay {
       position: relative;
@@ -294,16 +290,11 @@ footer {
 }
   .bg-green-sheer {
     background-color: rgba(62,224,0, .5);
-    /* background-color: rgba(72,255,0, .5); */
-    /* background-color: rgba(55,195,1, .5); */
   }
 
 .text-grey {
   color: #979797;
 }
-/* .bg-custom {
-  background-color: #383B3F;
-} */
 
 .bg-sheer-black {
   background-color:rgba(0, 0, 0, 0.5);
