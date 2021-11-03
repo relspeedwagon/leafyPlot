@@ -45,15 +45,23 @@
   margin-top: 8%;
   /* margin-bottom: 10%; */
 }
-  @media only screen and (max-width: 445px) {
+  @media only screen and (max-width: 420px) {
     .index-headline h1 {
       font-size: 2.2rem;
     }
   }
-  @media only screen and (max-width: 500px) and (min-width: 440px) {
+  @media only screen and (min-width: 421px) and (max-width: 520px) {
     .index-headline h1 {
-      margin-left: 4rem;
-      margin-right: 4rem;
+      font-size: 3rem;
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+  }
+  @media only screen and (min-width: 521px) and (max-width: 767px) {
+    .index-headline h1 {
+      font-size: 4rem;
+      margin-left: 3rem;
+      margin-right: 3rem;
     }
   }
   @media only screen and (max-width: 346px) {
@@ -334,6 +342,10 @@ footer {
 .carousel-caption-bg {
   background-color:rgba(0, 0, 0, 0.45);
   border-radius: 10px;
+}
+
+.carousel-caption h2 {
+  font-size: 2.2rem;
 }
 
 .carousel-item {
