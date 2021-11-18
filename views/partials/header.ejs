@@ -21,34 +21,34 @@
 </head>
 
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container mt-3">
-          <a href="/profile" class="navbar-brand"><img src="/images/LogoBeta.png" width="auto" height="40" class="d-inline-block align-top" alt=""></a>
-          <button class="navbar-toggler" type="button" 
-            data-bs-toggle="collapse" 
-            data-bs-target="#navMenu" >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navMenu"> 
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="/my-account" tabindex="-1" aria-disabled="true"><i class="text-color-primary far fa-user fa-sm pe-1"></i>Hello, <%= user.userName %>!</a>
-              </li>
-              <li class="nav-item">
-                <a href="/profile" class="nav-link">Home</a>
-              </li>
-              <li class="nav-item">
-                <a href="/all-plants" class="nav-link">Plants</a>
-              </li>
-              <li class="nav-item">
-                <a href="/logout" class="nav-link">Logout</a>
-              </li>
-            </ul>
+      <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container col-xl-10 mt-1 px-1">
+            <a href="/profile" class="navbar-brand"><img src="/images/logo-leaf-beta.png" width="auto" height="140" class="d-inline-block align-top" alt=""></a>
+            <button class="navbar-toggler" type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#navMenu" >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu"> 
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="flex-sm-fill text-sm-center nav-link text-dark" href="/my-account" tabindex="-1" aria-disabled="true"><i class="text-color-primary far fa-user fa-sm pe-1"></i>Hello, <%= user.userName %>!</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/profile" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/all-plants" class="nav-link">Plants</a>
+                </li>
+                <li class="nav-item">
+                  <a href="/logout" class="nav-link">Logout</a>
+                </li>
+              </ul>
+            </div>
+
           </div>
 
-        </div>
-
-      </nav>
-    </header>
+        </nav>
+      </header>
 
