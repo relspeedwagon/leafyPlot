@@ -45,9 +45,6 @@ const newUserRules = () => {
 
 const editUserRules = () => {
   return [
-    // body('userName')
-    //   .exists().withMessage('You must select a username'),
-
     body('editUserName')
       .if(value => {
         value != req.user.userName
@@ -71,28 +68,27 @@ const editUserRules = () => {
       }).withMessage('The new email you entered is already in use by another account'),
 
       body('currentPassword')
-        // if the new password is provided...
+        // If a new password is provided
         .if((value, { req }) => req.body.newPassword)
-        // OR
         .if(body('newPassword').exists())
-        // ...then the old password must be too...
+        // Old password must be provided
         .notEmpty().withMessage('Current password is required for password change')
-        // ...and they must not be equal.
+        // New password cannot match old
         .custom((value, { req }) => value !== req.body.newPassword)
         .withMessage('New password cannot be the same as current password'),
 
       body('newPassword')
-        // if confirm password exists
+        // If confirm password exists
         .if(body('confirmNewPassword').exists())
-        // then new password can't be empty
+        // New password cannot be empty
         .notEmpty().withMessage('New password must be entered to confirm password')
-        // and they have to match
+        // New password and confirmed password must match
         .custom((value, { req }) => value === req.body.newPassword)
         .withMessage('Password confirmation must match new password'),
   ]
 }
 
-// some issue with the login rules, "password" errs not showing up
+// ** BUG - some issue with the login rules, "password" errs not showing up **
 const loginRules = () => {
   return [
     body('email')

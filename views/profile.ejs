@@ -3,7 +3,7 @@
 <div class="container col-xl-10">
 
     <!--- PLOTS ------------------------>
-    <!-- plot section header, button & bar -->
+    <!-- Plot Section Header, Button & Bar -->
     <div class="row justify-content-between mt-5 mb-0 mx-0 px-0">
         <div class="col-sm-5 col-md-6 ps-0">
             <h1 class="title-font-op text-uppercase p-0 m-0">Plots</h1>
@@ -16,7 +16,7 @@
         <div class="border-bottom border-1 p-0 mx-0 mt-0 mb-3" style="height: 5px;"></div>
         <!-- ------- -->
     </div>
-    <!-- if no plots for user -->
+    <!-- If No Plots for User -->
     <div class="row">
         <% if ( plots.length == 0 ) {%>
         <div class="col">
@@ -28,7 +28,6 @@
                                 <span class="align-self-center"><i class="fas fa-tractor fa-3x"></i></span>
                             </div>
                             <div class="col text-dark ps-4 pe-3 pt-5 pb-3">
-                                <!-- <span class="doc-name align-self-center"> Start A New Plot </span> -->
                                 <p>
                                     Get plotting!<span class="ps-1"></span> Plots can represent a specific growing location, garden bed, or group of indoor plantings (think "Backyard Walkway" or "Kitchen Window Herbs").<span class="ps-1"></span> 
                                     <br><br>
@@ -45,7 +44,7 @@
         </div>
         <% } %> 
     </div>
-    <!-- else, show all plots for user -->
+    <!-- Else, Show All Plots for User -->
     <div class="row row-md-cols-2 gx-2 gy-3 mb-4">
         <% for(var i=0; i < plots.length; i++) {%>
             
@@ -72,7 +71,7 @@
     </div>
 
     <!-- COLLECTIONS -------------------->
-    <!-- collections section header, button & bar -->
+    <!-- Collections Section Header, Button & Bar -->
     <div class="row justify-content-between mt-5 mb-0 mx-0 px-0">
         <div class="col-sm-6 ps-0">
             <h1 class="title-font-op text-uppercase p-0 m-0">Collections</h1>
@@ -86,7 +85,7 @@
         <!-- ------- -->
     
     </div>
-    <!-- if no collections for user -->
+    <!-- If No Collections for User -->
     <div class="row">
         <% if ( colls.length == 0 ) {%>
         <div class="col">
@@ -98,7 +97,6 @@
                                 <span class="align-self-center"><i class="fas fa-book-open fa-3x"></i></span>
                             </div>
                             <div class="col text-dark ps-4 pe-3 pt-5 pb-4">
-                                <!-- <span class="doc-name align-self-center"> Add A Collection </span> -->
                                 <p>
                                     Create custom plant collections to save images of favorite plants and store growing details.<span class="ps-1"></span> Collections are ideal for saving plants by theme, such as grouping favorite cultivars, pairings for cut flower bouquets, or a list of "must haves" for future planting.<span class="ps-1"></span>  What makes a collection is up to you!  
                                 </p>
@@ -113,7 +111,7 @@
         </div>
         <% } %> 
     </div>
-    <!-- else, show all collections for user -->
+    <!-- Else, Show All Collections for User -->
     <div class="row row-md-cols-2 gx-2 gy-3 mb-4">
         <% for(var i=0; i < colls.length; i++) {%>
             

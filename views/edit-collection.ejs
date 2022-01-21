@@ -11,7 +11,7 @@
         
         <div class="row g-3">
             <div class="col-xl-7">
-                <!-- image -->
+                <!-- Image -->
                 <div class="image-card card img-fluid border-light mt-2 mb-3">
                     <img src="<%= plot.image %>" class="card-img plot-image" alt="Plot Image">
                     <div class="d-flex align-items-end card-img-overlay p-0">
@@ -30,17 +30,17 @@
 
             </div>
             <div class="col-xl-5">
-                <!-- coll name -->
+                <!-- Coll Name -->
                 <div class="form-floating mt-2 mb-3">
                     <input type="text" class="form-control" id="plotName" name="plotName" value="<%= plot.name %>" placeholder="plot name">
                     <label for="plotName">Collection Name<span class="req-prop ps-1">*</span></label>
                 </div>
-                <!-- short desc -->
+                <!-- Short Desc -->
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="description" name="description" value="<%= plot.desc %>" placeholder="description">
                     <label for="description">Short Description</label>
                 </div>
-                <!-- notes -->
+                <!-- Notes -->
                 <div>
                     <label for="notes" class="form-label">Notes</label>
                 </div>
@@ -52,9 +52,8 @@
         </div>
 
             <div class="mt-4">
-                <!-- save/close -->
+                <!-- Save/Close -->
                 <button class="btn btn-primary" type="submit" value="Upload">Save Changes</button>
-                <!-- <button type="reset" class="btn cancel" onclick="closeForm()">Close</button> -->
                 <a href="/plot/<%= plot.id %>" class="btn btn-secondary" role="button" >
                 Cancel
                 </a>
@@ -66,7 +65,7 @@
 
 </div>
 
-<!-- ------------- modal --------- -->
+<!-- Confirm Change Image Modal -->
 <div class="modal fade" id="plotImgEdit" tabindex="-1" aria-labelledby="editImgLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -80,7 +79,7 @@
             </p>
             <form class="needs-validation p-4" action="/plot/edit-image/<%= plot.id %>" enctype="multipart/form-data" method="POST" novalidate>
                 <div>
-                    <!-- image upload -->
+                    <!-- Image Upload -->
                     <div><label for="imgUpload">New Image</label></div>
                     <div class="input-group has-validation mb-3">
                         <div class="input-group-text text-white" for="imgUpload"><i class="fas fa-image fa-lg"></i></div>
@@ -90,6 +89,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Replace Image/Submit -->
                 <div class="d-flex justify-content-end">
                     <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal"><i class="fas fa-chevron-left pe-2"></i>Cancel</button>
                     <button class="btn btn-primary" type="submit">Replace Image<i class="fas fa-chevron-right ps-2"></i></button>

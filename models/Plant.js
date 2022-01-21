@@ -44,7 +44,6 @@ const PlantSchema = new mongoose.Schema({
         min: {type: String, required: false},
         max: {type: String, required: false},
     },
-    
     bloomSeason: {
         start: {type: String, required: false},
         end: {type: String, required: false},
@@ -89,7 +88,5 @@ const PlantSchema = new mongoose.Schema({
         default: Date.now,
     },
 });
-
-//add peak bloom range
 
 module.exports = mongoose.model("Plant", PlantSchema);

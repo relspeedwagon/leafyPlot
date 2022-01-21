@@ -3,7 +3,7 @@
 <div class="container-md">
     <div class="row justify-content-center my-3">
         <div class="col-lg-10 mb-4">
-            <!-- collection profile image -->
+            <!-- Collection Profile Image -->
             <div class="row px-2">
                 <div class="image-card card img-fluid border-light">
                             
@@ -24,7 +24,7 @@
                 </div>
             </div>
 
-            <!-- collection details & managing buttons -->
+            <!-- Collection Details & Managing Buttons -->
             <div class="row justify-content-between mb-0 mt-3 mx-0 px-0">
                 <!-- ------- -->
                 <div class="border-bottom border-1 p-0 mx-0 mt-0 mb-3" style="height: 5px;"></div>
@@ -38,7 +38,7 @@
 
                 <div class="row my-3 mx-1">
                     <div class="col-8 ps-3">
-                        <!-- desc -->
+                        <!-- DESC -->
                         <div>
                             <span class="label-text text-muted">Description</span>
                         </div>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="row my-3 mx-1">
                     <div class="col-8 ps-3">
-                        <!-- notes -->
+                        <!-- NOTES -->
                         <div>
                             <span class="label-text text-muted">Notes</span>
                         </div>
@@ -67,7 +67,7 @@
                 <div class="border-bottom border-1 p-0 mx-0 mt-0 mb-3" style="height: 5px;"></div>
                 <!-- ------- -->
             
-                <!-- Plants title & add plant button -->
+                <!-- Plants Title & Add Plant Button -->
                 <div class="row justify-content-between mb-0 mt-5 mx-0 px-0">
                     <div class="col-sm-5 col-md-6 d-flex align-items-end px-0">
                         <h2 class="title-font-op text-uppercase p-0 m-0">Plants</h2>
@@ -93,9 +93,8 @@
         
                 <div class="collapse" id="plantForm">
                     <div class="card card-body">
-                        <!-- form START -->
+                        <!-- Create Plant Form -->
                         <%- include('./partials/create-plant-form.ejs'); -%>       
-                        <!-- form END -->
                     </div>
                 </div>
                 
@@ -103,7 +102,7 @@
             
             <div class="row justify-content-center m-0 p-0">
                 <div class="col">
-                    <!-- all plants for user-->
+                    <!-- All Plants in Coll -->
                     <section class="container-fluid p-0">
                         <div class="row row-xxl-cols-3 row-md-cols-2">
                             <% for(var i=0; i < plants.length; i++) {%>
@@ -131,13 +130,13 @@
                         </div>
                     </section>
                 </div>
-
+                <!-- If No Plants, bottom spacer -->
                 <% if (plants.length > 0) { %>
                     <!-- ------- -->
                     <div class="row border-bottom border-1 p-0 m-0 mb-5" style="height: 10px;"></div>
                     <!-- ------- -->
                 <% } %>
-                <!-- edit details & compost button -->
+                <!-- Edit Details & Compost Buttons -->
                 <div class="row mt-5 px-0 mx-0">
                     <div class="col-md-8 px-0">
                         <div class="row g-2">
@@ -164,7 +163,7 @@
     </div>
 </div>
 
-<!-- compost confirm modal -->
+<!-- Confirm Compost Modal -->
 <div class="modal fade" id="startOver" tabindex="-1" aria-labelledby="compostLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -189,7 +188,5 @@
         </div>
     </div>
 </div>
-
+<!-- Footer -->
 <%- include('./partials/footer.ejs'); -%>
-
-<!-- footer -->

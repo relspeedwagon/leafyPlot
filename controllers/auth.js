@@ -21,7 +21,7 @@ module.exports = {
           req.flash("errors", info);
           return res.render("login.ejs");
         }
-        //this conditional seems unnec, but seems to prevent redirect before req.login
+        // this conditional seems unnec, but seems to prevent redirect before req.login
         if (user) {
           req.logIn(user, (err) => {
             if (err) {

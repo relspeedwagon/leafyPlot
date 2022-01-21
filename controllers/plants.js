@@ -89,7 +89,7 @@ module.exports = {
         plotID: req.body.plotID,
         user: req.user,
       });
-      console.log("Plant has been added!");
+      // console.log("Plant has been added!");
       res.redirect("/plot/" + req.body.plotID);
     } catch (err) {
       console.log(err);
@@ -116,7 +116,7 @@ module.exports = {
         console.log("New image uploaded");
         // delete old plant image from cloudinary
         await cloudinary.uploader.destroy(req.plant.imageProviderId);
-        console.log("Old image deleted");
+        // console.log("Old image deleted");
 
       await Plant.findOneAndUpdate(
         { _id: req.plant.id },
@@ -187,7 +187,7 @@ module.exports = {
       await cloudinary.uploader.destroy(plant.imageProviderId);
       // Delete plant from db
       await Plant.remove({ _id: req.params.id });
-      console.log("Deleted Plant");
+      // console.log("Deleted Plant");
       if (req.plant.plotID.plotType == "collection"){
         res.redirect("/coll/" + plant.plotID);
       } else {

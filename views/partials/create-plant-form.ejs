@@ -1,5 +1,5 @@
 <form class="needs-validation" action="/plant/create-plant" enctype="multipart/form-data" method="POST" novalidate>
-    <!-- plant name -->
+    <!-- Plant Name -->
     <div>
         <div class="form-floating has-validation mb-3">
             <input type="text" class="form-control" id="nameCommon" name="nameCommon" placeholder="plant name" required>
@@ -18,7 +18,7 @@
         <input type="text" class="form-control" id="nameSCI" name="nameSCI" placeholder="scientific name">
         <label for="plantNameSCI">Scientific Name</label>
     </div>
-    <!-- image -->
+    <!-- Image -->
     <div>
         <label for="imgUpload">Plant Profile Image<span class="req-prop ps-1">*</span></label>
     </div>
@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="row gy-2 gx-3 mb-3 mt-3">
-        <!-- light -->
+        <!-- Light -->
         <div class="col-lg-4">
             <div>
                 <label for="light">Sun Exposure</label>
@@ -50,7 +50,7 @@
                         </select>
                 </div>
         </div>
-        <!-- water -->
+        <!-- Water -->
         <div class="col-lg-4">
             <div>
                 <label for="water">Water Needs</label>
@@ -66,7 +66,7 @@
             </div>
             
         </div>
-        <!-- soil -->
+        <!-- Soil -->
         <div class="col-lg-4">
             <div>
                 <label for="soil">Soil Preference</label>
@@ -89,7 +89,7 @@
 
     <section class="row mb-3">
             <div class="col-lg-7">
-                <!-- height -->
+                <!-- Height -->
                 <div class="row gx-3 mb-3">
                     <div class="col-lg-4">
                         <span>Growth Height <i class="fas fa-arrows-alt-v fa-sm"></i></span>
@@ -108,7 +108,7 @@
                         </select>
                     </div>
                 </div>
-                <!-- spread -->
+                <!-- Spread -->
                 <div class="row gx-3 mb-3">
                     <div class="col-lg-4">
                         <span>Spread <i class="fas fa-arrows-alt-h fa-sm"></i></span>
@@ -127,7 +127,7 @@
                         </select>
                     </div>
                 </div>
-                <!-- origin -->
+                <!-- Origin -->
                 <div class="row mb-3">
                     <div class="col-lg-11">
                         <div class="form-floating mb-3">
@@ -139,7 +139,7 @@
             </div>
             
             <div class="col-md-6 col-lg-4">
-                <!-- zone -->
+                <!-- Zone -->
                 <div class="row gx-3 mb-3">
                     <div>
                         <label class="pb-0" for="zone">Zone (<span class="px-1"><a href="https://planthardiness.ars.usda.gov/" class="link-primary" target="_blank">Find My USDA Zone</a></span>)</label>
@@ -211,7 +211,7 @@
                     </div>
                 </div>
 
-                <!-- bloom -->
+                <!-- Bloom -->
             <div class="row gx-3 mb-3">
                 <div>
                     <label for="bloomSeason">Bloom Season</label>
@@ -279,7 +279,7 @@
         <div class="row justify-content-between mb-3">
             
             <div class="col-md-5">
-                <!-- status -->
+                <!-- Planting Status -->
                 <div>
                     <label for="plantedStatus" class="form-label">Planting Status</label>
                 </div>
@@ -291,7 +291,7 @@
                         <option value="Planted">Planted</option>
                     </select>
                 </div>
-                <!-- current health -->
+                <!-- Current Health -->
                 <div>
                     <label for="health" class="form-label">Current Health</label>
                 </div>
@@ -304,7 +304,7 @@
                         <option value="Failed">Failed</option>
                     </select>
                 </div>
-                <!-- notes -->
+                <!-- Notes -->
                 <div>
                     <label for="notes" class="form-label">Notes</label>
                 </div>
@@ -316,7 +316,7 @@
             </div>
             
             <div class="col-md-6">
-                <!-- year planted -->
+                <!-- Year Planted -->
                 <label for="yearPlanted" class="form-label">Year Planted</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text text-white"><i class="far fa-calendar-alt fa-lg"></i></span>
@@ -328,7 +328,7 @@
                         <option value="Fall">Fall</option>
                     </select>
                 </div>
-                <!-- number of plants -->
+                <!-- Number of Plants -->
                 <label for="numPlanted" class="form-label">Number of Plants</label>
                 <div class="col-6">
                     <div class="input-group mb-3">
@@ -337,7 +337,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <!-- pests -->
+                    <!-- Pests -->
                     <label for="pests" class="form-label">Known Pests/Diseases</label>
                     <div class="input-group">
                         <span class="input-group-text text-white"><i class="fas fa-bug fa-lg"></i> <i class="fas fa-viruses fa-lg"></i></span>
@@ -348,11 +348,11 @@
         </div>
 
         <div class="row mt-3">
-            <!-- plotID, hidden -->
+            <!-- PlotID, hidden field -->
             <input type="hidden" id="plotID" name= "plotID" value="<%= plot._id %>"> 
             <div class="col-md-5">
                 <div class="row">
-                    <!-- save/close -->
+                    <!-- Save/Close -->
                     <div class="col pe-0 me-1">
                         <button 
                             class="btn btn-primary w-100" 
@@ -361,7 +361,7 @@
                             Save
                         </button>
                     </div>
-                    <!-- <button type="reset" class="btn cancel" onclick="closeForm()">Close</button> -->
+                    
                     <div class="col ps-0 ms-1">
                         <button 
                             class="btn btn-secondary w-100" 

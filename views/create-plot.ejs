@@ -8,7 +8,7 @@
     </div>
 
     <form class="needs-validation" action="/plot/create-plot" enctype="multipart/form-data" method="POST" novalidate>
-        <!-- plot name -->
+        <!-- Plot Name -->
         <div class="form-floating has-validation mb-3">
             <input type="text" class="form-control" id="plotName" name="plotName" placeholder="plot name" required>
             <label for="plotName">Garden Plot Name<span class="req-prop ps-1">*</span></label>
@@ -20,10 +20,10 @@
             </div>
         </div>
 
-        <!-- plot type -->
+        <!-- Plot Type -->
         <input type="hidden" id="plotType" name="plotType" value="plot">
 
-        <!-- plot location -->
+        <!-- Plot Location -->
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="location" name="location" placeholder="location">
             <label for="location">Plot Location (i.e. "Front fence")</label>
@@ -31,7 +31,7 @@
         
         <div class="row g-3">
             <div class="col-md-6">
-                <!-- image -->
+                <!-- Image -->
                 <div><label for="imgUpload">Plot Profile Image<span class="req-prop ps-1">*</span></label></div>
                 <div class="input-group has-validation mb-3">
                     <div class="input-group-text text-white" for="imgUpload"><i class="fas fa-image fa-lg"></i></div>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="col-md-6">
-                <!-- season ID -->
+                <!-- Season ID -->
                 <div><label for="seasonID">Planting Year<span class="req-prop ps-1">*</span></label></div>
                 <div class="input-group has-validation mb-3">
                     <span class="input-group-text text-white"><i class="far fa-calendar-alt fa-lg"></i></span>
@@ -72,7 +72,7 @@
             
 
             <div class="col-lg-4">
-                <!-- zone -->
+                <!-- Zone -->
                 <div class="row gx-3 mb-3">
                     <div>
                         <label class="pb-0" for="zone">Zone (<span class="px-1"><a href="https://planthardiness.ars.usda.gov/" class="link-primary" target="_blank">Find My USDA Zone</a></span>)</label>
@@ -113,7 +113,7 @@
                 </div>
             </div>
 
-                <!-- light -->
+                <!-- Light -->
                 <div class="col-lg-4">
                     <div>
                         <label for="avgSun">Location Sun Exposure</label>
@@ -132,7 +132,7 @@
                         </div>
                 </div>
                 
-                <!-- soil -->
+                <!-- Soil -->
                 <div class="col-lg-4">
                     <div><label for="soilType">Location Soil Type</label></div>
                     <div class="input-group">
@@ -155,7 +155,7 @@
                 
                 <div class="col-md-7">
 
-                    <!-- notes -->
+                    <!-- Notes -->
                     <div>
                         <label for="notes" class="form-label">Notes</label>
                     </div>
@@ -169,7 +169,7 @@
             </div>
 
             <div class="mt-3">
-                <!-- save/close -->
+                <!-- Save/Close -->
                 <button class="btn btn-primary" type="submit" value="Upload">Save and Exit</button>
                 <a class="btn btn-secondary" href="/profile">Exit Without Saving</a>
 

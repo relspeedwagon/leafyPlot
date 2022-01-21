@@ -43,7 +43,7 @@ module.exports = {
         if (err) {
           return next(err);
         }
-        // send welcome email
+        // Send welcome email
         welcomeEmail(`${user.email}`, `${user.userName}`)
 
         res.redirect("/profile");
@@ -54,61 +54,25 @@ module.exports = {
     }
   },
 
-  //ACCOUNT EDIT------------------------------------------------
+  // Edit Account Details
   accountUpdate: async (req, res) => {
-    console.log("this is the req body:", req.body)
     try {
       const validationErrors = [];
       const successMessages = [];
       const { editUserName, editEmail, currentPassword, newPassword, confirmNewPassword } = req.body;
 
-      // if (req.user.userName != editUserName){
-      //   console.log(req.user.userName, "to", editUserName)
-
-      //   await User.find({ userName: editUserName }, function(err, nameInUse){
-      //     if (err) {
-      //       return next(err);
-      //     }
-      //     if (nameInUse.length > 0){
-      //       validationErrors.push({ msg: "The username you selected is already in use" });
-      //     } 
-      //   })
-      // };
-
-      // if (req.user.email != editEmail){
-      //   console.log(req.user.email, "to", editEmail )
-
-      //   await User.find({ email: editEmail }, function(err, emailInUse){
-      //     if (err) {
-      //       return next(err);
-      //     }
-      //     if (emailInUse.length > 0){
-      //       validationErrors.push({ msg: "The email you selected is already in use" });
-      //     } else {
-      //         req.body.editEmail = validator.normalizeEmail(req.body.editEmail, { gmail_remove_dots: false, });
-      //     }
-      //   });
-      // };
-
-      // if (validationErrors.length) {
-      //   console.log(validationErrors)
-      //   req.flash("errors", validationErrors);
-      //   return res.redirect("/my-account");
-      // } else {
-
         await User.findOne({ _id: req.user._id }, function(err, user) {
           if (err) throw err;
         }).
           then( (user) => {
-            // verify entered password
+            // Verify entered password
             user.comparePassword(currentPassword, function(err, isMatch) {
               if (err) throw err;
               
               if (!isMatch) {
-                console.log(currentPassword, "match =", isMatch);
+                // console.log(currentPassword, "match =", isMatch);
                 validationErrors.push("Your account couldn't be updated because the 'Current Password' you entered is incorrect");
                 return res.render("my-account.ejs", { user: req.user, message: req.flash("errors", validationErrors) });
-                // res.render('yourhbsfile', { message: req.flash('message') });
               } 
 
               if (isMatch) {
@@ -132,7 +96,6 @@ module.exports = {
               }
             });
           })
-      // }
 
     } catch (err) {
       console.log(err);

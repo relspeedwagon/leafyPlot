@@ -1,4 +1,3 @@
-<!-- view for editing plants already in collection -->
 <%- include('partials/header') -%>
 
 <!-- ---------------------------------------------------------------------------------- -->
@@ -9,7 +8,7 @@
         </div>
     </div>
 
-    <!-- -------------- form---------------- -->
+    <!-- Edit Plant Form -->
     <form action="/plant/edit-plant/<%= plant.id %>" enctype="multipart/form-data" method="POST">
 
         <!-- ------- -->
@@ -19,7 +18,7 @@
         <div class="row gy-2 gx-3 mt-3 mb-4 mx-1">
             <div class="col-lg-6">
                 <div class="mb-4">
-                    <!-- image -->
+                    <!-- Image -->
                     <div class="image-card card img-fluid border-light">
                         <img src="<%= plant.image %>" class="card-img plot-image" alt="Plant Image">
                         <div class="d-flex align-items-end card-img-overlay p-0">
@@ -38,7 +37,7 @@
                 </div>
             </div>
             <div class="col-lg-6">
-                <!-- plant name -->
+                <!-- Plant Name -->
                 <div class="form-floating mt-2 mb-3">
                     <input type="text" class="form-control" id="nameCommon" name="plantName" value="<%= plant.nameCommon %>" placeholder="plant name">
                     <label for="plantName">Plant Name<span class="req-prop ps-1">*</span></label>
@@ -53,7 +52,7 @@
         </div>
 
         <div class="row gy-2 gx-3 my-4 mx-1">
-            <!-- light -->
+            <!-- Light -->
             <div class="col-lg-4">
                 <div>
                     <label for="light">Sun Exposure</label>
@@ -71,7 +70,7 @@
                         </select>
                 </div>
             </div>
-            <!-- water -->
+            <!-- Water -->
             <div class="col-lg-4">
                 <div>
                     <label for="water">Water Needs</label>
@@ -87,7 +86,7 @@
                         </select>
                 </div>
             </div>
-            <!-- soil -->
+            <!-- Soil -->
             <div class="col-lg-4">
                 <div>
                     <label for="soil">Soil Preference</label>
@@ -114,7 +113,7 @@
 
         <div class="row my-3 mx-1">
             <div class="col-sm-6">
-                <!-- height -->
+                <!-- Height -->
                 <div class="row gx-3 mb-3">
                     <div class="col-lg-4">
                         <span>Growth Height <i class="fas fa-arrows-alt-v fa-sm"></i></span>
@@ -133,7 +132,7 @@
                         </select>
                     </div>
                 </div>
-                <!-- spread -->
+                <!-- Spread -->
                 <div class="row gx-3 mb-3">
                     <div class="col-lg-4">
                         <span>Spread <i class="fas fa-arrows-alt-h fa-sm"></i></span>
@@ -152,7 +151,7 @@
                         </select>
                     </div>
                 </div>
-                <!-- origin -->
+                <!-- Origin -->
                 <div class="row mb-3">
                     <div class="col-lg-11">
                         <div class="form-floating mb-3">
@@ -164,7 +163,7 @@
             </div>
                                 
             <div class="col-sm-6">
-                <!-- zone -->
+                <!-- Zone -->
                 <div class="row gx-3 mb-3">
                     <div>
                         <span>USDA Hardiness Zone</span>
@@ -235,7 +234,7 @@
                         </select>
                     </div>
                 </div>
-                <!-- bloom -->
+                <!-- Bloom Season -->
                 <div class="row gx-3 mb-3">
                     <div>
                         <label for="bloomSeason">Bloom Season</label>
@@ -305,7 +304,7 @@
 
         <div class="row justify-content-between my-3 mx-1">
             <div class="col-md-6">
-                <!-- status -->
+                <!-- Planting Status -->
                 <div>
                     <label for="plantedStatus" class="form-label">Planting Status</label>
                 </div>
@@ -317,7 +316,7 @@
                         <option value="Planted">Planted</option>
                     </select>
                 </div>
-                <!-- current health -->
+                <!-- Current Health -->
                 <div>
                     <label for="health" class="form-label">Current Health</label>
                 </div>
@@ -330,7 +329,7 @@
                         <option value="Failed">Failed</option>
                     </select>
                 </div>
-                <!-- notes -->
+                <!-- Notes -->
                 <div>
                     <label for="notes" class="form-label">Notes</label>
                 </div>
@@ -341,7 +340,7 @@
             </div>
 
             <div class="col-md-6">
-                <!-- year planted -->
+                <!-- Year Planted -->
                 <label for="yearPlanted" class="form-label">Year Planted</label>
                 <div class="input-group mb-3">
                     <span class="input-group-text text-white"><i class="far fa-calendar-alt fa-lg"></i></span>
@@ -353,7 +352,7 @@
                         <option value="Fall">Fall</option>
                     </select>
                 </div>
-                <!-- number of plants -->
+                <!-- Number of Plants -->
                 <label for="numPlanted" class="form-label">Number of Plants</label>
                 <div class="col-6">
                     <div class="input-group mb-3">
@@ -362,7 +361,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <!-- pests -->
+                    <!-- Pests -->
                     <label for="pests" class="form-label">Known Pests/Diseases</label>
                     <div class="input-group">
                         <span class="input-group-text text-white"><i class="fas fa-bug fa-lg"></i> <i class="fas fa-viruses fa-lg"></i></span>
@@ -371,16 +370,12 @@
                 </div>
             </div>
         </div>
-        
-        <!-- ------- -->
-        <!-- <div class="row border-bottom border-1 p-0 m-0 mb-5" style="height: 10px;"></div> -->
-        <!-- ------- -->
 
         <div class="row justify-content-between my-3 mx-1 mt-5">
             <div class="col-md-6">
                 <div class="row mx-0">
                     <div class="col px-0 me-1">
-                        <!-- save/close -->
+                        <!-- Save/Close -->
                         <button 
                             class="btn btn-primary w-100" 
                             type="submit" 
@@ -405,10 +400,9 @@
         <!-- ------- -->
 
     </form>
-    <!-- -----------------form end---------------- -->
 </div>
 
-<!-- ------------- modal --------- -->
+<!-- Confirm Image Replace Modal -->
 <div class="modal fade" id="plantImgEdit" tabindex="-1" aria-labelledby="editImgLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
@@ -422,7 +416,7 @@
             </p>
             <form class="needs-validation p-4" action="/plant/edit-image/<%= plant.id %>" enctype="multipart/form-data" method="POST" novalidate>
                 <div>
-                    <!-- image upload -->
+                    <!-- Image Upload -->
                     <div><label for="imgUpload">New Image</label></div>
                     <div class="input-group has-validation mb-3">
                         <div class="input-group-text text-white" for="imgUpload"><i class="fas fa-image fa-lg"></i></div>
@@ -440,8 +434,6 @@
             
             </div>
             <div class="modal-footer">
-                
-                
             </div>
         </div>
     </div>

@@ -12,10 +12,10 @@ module.exports = {
 
     postContact: (req, res) => {
       user = req.user
-       // send contact email
+       // Send contact email
       contactEmail( req.body.subject, req.body.contactName, req.body.email, req.body.message )
 
-      console.log("This prints after message sent")
+      // console.log("Message sent")
       res.redirect("/sent");
     },
 

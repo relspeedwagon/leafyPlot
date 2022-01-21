@@ -17,16 +17,16 @@ const mainRoutes = require("./routes/main");
 const plotRoutes = require("./routes/plots");
 const plantRoutes = require("./routes/plants");
 
-//Use .env file in config folder
+//Use .env in Config dir.
 require("dotenv").config({ path: "./config/.env" });
 
-// Passport config
+// Passport Config
 require("./config/passport")(passport);
 
 //Connect To Database
 connectDB();
 
-//Using EJS for views
+//Using EJS for Views
 app.set("view engine", "ejs");
 
 //Static Folder
@@ -40,7 +40,7 @@ app.use(express.json());
 //Logging
 app.use(logger("dev"));
 
-//Use forms for put / delete
+//Use Forms for Put / Delete
 app.use(methodOverride("_method"));
 
 // Setup Sessions - stored in MongoDB
@@ -53,20 +53,20 @@ app.use(
   })
 );
 
-// Passport middleware
+// Passport Middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Use flash messages for errors, info, ect...
+// Use Flash Messages for Errors & Info
 app.use(flash());
 
-//Setup Routes For Which The Server Is Listening
+// Setup Routes / Server Listening
 app.use("/", mainRoutes);
 app.use("/plot", plotRoutes);
 app.use("/coll", plotRoutes);
 app.use("/plant", plantRoutes);
 
-//Server Running
+// Server Running
 app.listen(process.env.PORT, () => {
   console.log("Server is running, you better catch it!");
 });

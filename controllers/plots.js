@@ -5,8 +5,8 @@ const Plot = require("../models/Plot");
 module.exports = {  
   getUserPlots: async (req, res) => {
     try {
-      const plots = await Plot.find({ user: req.user.id, plotType: "plot" }).sort( { createdAt: "desc" });
-      const colls = await Plot.find({ user: req.user.id, plotType: "collection" }).sort( { createdAt: "desc" });
+      const plots = await Plot.find({ user: req.user.id, plotType: "plot" }).sort({ createdAt: "desc" });
+      const colls = await Plot.find({ user: req.user.id, plotType: "collection" }).sort({ createdAt: "desc" });
       res.render("profile.ejs", { plots: plots, colls: colls, user: req.user });
     } catch (err) {
       console.log(err);
@@ -52,7 +52,7 @@ module.exports = {
         public: req.body.public,
         user: req.user.id,
       });
-      console.log("Plot has been added!");
+      // console.log("Plot has been added!");
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
@@ -81,8 +81,9 @@ module.exports = {
             res.redirect(`/plot/${req.params.id}/edit`);
           } 
         });
-        console.log("New image uploaded");
-        // delete old plot image from cloudinary
+        // console.log("New image uploaded");
+
+        // Delete old plot image from cloudinary
         await cloudinary.uploader.destroy(req.plot.imageProviderId);
         console.log("Old image deleted");
 
@@ -93,7 +94,7 @@ module.exports = {
           imageProviderId: result.public_id,
         }
       );
-      console.log("Plot image has been replaced");
+      // console.log("Plot image has been replaced");
       res.redirect(`/plot/${req.params.id}/edit`);
     } catch (err) {
       console.log(err);
@@ -115,7 +116,7 @@ module.exports = {
           public: req.body.public,
         }
       );
-      console.log("Plot has been updated");
+      // console.log("Plot has been updated");
       res.redirect(`/plot/${req.params.id}`);
     } catch (err) {
       console.log(err);
@@ -128,21 +129,21 @@ module.exports = {
       let plotPlants = await Plant.find({ plotID: req.params.id });
       let plantImgIds = plotPlants.map(p=> p.imageProviderId);
 
-      // delete plot image from cloudinary
+      // Delete plot image from cloudinary
       await cloudinary.uploader.destroy(plot.imageProviderId);
 
-      //delete plant images 
+      // Delete plant images 
       await cloudinary.api.delete_resources(plantImgIds,
       function(error, result) {console.log(result, error); });
 
-      // delete plot from db
+      // Delete plot from db
       await Plot.deleteOne({ _id: req.params.id });
       await Plant.deleteMany(  {
         _id: {
           $in: plotPlants
         }
       });
-      console.log("Deleted Plot and Plants");
+      // console.log("Deleted Plot and Plants");
       res.redirect("/profile");
     } catch (err) {
       res.redirect("/profile");

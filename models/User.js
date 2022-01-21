@@ -13,8 +13,7 @@ const UserSchema = new mongoose.Schema({
     about: String,
 });
 
-// Password hash middleware.
-
+// Middleware, password hash pre-save
 UserSchema.pre("save", function save(next) {
   const user = this;
   if (!user.isModified("password")) {
@@ -34,8 +33,7 @@ UserSchema.pre("save", function save(next) {
   });
 });
 
-// Helper method for validating user's password.
-
+// Validate user password
 UserSchema.methods.comparePassword = function comparePassword(
   candidatePassword,
   cb

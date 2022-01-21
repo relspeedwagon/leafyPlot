@@ -3,16 +3,18 @@
 <main class="container">
   <div class="row min-view-ht justify-content-center align-items-center">
     <div class="col-lg-6 mb-5">
+      <!-- Validation Err Messages -->
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el %></div>
       <% }) %> 
-      
+      <!-- Info Messages -->
       <% } %> <% if (locals.messages.info) { %> <%
       messages.info.forEach( el => { %>
       <div class="alert alert-info"><%= el %></div>
       <% }) %> <% } %>
-
+      <!-- Login Form-->
       <form class="needs-validation" action="/login" method="POST" novalidate>
+        <!-- Email -->
         <div class="mb-3">
           <label for="emailInput" class="form-label text-color-primary title-font-op text-uppercase fs-5"
             >Email</label
@@ -28,6 +30,7 @@
           />
           <div id="validationServerEmailFeedback" class="invalid-feedback">Email required for signin</div>
         </div>
+        <!-- Password -->
         <div class="mb-3">
           <label for="password" class="form-label text-color-primary title-font-op text-uppercase fs-5">Password</label>
           <input
@@ -40,6 +43,7 @@
           />
           <div id="validationServerPasswordFeedback" class="invalid-feedback">Password cannot be blank</div>
         </div>
+        <!-- Login/Submit -->
         <div class="col-sm-4 offset-sm-8">
           <button type="submit" class="btn btn-primary fs-5" style="width: 100%;">Log In</button>
         </div>

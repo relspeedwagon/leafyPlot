@@ -23,7 +23,7 @@
                     </a>
                 </div>
             </div>
-
+            <!-- Account Details, Read Only -->
             <div class="row my-3 mx-1">
                 <div class="col ps-3">
                     <!-- USERNAME -->
@@ -60,6 +60,7 @@
             <div class="border-bottom border-1 p-0 mx-0 mt-0 mb-3" style="height: 5px;"></div>
             <!-- ------- -->
     
+            <!-- Validation Err & Info Messages (Edit Form) -->
             <div class="pt-2">
                 <% if (locals.messages.errors) { %>
                     <% messages.errors.forEach( el => { %>
@@ -76,9 +77,8 @@
 
             <div class="collapse" id="accountForm">
                 <div class="card card-body">
-                    <!-- form START -->
+                    <!-- Edit Account Form -->
                     <%- include('./partials/edit-account-form.ejs'); -%>       
-                    <!-- form END -->
                 </div>
             </div>
         </div>

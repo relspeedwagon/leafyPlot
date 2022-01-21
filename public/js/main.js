@@ -1,21 +1,13 @@
-// function openForm() {
-//     document.getElementById("myForm").style.display = "block";
-//   }
-  
-//   function closeForm() {
-//     document.getElementById("myForm").style.display = "none";
-//   }
-
 // -----------------Bootstrap form validation-------------
 
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+// Disable form submission if there are invalid fields
 (function () {
   'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  // Fetch all forms to apply Bootstrap validation styles
   var forms = document.querySelectorAll('.needs-validation')
 
-  // Loop over them and prevent submission
+  // Loop over forms array and prevent submission
   Array.prototype.slice.call(forms)
     .forEach(function (form) {
       form.addEventListener('submit', function (event) {

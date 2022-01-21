@@ -17,7 +17,7 @@ const PlotSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    // add add'l model/object ref for multiple photos?
+    // * ENHANCE: add add'l model/object ref for multiple photos?
     image: {
         type: String,
         required: false,

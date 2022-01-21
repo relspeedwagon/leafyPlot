@@ -1,9 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const upload = require("../middleware/multer");
-const plotsController = require("../controllers/plots");
 const plantsController = require("../controllers/plants");
-const { ensureAuth, ensureGuest } = require("../middleware/auth");
+const { ensureAuth } = require("../middleware/auth");
 
 router.param('id', plantsController.getPlantDetails);
 

@@ -5,7 +5,6 @@
 <% if (user) { %>
   <%- include('partials/header') -%>
 <% } %>
-
     <main class="container">
         <div class="row min-view-ht justify-content-center align-items-center">
             <section class="col-lg-6 mb-5">
@@ -14,6 +13,7 @@
                     <h3 class="text-color-primary title-font-op text-uppercase ps-2">Contact Us</h3>
                 </div>
               </div>
+                <!-- Validation Err Messages -->
                 <% if (locals.messages.errors) { %>
                     <% messages.errors.forEach( el => { %>
                         <div class="alert alert-danger"><%= el.msg %></div>
@@ -24,7 +24,9 @@
                         <div class="alert alert-info"><%= el.msg %></div>
                     <% }) %>    
                 <% } %>
+                <!-- Contact Form -->
                 <form class="needs-validation" action="/contact" method="POST" novalidate>
+                    <!-- If No Logged In User, Provide Name -->
                     <% if (!user) { %>
                       <div class="form-floating has-validation mb-3">
                         <input type="text" class="form-control" id="contactName" name="contactName" placeholder="contact name" required>
@@ -32,7 +34,7 @@
                         <div id="validContactNameFeedback" class="invalid-feedback">Please include your name</div>
                       </div>
                     <% } %>
-
+                    <!-- Else, Username -->
                     <% if (user) { %>
                       <div class="form-floating has-validation mb-3">
                         <input 
@@ -48,6 +50,7 @@
                         <div id="validContactNameFeedback" class="invalid-feedback">Please include your username</div>
                       </div>
                     <% } %>
+                    <!-- Email -->
                     <div class="form-floating has-validation mb-3">
                       <input 
                         type="email" 
@@ -62,16 +65,19 @@
                       <label for="emailInput" class="form-label"><i class="text-secondary fas fa-at fa-lg pe-2"></i>Your Email<span class="req-prop ps-1">*</span></label>
                       <div class="invalid-feedback">Please include your email</div>
                     </div>
+                    <!-- Subject -->
                     <div class="form-floating has-validation mb-3">
                       <input type="text" class="form-control" id="subject" name="subject" placeholder="subject" aria-describedby="subject" required>
                       <label for="subject" class="form-label"><i class="text-secondary fas fa-envelope-open-text fa-lg pe-2"></i>Subject:<span class="req-prop ps-1">*</span></label>
                       <div class="invalid-feedback">Please include a message subject</div>
                     </div>
+                    <!-- Message Body -->
                     <div class="form-floating has-validation mb-3">
                       <textarea class="form-control" id=message name="message" placeholder="Your message" aria-describedby="message" style="height: 8rem;" required></textarea>
                       <label for="message" class="form-label"><i class="text-secondary far fa-comments fa-lg pe-2"></i>Send us a message!<span class="req-prop ps-1">*</span></label>
                       <div class="invalid-feedback">Please include a contact message</div>
                     </div>
+                    <!-- Send/Submit -->
                     <div class="col-sm-4 ms-auto">
                       <button type="submit" class="btn btn-primary" style="width: 100%;">Send</button>
                     </div>
