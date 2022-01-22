@@ -90,8 +90,8 @@ module.exports = {
                   successMessages.push("Your email has been updated")
                 }
                 
-                user.save();
-                return res.render("my-account.ejs", { user: req.user, message: req.flash("info", successMessages) });
+                let saveChanges = async () => await user.save();
+                saveChanges().then(() => res.render("my-account.ejs", { user: user, message: req.flash("info", successMessages) }));
               }
             });
           })
