@@ -49,8 +49,8 @@ const editUserRules = () => {
       .if(value => {
         value != req.user.userName
       })
-      .custom(editUserName => {
-          return User.findOne({ userName: editUsername }).then(user => {
+      .custom(_editUserName => {
+          return User.findOne({ userName: editUsername }).then(_user => {
             return Promise.reject('Username already in use')
           })
       }).withMessage('That username is already in use'),
@@ -68,23 +68,32 @@ const editUserRules = () => {
       }).withMessage('The new email you entered is already in use by another account'),
 
       body('currentPassword')
-        // If a new password is provided
-        .if((value, { req }) => req.body.newPassword)
-        .if(body('newPassword').exists())
-        // Old password must be provided
-        .notEmpty().withMessage('Current password is required for password change')
-        // New password cannot match old
-        .custom((value, { req }) => value !== req.body.newPassword)
-        .withMessage('New password cannot be the same as current password'),
+        // If newPassword is provided
+        .if(body('newPassword').notEmpty())
+          // currentPassword must not be empty...
+          .notEmpty()
+            .withMessage('Current password is required for password change')
+          // ...and currentPassword cannot === newPassword
+          .custom((value, { req }) => value !== req.body.newPassword)
+            .withMessage('New password cannot be the same as current password'),
 
       body('newPassword')
-        // If confirm password exists
-        .if(body('confirmNewPassword').exists())
-        // New password cannot be empty
-        .notEmpty().withMessage('New password must be entered to confirm password')
-        // New password and confirmed password must match
-        .custom((value, { req }) => value === req.body.newPassword)
-        .withMessage('Password confirmation must match new password'),
+        // If confirmNewPassword is provided, 
+        .if(body('confirmNewPassword').notEmpty())
+          // newPassword cannot be empty...
+          .notEmpty()
+            .withMessage('New password must be entered to confirm password')
+          // and newPassword must === confirmNewPassword
+          .custom((value, { req }) => value === req.body.confirmNewPassword)
+            .withMessage("Password couldn't be changed because the new password did not match confirmation"),
+
+      body('confirmNewPassword')
+        // If newPassword is provided,
+        .if(body('newPassword').notEmpty())
+          // confirmNewPassword cannot be empty
+          .notEmpty()
+          .withMessage("Password couldn't be changed because a new password was entered but not confirmed"),
+
   ]
 }
 

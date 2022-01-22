@@ -23,15 +23,14 @@ module.exports = {
     });
   },
   
+  // Save New User -- validateSignup middlware runs before
   postSignup: async (req, res, next) => {
-    console.log(req.body)
     try {
-  
-    const user = new User({
-      userName: req.body.userName,
-      email: req.body.email,
-      password: req.body.password,
-    });
+      const user = new User({
+        userName: req.body.userName,
+        email: req.body.email,
+        password: req.body.password,
+      });
 
     await user.save((err) => {
       if (err) {
@@ -54,7 +53,7 @@ module.exports = {
     }
   },
 
-  // Edit Account Details
+  // Edit Account Details -- validateEdit middleware runs before
   accountUpdate: async (req, res) => {
     try {
       const validationErrors = [];
@@ -76,7 +75,7 @@ module.exports = {
               } 
 
               if (isMatch) {
-                if (newPassword != currentPassword && newPassword === confirmNewPassword){
+                if (newPassword.length && newPassword != currentPassword && newPassword === confirmNewPassword){
                   user.password = newPassword
                   successMessages.push("Your password has been changed")
                 }
