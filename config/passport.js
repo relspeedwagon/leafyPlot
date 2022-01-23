@@ -9,7 +9,11 @@ module.exports = function (passport) {
           return done(err);
         }
         if (!user) {
-          return done(null, false, `No account with the email ${email} could be found` );
+          return done(
+            null,
+            false,
+            `No account with the email ${email} could be found`
+          );
           //removed object holding err message; express-validator messages expected as strings, ejs modified to display "el" rather than "el.msg"
         }
         if (!user.password) {

@@ -2,11 +2,17 @@ const cloudinary = require("../middleware/cloudinary");
 const Plant = require("../models/Plant");
 const Plot = require("../models/Plot");
 
-module.exports = {  
+module.exports = {
   getUserPlots: async (req, res) => {
     try {
-      const plots = await Plot.find({ user: req.user.id, plotType: "plot" }).sort({ createdAt: "desc" });
-      const colls = await Plot.find({ user: req.user.id, plotType: "collection" }).sort({ createdAt: "desc" });
+      const plots = await Plot.find({
+        user: req.user.id,
+        plotType: "plot",
+      }).sort({ createdAt: "desc" });
+      const colls = await Plot.find({
+        user: req.user.id,
+        plotType: "collection",
+      }).sort({ createdAt: "desc" });
       res.render("profile.ejs", { plots: plots, colls: colls, user: req.user });
     } catch (err) {
       console.log(err);
@@ -14,14 +20,14 @@ module.exports = {
   },
 
   getPlotDetails: async (req, res, next, id) => {
-      try {
+    try {
       req.plot = await Plot.findById(id);
       next();
-      } catch (err) {
-        next(err);
-      }
+    } catch (err) {
+      next(err);
+    }
   },
-  
+
   getPlotCreate: (req, res) => {
     res.render("create-plot.ejs", { user: req.user });
   },
@@ -33,9 +39,13 @@ module.exports = {
   createPlot: async (req, res) => {
     try {
       // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path,
+      const result = await cloudinary.uploader.upload(
+        req.file.path,
         { aspect_ratio: "16:7", gravity: "auto", crop: "fill" },
-        function(error, result) { console.log(result, error); });
+        function (error, result) {
+          console.log(result, error);
+        }
+      );
 
       await Plot.create({
         name: req.body.plotName,
@@ -73,19 +83,21 @@ module.exports = {
   editPlotImage: async (req, res) => {
     try {
       // Upload new image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path,
+      const result = await cloudinary.uploader.upload(
+        req.file.path,
         { aspect_ratio: "16:7", gravity: "auto", crop: "fill" },
-        function(error) { 
-          if (error){
+        function (error) {
+          if (error) {
             console.log(error);
             res.redirect(`/plot/${req.params.id}/edit`);
-          } 
-        });
-        // console.log("New image uploaded");
+          }
+        }
+      );
+      // console.log("New image uploaded");
 
-        // Delete old plot image from cloudinary
-        await cloudinary.uploader.destroy(req.plot.imageProviderId);
-        console.log("Old image deleted");
+      // Delete old plot image from cloudinary
+      await cloudinary.uploader.destroy(req.plot.imageProviderId);
+      console.log("Old image deleted");
 
       await Plot.findOneAndUpdate(
         { _id: req.plot.id },
@@ -127,21 +139,25 @@ module.exports = {
       // Find plot by id
       let plot = await Plot.findById({ _id: req.params.id });
       let plotPlants = await Plant.find({ plotID: req.params.id });
-      let plantImgIds = plotPlants.map(p=> p.imageProviderId);
+      let plantImgIds = plotPlants.map((p) => p.imageProviderId);
 
       // Delete plot image from cloudinary
       await cloudinary.uploader.destroy(plot.imageProviderId);
 
-      // Delete plant images 
-      await cloudinary.api.delete_resources(plantImgIds,
-      function(error, result) {console.log(result, error); });
+      // Delete plant images
+      await cloudinary.api.delete_resources(
+        plantImgIds,
+        function (error, result) {
+          console.log(result, error);
+        }
+      );
 
       // Delete plot from db
       await Plot.deleteOne({ _id: req.params.id });
-      await Plant.deleteMany(  {
+      await Plant.deleteMany({
         _id: {
-          $in: plotPlants
-        }
+          $in: plotPlants,
+        },
       });
       // console.log("Deleted Plot and Plants");
       res.redirect("/profile");
