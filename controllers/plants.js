@@ -50,7 +50,7 @@ module.exports = {
       { aspect_ratio: "16:9", gravity: "auto", crop: "fill" },
       function(error, result) { console.log(result, error); });
 
-      const plant = await Plant.create({
+      await Plant.create({
         nameCommon: req.body.nameCommon,
         nameSCI: req.body.nameSCI,
         image: result.secure_url,
@@ -107,7 +107,7 @@ module.exports = {
       // Upload new image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path,
         { aspect_ratio: "16:9", gravity: "auto", crop: "fill" },
-        function(error, result) { 
+        function(error) { 
           if (error){
             console.log(error);
             res.redirect(`/plant/${req.params.id}/edit`);

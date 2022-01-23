@@ -6,7 +6,7 @@ const homeController = require("../controllers/home");
 const plotsController = require("../controllers/plots");
 const plantsController = require("../controllers/plants");
 const { newUserRules, editUserRules, loginRules, validateSignup, validateLogin, validateEdit } = require("../middleware/validation");
-const { ensureAuth, ensureGuest } = require("../middleware/auth");
+const { ensureAuth } = require("../middleware/auth");
 
 //Main Routes
 router.get("/", homeController.getIndex);
