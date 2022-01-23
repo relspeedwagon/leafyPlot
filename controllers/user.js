@@ -1,6 +1,3 @@
-const passport = require("passport");
-const { check, validationResult } = require('express-validator')
-const bcrypt = require("bcrypt");
 const User = require("../models/User");
 
 const welcomeEmail = require("../utils/welcomeEmail");
@@ -60,7 +57,7 @@ module.exports = {
       const successMessages = [];
       const { editUserName, editEmail, currentPassword, newPassword, confirmNewPassword } = req.body;
 
-        await User.findOne({ _id: req.user._id }, function(err, user) {
+        await User.findOne({ _id: req.user._id }, function(err) {
           if (err) throw err;
         }).
           then( (user) => {

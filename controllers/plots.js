@@ -75,7 +75,7 @@ module.exports = {
       // Upload new image to cloudinary
       const result = await cloudinary.uploader.upload(req.file.path,
         { aspect_ratio: "16:7", gravity: "auto", crop: "fill" },
-        function(error, result) { 
+        function(error) { 
           if (error){
             console.log(error);
             res.redirect(`/plot/${req.params.id}/edit`);

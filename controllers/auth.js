@@ -1,5 +1,4 @@
 const passport = require("passport");
-const User = require("../models/User");
 
 module.exports = {
   getLogin: (req, res) => {
@@ -34,7 +33,7 @@ module.exports = {
 
       })(req, res, next);
     } catch (error) {
-      
+      console.log(error);
     }
   },
   

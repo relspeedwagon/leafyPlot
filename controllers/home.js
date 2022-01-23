@@ -6,12 +6,10 @@ module.exports = {
     },
 
     getContactForm: (req, res) => {
-      user = req.user
-      res.render("contact.ejs");
+      res.render("contact.ejs", { user: req.user });
     },
 
     postContact: (req, res) => {
-      user = req.user
        // Send contact email
       contactEmail( req.body.subject, req.body.contactName, req.body.email, req.body.message )
 
@@ -20,8 +18,7 @@ module.exports = {
     },
 
     getSent: (req, res) => {
-      user = req.user
-      res.render("sent.ejs");
+      res.render("sent.ejs", { user: req.user });
     },
   };
   

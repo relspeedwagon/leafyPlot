@@ -17,15 +17,12 @@ const contactEmail = async ( subject, contactName, fromEmail, message ) => {
         };
 
         try {
-        await sgMail.send(msg);
-        console.log(msg)
+            await sgMail.send(msg);
         } catch (error) {
-        console.error(error);
-    
-        if (error.response) {
-            console.error(error.response.body)
-        }
-        res.redirect("/");
+            console.error(error);
+            if (error.response) {
+                console.error(error.response.body)
+            }
         }
         console.log("Email Sent")
     };
