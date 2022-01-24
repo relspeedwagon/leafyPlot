@@ -206,7 +206,7 @@ module.exports = {
       // Delete image from cloudinary
       await cloudinary.uploader.destroy(plant.imageProviderId);
       // Delete plant from db
-      await Plant.remove({ _id: req.params.id });
+      await Plant.deleteOne({ _id: req.params.id });
       // console.log("Deleted Plant");
       if (req.plant.plotID.plotType == "collection") {
         res.redirect("/coll/" + plant.plotID);

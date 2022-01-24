@@ -144,13 +144,15 @@ module.exports = {
       // Delete plot image from cloudinary
       await cloudinary.uploader.destroy(plot.imageProviderId);
 
-      // Delete plant images
-      await cloudinary.api.delete_resources(
-        plantImgIds,
-        function (error, result) {
-          console.log(result, error);
-        }
-      );
+      // If plot has plants, delete plant images
+      if (plantImgIds.length > 0) {
+        await cloudinary.api.delete_resources(
+          plantImgIds,
+          function (error, result) {
+            console.log(result, error);
+          }
+        );
+      }
 
       // Delete plot from db
       await Plot.deleteOne({ _id: req.params.id });
