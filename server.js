@@ -12,7 +12,6 @@ const methodOverride = require("method-override");
 const flash = require("express-flash");
 const logger = require("morgan");
 
-const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 const plotRoutes = require("./routes/plots");
 const plantRoutes = require("./routes/plants");
@@ -24,6 +23,26 @@ require("dotenv").config({ path: "./config/.env" });
 require("./config/passport")(passport);
 
 //Connect To Database
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.DB_STRING, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+      useCreateIndex: true,
+    });
+
+    console.log(`MongoDB Connected: ${conn.connection.host}`);
+
+    // Server Running
+    app.listen(process.env.PORT, () => {
+      console.log("Server is running, you better catch it!");
+    });
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+};
 connectDB();
 
 //Using EJS for Views
@@ -66,7 +85,3 @@ app.use("/plot", plotRoutes);
 app.use("/coll", plotRoutes);
 app.use("/plant", plantRoutes);
 
-// Server Running
-app.listen(process.env.PORT, () => {
-  console.log("Server is running, you better catch it!");
-});
